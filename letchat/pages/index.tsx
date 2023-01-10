@@ -14,7 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className="text-3xl font-bold underline">LetChat</h1>
+        <h1 className="text-3xl font-bold underline text-light-primary">
+          LetChat
+        </h1>
       </main>
     </>
   );

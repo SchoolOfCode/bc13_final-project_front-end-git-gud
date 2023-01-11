@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer data-testid="footer" className="p-4 bg-white sm:p-6 dark:bg-gray-900 w-[100%]">
+    <footer data-testid="footer" className="p-4 bg-white sm:p-6 dark:bg-gray-900 w-[100%] border-t-2">
       <div className="md:flex md:justify-between">
         <Link href="/" className="flex items-center mb-4 sm:mb-0">
           <Image

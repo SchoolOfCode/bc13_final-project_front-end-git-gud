@@ -1,17 +1,27 @@
 export const NewJobButton = () => {
-  return (
-    <div>NewJobButton</div>
-  )
-}
+  return <div>NewJobButton</div>;
+};
 
 export const Tabs = () => {
-  return (
-    <div>Tabs</div>
-  )
-}
+  return <div>Tabs</div>;
+};
 
-export const Card = () => {
+type CardProps = {
+  children?: React.ReactNode;
+  primary?: string;
+  secondary?: string;
+  title?: string;
+};
+export const Card = ({ children, primary, secondary, title }: CardProps) => {
   return (
-    <div>Card</div>
-  )
-}
+    <div className={`card card-compact w-80   shadow-xl`} >
+      <div className="card-body gap-0">
+        <h2 className={`card-title p-2 ${primary}`}>{title}</h2>
+       
+        <div className={`card-side h-[20vh] max-h-[30vh] p-2 justify-end overflow-y-scroll scroll-none ${secondary}`}>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};

@@ -7,18 +7,19 @@ export const Tabs = () => {
 };
 
 type CardProps = {
-  children?: React.ReactNode,
-  className?: string
-}
-export const Card = ({children, className}: CardProps) => {
+  children?: React.ReactNode;
+  primary?: string;
+  secondary?: string;
+  title?: string;
+};
+export const Card = ({ children, primary, secondary, title }: CardProps) => {
   return (
-    <div className={`card shadow-xl ${className}`}>
-      {children}
-      <div className="card-body min-w-[198rem]">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+    <div className={`card card-compact w-80   shadow-xl`} >
+      <div className="card-body gap-0">
+        <h2 className={`card-title p-2 ${primary}`}>{title}</h2>
+       
+        <div className={`card-side h-[20vh] max-h-[30vh] p-2 justify-end overflow-y-scroll scroll-none ${secondary}`}>
+          {children}
         </div>
       </div>
     </div>

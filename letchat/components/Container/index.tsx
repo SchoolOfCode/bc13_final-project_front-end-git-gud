@@ -13,7 +13,7 @@ const Container = ({ children }: ContainerProps) => {
       >
         <div
           id="children"
-          className="container max-h-[100vh] max-w-[1440px] flex absolute z-40 overflow-hidden"
+          className="container min-h-full max-h-[100vh] max-w-[1440px] flex absolute z-40 overflow-hidden"
         >
 
           {children}

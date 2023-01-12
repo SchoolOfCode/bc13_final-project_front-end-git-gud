@@ -46,6 +46,7 @@ const Container = ({ children, logo, images }: ContainerProps) => {
             </>
           ) : null}
 
+
           <Bubbles />
 
           {image ? (
@@ -60,6 +61,7 @@ const Container = ({ children, logo, images }: ContainerProps) => {
               ></div>
             </>
           ) : null}
+
         </section>
       </div>
     </div>

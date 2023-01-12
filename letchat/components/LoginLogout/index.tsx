@@ -4,7 +4,7 @@ const LoginLogout = () => {
   const [login, setLogin] = useState(true);
   return (
     <>
-      {login ? (
+      {!login ? (
         <div className="hero lg:place-items-start">
           <div className="flex items-center justify-center min-h-[80%] w-[80%] drop-shadow-lg rounded-t-[20%] mt-[13.5rem] bg-light-light lg:min-h-full lg:bg-transparent lg:drop-shadow-none lg:px-10 lg:mt-0 lg:w-fit ">
             <div className="flex flex-1 flex-col py-12 sm:px-6 lg:flex-none lg:px-10 lg:glass">
@@ -78,7 +78,6 @@ const LoginLogout = () => {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       ) : (
@@ -230,7 +229,6 @@ const LoginLogout = () => {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       )}
@@ -238,5 +236,3 @@ const LoginLogout = () => {
   );
 };
 export default LoginLogout;
-
-

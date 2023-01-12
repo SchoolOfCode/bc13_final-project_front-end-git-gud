@@ -1,6 +1,10 @@
 import Image from "next/image";
 import avatar from "../../public/assets/images/img_avatar.png";
 import tickets from "../../data/ticketData";
+import NewsFeed from "../NewsFeed";
+import ContentSection from "../ContentSection";
+import NavigationPoint from "../NavigationPoint";
+import Footer from "../Footer";
 
 type ticket = {
   id: number;
@@ -13,13 +17,11 @@ type ticket = {
 
 const Ticket = (openTicket: { openTicket: (id: number) => void }) => {
   return (
-    <div className="bg-red-500 mt-56 container flex flex-col justify-center items-center">
-      <h1>Job Board</h1>
-      <>
+      <div className="overflow-y-scroll w-full flex flex-col items-center h-[60vh]">
         {tickets.map((ticket: ticket) => {
           return (
             <>
-              <article className="h-5/6 flex flex-col max-w-lg m-2 shadow-lg bg-[#F0C8C2] rounded-2xl">
+              <article className="h-[15rem] flex flex-col w-full p-2 shadow-lg bg-[#F0C8C2] rounded-2xl">
                 <header className="flex flex-row justify-between p-2 bg-light-hot rounded-t-2xl">
                   <div
                     id="ticket-author"
@@ -57,8 +59,7 @@ const Ticket = (openTicket: { openTicket: (id: number) => void }) => {
             </>
           );
         })}
-      </>
-    </div>
+      </div>
   );
 };
 export default Ticket;

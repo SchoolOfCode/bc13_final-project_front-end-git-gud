@@ -1,9 +1,8 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
-import Navbar from "../components/Navbar";
 import Ticket from "../components/Ticket";
-import Container from "../components/Container";
+import Content from "../components/Content";
+import NavigationPoint from "../components/NavigationPoint";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {
@@ -18,10 +17,13 @@ export default function JobBoard() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Container>
-        <Ticket openTicket={openTicket} />
-      </Container>
+      <main>
+        <Content
+          title="Messages"
+          navigation={<NavigationPoint />}
+          central={<Ticket openTicket={openTicket} />}
+        />
+      </main>
     </>
   );
 }

@@ -1,3 +1,6 @@
+import { RxHamburgerMenu } from "react-icons/rx";
+
+
 const Navbar = (props: any) => {
   return (
     <div className="navbar bg-base-100">
@@ -33,6 +36,35 @@ const Navbar = (props: any) => {
               <a>Logout</a>
             </li>
           </ul>
+        </div>
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost">
+            <div>
+              <RxHamburgerMenu/>
+            </div>
+          </label>
+          <div className="">
+            <ul
+              tabIndex={0}
+              className="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box"
+            >
+              <li>
+                <a className="justify-between">
+                  Documents
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Dashboard</a>
+              </li>
+              <li>
+                <a>Placeholder</a>
+              </li>
+              <li>
+                <a>Tools and Guides</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

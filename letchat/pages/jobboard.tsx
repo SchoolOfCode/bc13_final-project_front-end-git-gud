@@ -3,6 +3,7 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import Ticket from "../components/Ticket";
+import Container from "../components/Container";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {
@@ -17,13 +18,10 @@ export default function JobBoard() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <Navbar />
-        <h1 className="text-3xl font-bold underline text-light-primary">
-          LetChat Job Board
-        </h1>
+
+      <Container>
         <Ticket openTicket={openTicket} />
-      </main>
+      </Container>
     </>
   );
 }

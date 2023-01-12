@@ -1,4 +1,14 @@
+import { Card } from "../../utils";
+
 const ContentSection = () => {
-  return <div>ContentSection</div>;
+  return (
+    <>
+    <Card
+      primary="bg-light-primary"
+      secondary="bg-light-primary"
+      title="Profile"
+    ></Card>
+    </>
+  );
 };
 export default ContentSection;

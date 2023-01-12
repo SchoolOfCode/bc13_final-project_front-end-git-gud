@@ -2,16 +2,19 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
-
+import {  NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
 import Container from "../components/Container";
-
-
+import LoginLogout from "../components/LoginLogout";
+import Navbar from "../components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
+
 export default function Home() {
   const [login, setLogin] = useState(false);
+  
 
   return (
     <>
@@ -22,104 +25,33 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        
         <Container>
-          {login ? (
-            <h1 className="btn">Login</h1>
-          ) : (
-            <div className="flex  items min-h-full ">
-              <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:ml-20 lg:px-20 xl:px-24">
-                <div className="mx-auto w-full max-w-sm lg:w-96">
-                  <div>
-                    <h2 className="text-center mt-6 text-3xl font-bold tracking-tight text-gray-900">
-                      Login
-                    </h2>
-                    
-                  </div>
-                  <div className="mt-8">
-                    
-                    <div className="mt-6">
-                      <form action="#" method="POST" className="space-y-6">
-                        <div>
-                          <label
-                            htmlFor="email"
-                            className="block text-sm font-medium text-gray-700"
-                          >
-                            Email address
-                          </label>
-                          <div className="mt-1">
-                            <input
-                              id="email"
-                              name="email"
-                              type="email"
-                              autoComplete="email"
-                              required
-                              className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                            />
-                          </div>
-                        </div>
-                        <div className="space-y-1">
-                          <label
-                            htmlFor="password"
-                            className="block text-sm font-medium text-gray-700"
-                          >
-                            Password
-                          </label>
-                          <div className="mt-1">
-                            <input
-                              id="password"
-                              name="password"
-                              type="password"
-                              autoComplete="current-password"
-                              required
-                              className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                            />
-                          </div>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <input
-                              id="remember-me"
-                              name="remember-me"
-                              type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                            />
-                            <label
-                              htmlFor="remember-me"
-                              className="ml-2 block text-sm text-gray-900"
-                            >
-                              Remember me
-                            </label>
-                          </div>
-                          <div className="text-sm">
-                            <a
-                              href="#"
-                              className="font-medium text-indigo-600 hover:text-indigo-500"
-                            >
-                              Forgot your password?
-                            </a>
-                          </div>
-                        </div>
-                        <div>
-                          <button
-                            type="submit"
-                            className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                          >
-                            Login
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
+          {!login ? (
+            <div className="hero lg:place-items-start lg:pt-[20vh] lg:pl-[3rem]">
+              <div className="hero-content h-[40rem] justify-between flex-col max-w-[28rem] lg:max-w-[34rem]">
+                <div className="flex flex-col pt-[20rem] text-white h-[20rem] justify-around text-center lg:text-left  lg:text-black lg:pt-[10rem]">
+                  <h1 className="text-[5rem] font-bold lg:text-[8rem]">LetChat</h1>
+                  <p className="py-6 px-8 text-justify text-[1rem] lg:text-[1.5rem] ">
+                  The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls.
+                  </p>
                 </div>
-              </div>
-              <div className="relative hidden w-0 flex-1 lg:block">
-                <img
-                  className="absolute inset-0 h-full w-full object-cover"
-                  src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
-                  alt=""
-                />
+                <div className="px-5 w-[15rem] lg:w-full">
+                <button className="btn w-full  text-2xl tracking-wider rounded-full text-black hover:bg-light-secondary hover:opacity-70 active:bg-light-hot bg-light-secondary  lg:text-white lg:hover:bg-light-primary lg:hover:opacity-70 lg:active:bg-light-hot lg:bg-light-primary ">
+                    Sign Up
+                  </button>
+                </div>
+                  
               </div>
             </div>
+          ) : (
+           //redirect to login page
+           
+            <h1>
+              Redirect user to login page
+            </h1>
+                
+            
           )}
         </Container>
       </main>

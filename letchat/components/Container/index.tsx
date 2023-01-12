@@ -23,7 +23,7 @@ const Container = ({ children }: ContainerProps) => {
         <section id="background">
           <div
             id="big-purple-circle"
-            className="overflow-hidden absolute z-20 bg-light-primary min-w-[150%] min-h-[100%] rounded-bl-[100%] rounded-br-[100%] top-[-50px] lg:min-w-[100%] lg:rounded-l-[100%] lg:rounded-br-[80%] lg:right-[-50%]"
+            className="overflow-hidden absolute z-20 bg-light-primary min-w-[150%] min-h-[100%] rounded-bl-[50%] rounded-br-[100%] top-[-50px] lg:min-w-[100%] lg:rounded-l-[100%] lg:rounded-br-[80%] lg:right-[-50%]"
           ></div>
           <div
             id="purple-triangle"

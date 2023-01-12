@@ -9,7 +9,7 @@ const Container = ({ children }: ContainerProps) => {
     <div className="h-[100vh] min-w-[100vw] bg-black flex flex-col items-center justify-center ">
       <div
         id="container"
-        className="container h-[100vh] bg-light-light max-w-[1440px] overflow-hidden relative"
+        className="container h-[100vh] bg-light-light max-w-[1940px] overflow-hidden relative"
       >
         <div
           id="children"

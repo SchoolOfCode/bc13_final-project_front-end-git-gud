@@ -27,7 +27,7 @@ const NavigationPoint = () => {
           <div className="absolute animated-ping">C</div>
         </div>
       </Link>
-      <Link href="/tollsandguides">
+      <Link href="/toolsandguides">
         <div className="flex  bg-[#F7B538] p-10 rounded-br-full font-bold text-black hover:scale-110  justify-center items-center shadow-lg shadow-black  select-none active:translate-y-1 active:scale-95 transform transition-all ease-in-out duration-300">
           <div className="absolute animated-ping">D</div>
         </div>

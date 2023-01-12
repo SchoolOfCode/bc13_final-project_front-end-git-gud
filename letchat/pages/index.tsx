@@ -2,12 +2,14 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
+
 import {  NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 import Container from "../components/Container";
 import LoginLogout from "../components/LoginLogout";
 import Navbar from "../components/Navbar";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        
+
         <Container logo={true} images={true}>
           {!login ? (
             <div className="hero lg:place-items-start lg:pt-[20vh] lg:pl-[3rem]">
@@ -35,6 +37,7 @@ export default function Home() {
                   <p className="py-6 px-8 text-justify text-[1rem] lg:text-[1.5rem] ">
                   The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls.
                   </p>
+
                 </div>
                 <div className="px-5 w-[15rem] lg:w-full">
                 <button className="btn w-full  text-2xl tracking-wider rounded-full text-black hover:bg-light-secondary hover:opacity-70 active:bg-light-hot bg-light-secondary  lg:text-white lg:hover:bg-light-primary lg:hover:opacity-70 lg:active:bg-light-hot lg:bg-light-primary ">

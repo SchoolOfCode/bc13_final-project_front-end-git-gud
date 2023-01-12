@@ -1,7 +1,7 @@
 const Navbar = (props: any) => {
   return (
     <div className="navbar min-h-[8rem] p-6 absolute justify-center  ">
-      <div className=" navbar max-w-[1400px] absolute z-40  ">
+      <div className=" navbar max-w-[2500px] absolute z-40  ">
         <div className="flex-1 pl-8">
           <a className="btn bg-light-primary w-20 h-20 border-none hover:opacity-60 hover:bg-light-primary rounded-full"></a>
         </div>

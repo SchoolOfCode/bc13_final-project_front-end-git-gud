@@ -26,10 +26,10 @@ export default function Home() {
       </Head>
       <main>
         
-        <Container>
+        <Container logo={true} images={true}>
           {!login ? (
             <div className="hero lg:place-items-start lg:pt-[20vh] lg:pl-[3rem]">
-              <div className="hero-content h-[40rem] justify-between flex-col max-w-[28rem] lg:max-w-[34rem]">
+              <div className="hero-content h-[40rem] justify-between flex-col max-w-[28rem] lg:max-w-[34rem] lg:glass">
                 <div className="flex flex-col pt-[20rem] text-white h-[20rem] justify-around text-center lg:text-left  lg:text-black lg:pt-[10rem]">
                   <h1 className="text-[5rem] font-bold lg:text-[8rem]">LetChat</h1>
                   <p className="py-6 px-8 text-justify text-[1rem] lg:text-[1.5rem] ">

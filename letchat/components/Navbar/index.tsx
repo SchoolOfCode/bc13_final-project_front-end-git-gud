@@ -40,7 +40,7 @@ const Navbar = (props: any) => {
             </ul>
           </div>
         </div>
-        <div className="dropdown dropdown-end">
+        {/* <div className="dropdown dropdown-end">
           <label tabIndex={0} className="lg:hidden btn btn-ghost">
             <RxHamburgerMenu />
           </label>
@@ -69,7 +69,7 @@ const Navbar = (props: any) => {
               </li>
             </div>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );

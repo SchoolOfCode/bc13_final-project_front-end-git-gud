@@ -1,6 +1,5 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 
-
 const Navbar = (props: any) => {
   return (
     <div className="navbar bg-base-100">
@@ -38,33 +37,34 @@ const Navbar = (props: any) => {
           </ul>
         </div>
         <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost">
-            <div>
-              <RxHamburgerMenu/>
-            </div>
+          <label tabIndex={0} className="lg:hidden btn btn-ghost">
+            <RxHamburgerMenu />
           </label>
-          <div className="">
-            <ul
-              tabIndex={0}
-              className="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box"
-            >
-              <li>
-                <a className="justify-between">
+          <ul
+            tabIndex={0}
+            className="g-2 flex flex-col menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-screen h-screen align-center justify-center"
+          >
+            <div className="flex flex-row min-h-max h-1/3 align-center">
+              <li className="w-1/2 h-full inline text-center">
+                <a className="align-center w-full h-full bg-light-secondary">
                   Documents
-                  <span className="badge">New</span>
                 </a>
               </li>
-              <li>
-                <a>Dashboard</a>
+              <li className="w-1/2 inline text-center">
+                <a className="w-full h-full bg-light-primary ">Dashboard</a>
               </li>
-              <li>
-                <a>Placeholder</a>
+            </div>
+            <div className="flex flex-row min-h-max justify-center h-1/3">
+              <li className="w-1/2 inline text-center">
+                <a className="w-full h-full bg-light-hot">Placeholder</a>
               </li>
-              <li>
-                <a>Tools and Guides</a>
+              <li className="w-1/2 inline text-center">
+                <a className="w-full h-full bg-light-tertiary">
+                  Tools and Guides
+                </a>
               </li>
-            </ul>
-          </div>
+            </div>
+          </ul>
         </div>
       </div>
     </div>

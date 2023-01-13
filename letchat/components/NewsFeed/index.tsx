@@ -14,4 +14,5 @@ const NewsFeed = () => {
   );
 };
 
+
 export default NewsFeed;

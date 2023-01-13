@@ -3,7 +3,7 @@ import styles from "../../styles/Container.module.css";
 const Bubbles = () => {
   return (
     <div
-            id="bubles"
+            id="bubbles"
             className="absolute w-full h-full overflow-hidden top-0 left-0"
           >
             <div

@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./utils//**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
@@ -13,7 +14,7 @@ module.exports = {
           secondary: "#FAB8C4",
           tertiary: "#F7B538",
           hot: "#F58071",
-          light: "#FFFFFF",
+          light: "#FBFBFF",
 
           "content-text": "#000000",
         },
@@ -30,5 +31,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("@tailwindcss/forms")],
 };

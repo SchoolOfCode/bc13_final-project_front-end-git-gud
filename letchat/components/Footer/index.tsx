@@ -3,16 +3,17 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer data-testid="footer" className="p-4 bg-white sm:p-6 dark:bg-gray-900 w-[100%] border-t-2">
-      <div className="md:flex md:justify-between">
+    <footer data-testid="footer" className="hidden toast toast-bottom p-4 lg:block bg-light-primary w-[100%] border-t-2 ">
+      <div className="flex justify-between items-center">
         <Link href="/" className="flex items-center mb-4 sm:mb-0">
           <Image
             src="/assets/images/letchatLogo.png"
             alt="LetChat logo"
             width={50}
             height={50}
+            className="bg-light-primary w-10 h-10 border-none hover:opacity-60 hover:bg-light-primary rounded-full"
           />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <span className="self-center text-2xl ml-2 font-semibold whitespace-nowrap dark:text-white">
             LetChat
           </span>
         </Link>

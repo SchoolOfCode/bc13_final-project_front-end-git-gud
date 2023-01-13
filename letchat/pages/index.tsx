@@ -1,14 +1,13 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import { useState } from "react";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 import {  NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 import Container from "../components/Container";
-import LoginLogout from "../components/LoginLogout";
-import Navbar from "../components/Navbar";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -41,7 +40,7 @@ export default function Home() {
                 </div>
                 <div className="px-5 w-[15rem] lg:w-full">
                 <button className="btn w-full  text-2xl tracking-wider rounded-full text-black hover:bg-light-secondary hover:opacity-70 active:bg-light-hot bg-light-secondary  lg:text-white lg:hover:bg-light-primary lg:hover:opacity-70 lg:active:bg-light-hot lg:bg-light-primary ">
-                    Sign Up
+                    <Link href="/login">Login</Link>
                   </button>
                 </div>
                   

@@ -4,9 +4,17 @@ const LoginLogout = () => {
   const [login, setLogin] = useState(true);
   return (
     <>
-      {!login ? (
-        <div className="hero lg:place-items-start">
-          <div className="flex items-center justify-center min-h-[80%] w-[80%] drop-shadow-lg rounded-t-[20%] mt-[13.5rem] bg-light-light lg:min-h-full lg:bg-transparent lg:drop-shadow-none lg:px-10 lg:mt-0 lg:w-fit ">
+      {login ? (
+         <div className="hero lg:place-items-start">
+         <div className="flex border-slate-800 border-4  flex-col items-center justify-center min-h-[80%] w-[80%] drop-shadow-lg rounded-t-[20%] mt-[13.5rem] bg-light-light lg:min-h-full lg:bg-transparent lg:drop-shadow-none lg:px-10 lg:mt-0 lg:w-fit lg:border-none ">
+           <div className="containter flex mt-4 lg:hidden">
+             <div className="w-5 h-5 rounded-full bg-slate-600 flex justify-center items-center">
+               <div className="w-1 h-1 rounded-full bg-slate-300 "></div>
+             </div>
+             <div className="w-32 h-5 rounded-full bg-slate-600 ml-3 flex justify-center items-center">
+               <div className="w-28 h-1 rounded-full bg-slate-300"></div>
+             </div>
+           </div>
             <div className="flex flex-1 flex-col py-12 sm:px-6 lg:flex-none lg:px-10 lg:glass">
               <div className="mx-auto w-72 h-full max-w-sm lg:w-96  drop-shadow-2xl">
                 <div className="flex flex-col justify-between pb-14">
@@ -82,7 +90,15 @@ const LoginLogout = () => {
         </div>
       ) : (
         <div className="hero lg:place-items-start">
-          <div className="flex items-center justify-center min-h-[80%] w-[80%] drop-shadow-lg rounded-t-[20%] mt-[13.5rem] bg-light-light lg:min-h-full lg:bg-transparent lg:drop-shadow-none lg:px-10 lg:mt-0 lg:w-fit ">
+        <div className="flex border-slate-800 border-4  flex-col items-center justify-center min-h-[80%] w-[80%] drop-shadow-lg rounded-t-[20%] mt-[13.5rem] bg-light-light lg:min-h-full lg:bg-transparent lg:drop-shadow-none lg:px-10 lg:mt-0 lg:w-fit lg:border-none ">
+          <div className="containter flex mt-4 lg:hidden">
+            <div className="w-5 h-5 rounded-full bg-slate-600 flex justify-center items-center">
+              <div className="w-1 h-1 rounded-full bg-slate-300 "></div>
+            </div>
+            <div className="w-32 h-5 rounded-full bg-slate-600 ml-3 flex justify-center items-center">
+              <div className="w-28 h-1 rounded-full bg-slate-300"></div>
+            </div>
+          </div>
             <div className="flex flex-1 flex-col py-12 sm:px-6 lg:flex-none lg:px-10 lg:glass">
               <div className="mx-auto w-72 h-full max-w-sm lg:w-96  drop-shadow-2xl">
                 <div className="flex flex-col justify-between pb-14">

@@ -14,7 +14,7 @@ module.exports = {
           secondary: "#FAB8C4",
           tertiary: "#F7B538",
           hot: "#F58071",
-          light: "#FFFFFF",
+          light: "#FBFBFF",
 
           "content-text": "#000000",
         },

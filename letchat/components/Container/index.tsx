@@ -27,7 +27,7 @@ const Container = ({ children, logo, images }: ContainerProps) => {
       >
         <div
           id="children"
-          className="container min-h-full max-h-[100vh] max-w-[1440px] flex absolute z-40 overflow-hidden"
+          className="container min-h-full max-h-[100vh] max-w-[2560px] flex absolute z-40 overflow-hidden"
         >
           {children}
         </div>
@@ -53,12 +53,24 @@ const Container = ({ children, logo, images }: ContainerProps) => {
             <>
               <div
                 id="image-one"
-                className="hidden w-[581px] h-[545px] bg-light-hot absolute right-[20vw] top-[10vh] rounded-[100%] z-30 md:block"
-              ></div>
+                // className="hidden w-[581px] h-[545px] bg-light-hot absolute right-[20vw] top-[10vh] rounded-[100%] z-30 md:block"
+              >
+                <img
+                  src="https://placeimg.com/600/600/tech"
+                  alt="random image"
+                  className="hidden w-[581px] h-[545px] bg-light-hot absolute right-[20vw] top-[10vh] rounded-[100%] z-30 md:block"
+                />
+              </div>
               <div
                 id="image-one"
-                className="hidden w-[387px] h-[356px] bg-light-secondary absolute right-[-5vw] bottom-[10vh] rounded-[100%] overflow-hidden z-30 md:block"
-              ></div>
+                // className="hidden w-[387px] h-[356px] bg-light-secondary absolute right-[-5vw] bottom-[10vh] rounded-[100%] overflow-hidden z-30 md:block"
+              >
+                <img
+                  src="https://placeimg.com/600/600/people"
+                  alt="random image"
+                  className="hidden w-[387px] h-[356px] bg-light-secondary absolute right-[-5vw] bottom-[10vh] rounded-[100%] overflow-hidden z-30 md:block"
+                />
+              </div>
             </>
           ) : null}
 

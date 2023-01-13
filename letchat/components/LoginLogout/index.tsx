@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 
 const LoginLogout = () => {
   const [login, setLogin] = useState(true);
@@ -74,8 +75,8 @@ const LoginLogout = () => {
                           <div className="text-md w-full pl-2">
                             <p className="font-medium text-gray-900 tracking-wide">
                               Not a member?
-                              <span className="text-light-primary hover:text-light-primary underline ml-5">
-                                <a>Sign up</a>
+                              <span className="text-light-primary cursor-pointer hover:text-light-primary underline ml-5">
+                                <Link href="/sign">Register</Link>
                               </span>
                             </p>
                           </div>
@@ -226,7 +227,7 @@ const LoginLogout = () => {
                             type="submit"
                             className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                           >
-                            Sign up
+                            <Link href="/jobboard">Sign up</Link>
                           </button>
                         </div>
 

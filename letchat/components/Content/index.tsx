@@ -10,15 +10,6 @@ type ContentProps = {
 };
 
 const Content = ({ title, navigation, central }: ContentProps) => {
-  const [job, setJob] = useState(0);
-  
-
-  const addJob = () => {
-    setJob(job + 1);
-    console.log(job);
-  };
-
-
 
   return (
     <>
@@ -31,16 +22,7 @@ const Content = ({ title, navigation, central }: ContentProps) => {
 
             <div className="flex justify-center">
               <div className="flex w-[30%] items-center justify-around">
-                
-                {job > 0 ? (
-                  <>
                     <Tabs />
-                  </>
-                ): null}
-                
-                <div>
-                  <button className="btn btn-primary btn-lg rounded-full text-3xl" onClick={addJob}>+</button>
-                </div>
               </div>
             </div>
 

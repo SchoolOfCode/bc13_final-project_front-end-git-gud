@@ -17,11 +17,11 @@ type ticket = {
 
 const Ticket = (openTicket: { openTicket: (id: number) => void }) => {
   return (
-      <div className="overflow-y-scroll w-full flex flex-col items-center h-[60vh]">
+      <div className="overflow-y-scroll w-full flex flex-col items-center h-[50vh]">
         {tickets.map((ticket: ticket) => {
           return (
             <>
-              <article className="h-[15rem] flex flex-col w-full p-2 shadow-lg bg-[#F0C8C2] rounded-2xl">
+              <article className="mt-4 h-[15rem] flex flex-col w-full p-2 shadow-lg bg-[#F0C8C2] rounded-2xl">
                 <header className="flex flex-row justify-between p-2 bg-light-hot rounded-t-2xl">
                   <div
                     id="ticket-author"

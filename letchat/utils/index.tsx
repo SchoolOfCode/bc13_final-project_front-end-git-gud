@@ -94,14 +94,13 @@ type ContainerProps = {
 };
 export const HomeContainer = ({ title, description, link}: ContainerProps) => {
   return (
-    <div className="hero h-[100vh] flex align-center lg:w-[50%]">
+    <div className="hero min-h-[80vh] flex align-center lg:w-[50%]">
       <div className="hero-content mb-10 w-full">
         <div className="flex glass p-10 h-full flex-col text-black justify-around text-center lg:text-left ">
           <h1 className="text-[5rem] font-bold lg:text-[8rem]">{title}</h1>
           <p className="text-justify text-[1rem] lg:text-[1.5rem] ">
             {description}
           </p>
-
           <div className="mt-10 px-5 w-[15rem] lg:w-full">
             <button className="btn w-full  text-2xl tracking-wider rounded-full text-black hover:bg-light-secondary hover:opacity-70 active:bg-light-hot bg-light-secondary  lg:text-white lg:hover:bg-light-primary lg:hover:opacity-70 lg:active:bg-light-hot lg:bg-light-primary ">
               {link}

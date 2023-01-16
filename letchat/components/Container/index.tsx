@@ -21,7 +21,7 @@ const Container = ({ children, logo, images }: ContainerProps) => {
     <div className="container h-full min-w-[100vw] bg-black flex flex-col items-center justify-center overflow-hidden">
       <div
         id="container"
-        className="container h-full bg-light-light max-w-[2560px] lg:max-h-[100vh] relative"
+        className="container h-fit bg-light-light max-w-[2560px] lg:max-h-[100vh] relative"
       >
         <Navbar />
         <div

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-const Navbar = (props: any) => {
+const Navbar = () => {
   return (
-    <div className="navbar min-h-[8rem] p-6 absolute justify-center  ">
+    <div className="navbar relative min-h-[8rem] p-6 justify-center  ">
       <div className=" navbar max-w-[2500px] absolute z-40  ">
         <div className="flex-1 pl-8">
           <a>

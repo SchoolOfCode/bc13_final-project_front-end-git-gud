@@ -4,7 +4,7 @@ const Bubbles = () => {
   return (
     <div
             id="bubbles"
-            className="absolute w-full h-full overflow-hidden top-0 left-0"
+            className="static w-full h-full overflow-hidden top-0 left-0"
           >
             <div
               id="pink-bubble"
@@ -12,11 +12,11 @@ const Bubbles = () => {
             ></div>
             <div
               id="orange-bubble"
-              className={`${styles.bubble} absolute bottom-[-200px] w-[150px] h-[150px] rounded-full opacity-[0.8] bg-light-hot`}
+              className={`${styles.bubble} absolute bottom-[-200px] w-[150px] h-[150px] rounded-full opacity-[0.8] bg-light-hot z-30`}
             ></div>
             <div
               id="yellow-bubble"
-              className={`${styles.bubble} absolute right-[70%] bottom-[-200px] w-[200px] h-[200px] rounded-full opacity-[0.4] bg-light-primary`}
+              className={`${styles.bubble} absolute right-[70%] bottom-[-200px] w-[200px] h-[200px] rounded-full opacity-[0.4] bg-light-primary z-30`}
             ></div>
             <div
               id="red-bubble"

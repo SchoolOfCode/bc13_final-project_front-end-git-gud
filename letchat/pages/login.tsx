@@ -2,7 +2,8 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import Container from "../components/Container";
-import LoginLogout from "../components/LoginLogout";
+import LogUser from "../components/Login";
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +19,7 @@ export default function Login() {
       </Head>
       <main>
         <Container logo={true} images={true}>
-          <LoginLogout/>
+          <LogUser />
         </Container>
       </main>
     </>

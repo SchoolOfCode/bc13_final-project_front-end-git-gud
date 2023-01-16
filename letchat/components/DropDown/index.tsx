@@ -1,7 +1,6 @@
-import { Fragment, useState } from "react";
-import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+// import { useState } from "react";
 
+// Array of filters (mock data)
 const filters = [
   { id: 1, property: "All properties" },
   { id: 2, property: "1 Next Avenue, N2 0GJ" },
@@ -10,16 +9,12 @@ const filters = [
   { id: 5, property: "4 Postgres Way, P1 0WB" },
 ];
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
-
 const DropDown = () => {
-  const [selected, setSelected] = useState(filters[0]);
+  // const [selected, setSelected] = useState(filters[0]); // set default selected filter to first filter in the array
 
   return (
     <select className="select select-primary w-full max-w-xs">
-      // Map through filters array 
+      {/* Map through filters array and render an option for each */}
       {filters.map((filter) => {
         return <option>{filter.property}</option>;
       })}

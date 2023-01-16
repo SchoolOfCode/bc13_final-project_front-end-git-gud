@@ -109,8 +109,18 @@ h1 {
   font-weight: 700;
 }
 
-@media (prefers-color-scheme: dark) {
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.msg-info {
+  font-size: 0.8rem;
+  color: rgb(159, 159, 159);
+}
+
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */

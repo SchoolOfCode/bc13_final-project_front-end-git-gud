@@ -6,10 +6,6 @@ import NavigationPoint from "../../components/NavigationPoint";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {
-  function openTicket(id: number) {
-    console.log(id);
-  }
-
   return (
     <>
       <Head>
@@ -22,7 +18,7 @@ export default function JobBoard() {
         <Content
           title="Job Board"
           navigation={<NavigationPoint />}
-          central={<Ticket openTicket={openTicket} />}
+          central={<Ticket />}
         />
       </main>
     </>

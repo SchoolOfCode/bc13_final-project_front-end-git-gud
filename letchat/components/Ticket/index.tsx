@@ -5,6 +5,7 @@ import NewsFeed from "../NewsFeed";
 import ContentSection from "../ContentSection";
 import NavigationPoint from "../NavigationPoint";
 import Footer from "../Footer";
+import Link from "next/link";
 
 type ticket = {
   id: number;
@@ -15,7 +16,7 @@ type ticket = {
   lastMessage: string;
 };
 
-const Ticket = (openTicket: { openTicket: (id: number) => void }) => {
+const Ticket = ({ openTicket }: { openTicket: (id: number) => void }) => {
   return (
       <div className="overflow-y-scroll w-full flex flex-col items-center h-[50vh]">
         {tickets.map((ticket: ticket) => {

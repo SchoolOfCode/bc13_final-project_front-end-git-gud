@@ -7,14 +7,14 @@ const Navbar = () => {
       <div className=" navbar max-w-[2500px] absolute z-40  ">
         <div className="flex-1 pl-8">
           <a>
-          <Image
-            src="/assets/images/letchatLogo.png"
-            alt="LetChat logo"
-            height={80}
-            width={80}
-            className=" bg-light-primary w-20 h-20 border-none hover:opacity-60 hover:bg-light-primary rounded-full"
-          /></a>
-          
+            <Image
+              src="/assets/images/letchatLogo.png"
+              alt="LetChat logo"
+              height={80}
+              width={80}
+              className=" bg-light-primary w-20 h-20 border-none hover:opacity-60 hover:bg-light-primary rounded-full"
+            />
+          </a>
         </div>
         <div className="flex-1 justify-end h-20">
           <div className="dropdown dropdown-end">

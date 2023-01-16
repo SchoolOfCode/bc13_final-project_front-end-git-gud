@@ -3,13 +3,30 @@ import { Inter } from "@next/font/google";
 import Ticket from "../components/Ticket";
 import Content from "../components/Content";
 import NavigationPoint from "../components/NavigationPoint";
+
+import { getAuth } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useRouter } from "next/router";
+import { initFirebase } from "../firebase/firebaseApp";
+import Link from "next/link";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {
+  initFirebase();
+  const auth = getAuth();
+  const router = useRouter();
+  const [user, loading] = useAuthState(auth);
+
+/*   if (!user) {
+    router.push("/login");
+    return <div>Please sign in to continue</div>;
+  } */
+
   function openTicket(id: number) {
     console.log(id);
   }
-  return (
+  if (user) {return (
     <>
       <Head>
         <title>LetChat | Job Board</title>
@@ -18,14 +35,19 @@ export default function JobBoard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        
+        <button onClick={() => auth.signOut()}>Firebase LogOut</button>
 
         <Content
           title="Messages"
           navigation={<NavigationPoint />}
           central={<Ticket openTicket={openTicket} />}
         />
-
       </main>
     </>
   );
+  }
+  if (!user) {
+    return <Link href="/login" />
+  }
 }

@@ -60,11 +60,18 @@ const LogUser = () => {
 
               <div className="mt-8">
                 <div className="mt-6">
-                  <button type="submit" onClick={signIn}>
+                  <button
+                    type="submit"
+                    onClick={signIn}
+                    className="text-center mt-6 text-5xl font-bold tracking-tight text-gray-900 "
+                  >
                     Firebase LogIn
                   </button>
 
-                  <button onClick={() => auth.signOut()}>
+                  <button
+                    className="text-center mt-6 text-5xl font-bold tracking-tight text-gray-900"
+                    onClick={() => auth.signOut()}
+                  >
                     Firebase LogOut
                   </button>
 

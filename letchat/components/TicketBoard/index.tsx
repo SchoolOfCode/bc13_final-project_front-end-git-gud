@@ -6,6 +6,7 @@ type CompletedProp = {
   completed : boolean
 }
 
+
 const TicketBoard = ({completed} : CompletedProp) => {
   const [tickets, setTickets] = useState([]);
 
@@ -16,7 +17,7 @@ const TicketBoard = ({completed} : CompletedProp) => {
       setTickets(data.tickets);
     }
     fetchData();
-  }, [completed])
+  }, [completed]);
 
   console.log(tickets);
 

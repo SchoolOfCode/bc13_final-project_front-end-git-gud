@@ -2,6 +2,9 @@ import Image from "next/image";
 import avatar from "../../public/assets/images/img_avatar.png";
 import Link from "next/link";
 import Toggle from "../Toggle";
+import nc from 'next-connect'
+import tickets from '../../pages/api/hello';
+
 // Ticket interface
 export type TicketObject = {
   key: number;
@@ -16,6 +19,15 @@ export type TicketObject = {
 
 
 const Ticket = (ticket: TicketObject) => {
+
+  function handleClick (e: any) {
+    // when a toggle is clicked, I want to send a patch request 
+    // to the database to toggle the completed status of the row with the same id
+    let ticketIDText = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('h5')[0].innerText;
+    let ticketID = ticketIDText.match(/[0-9]/g);
+    console.log(ticketID);
+    
+  }
 
   return (
     // Ticket
@@ -57,7 +69,7 @@ const Ticket = (ticket: TicketObject) => {
           </button>
           
         </Link>
-        <Toggle completed={ticket.completed}/>
+        <Toggle completed={ticket.completed} handleClick={handleClick}/>
       </main>
     </article>
   );

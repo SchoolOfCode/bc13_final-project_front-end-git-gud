@@ -4,6 +4,12 @@ import TicketForm from "../TicketForm";
 
 const Tabs = () => {
   const [openTab, setOpenTab] = useState(1);
+  // const [numTickets, setNumTickets] = useState();
+
+
+
+
+
   return (
     <>
       <div className="flex">

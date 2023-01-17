@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import Ticket from "../../components/Ticket";
+import Tabs from "../../components/Tabs";
 import Content from "../../components/Content";
 import NavigationPoint from "../../components/NavigationPoint";
 const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +18,7 @@ export default function JobBoard() {
         <Content
           title="Job Board"
           navigation={<NavigationPoint />}
-          central={<Ticket />}
+          central={<Tabs />}
         />
       </main>
     </>

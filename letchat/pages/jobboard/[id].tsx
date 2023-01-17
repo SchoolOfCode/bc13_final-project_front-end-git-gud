@@ -7,10 +7,6 @@ import Messages from "../../components/Messages";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {
-  function openTicket(id: number) {
-    console.log(id);
-  }
-
   return (
     <>
       <Head>

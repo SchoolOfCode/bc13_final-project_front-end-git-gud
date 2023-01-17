@@ -1,13 +1,9 @@
 import Image from "next/image";
 import avatar from "../../public/assets/images/img_avatar.png";
 import tickets from "../../data/ticketData";
-import NewsFeed from "../NewsFeed";
-import ContentSection from "../ContentSection";
-import NavigationPoint from "../NavigationPoint";
-import Footer from "../Footer";
 import Link from "next/link";
 
-
+// Ticket interface
 type ticket = {
   id: number;
   name: string;
@@ -17,17 +13,22 @@ type ticket = {
   lastMessage: string;
 };
 
-const Ticket = ({ openTicket }: { openTicket: (id: number) => void }) => {
+const Ticket = () => {
   return (
-    <div className="overflow-y-scroll w-full flex flex-col items-center h-[60vh]">
+    // Ticket container
+    <div className="gap-3 overflow-y-scroll w-full flex flex-col items-center h-[60vh] text-black">
+      {/* Map over tickets array, rendering each ticket */}
       {tickets.map((ticket: ticket) => {
         return (
+          // Ticket
           <article
             key={ticket.id}
             className="h-[15rem] flex flex-col w-full p-2 shadow-lg bg-[#F0C8C2] rounded-2xl"
           >
+            {/* Ticket header */}
             <header className="flex flex-row justify-between p-2 bg-light-hot rounded-t-2xl">
               <div id="ticket-author" className="flex flex-row align-center">
+                {/* Avatar */}
                 <Image
                   src={avatar}
                   alt="avatar"
@@ -35,6 +36,7 @@ const Ticket = ({ openTicket }: { openTicket: (id: number) => void }) => {
                 />
                 <p className="leading-10 ml-2">{ticket.name}</p>
               </div>
+              {/* Ticket meta/info */}
               <div
                 id="ticket-info"
                 className="flex flex-col text-right justify-right"
@@ -43,11 +45,15 @@ const Ticket = ({ openTicket }: { openTicket: (id: number) => void }) => {
                 <h4>Subject: {ticket.subject}</h4>
               </div>
             </header>
+            {/* Ticket body */}
             <main className="p-2">
               <div>
                 <p>{ticket.lastMessage}</p>
               </div>
+              {/* Ticket footer/read more button */}
               <Link href={`/jobboard/${ticket.id}`}>
+                {" "}
+                {/* Link to ticket messages page */}
                 <button className="bg-light-hot rounded-lg px-2 py-1 mt-2 float-right">
                   Read more
                 </button>

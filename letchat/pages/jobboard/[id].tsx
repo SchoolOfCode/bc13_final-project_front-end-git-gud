@@ -1,14 +1,16 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import Ticket from "../components/Ticket";
-import Content from "../components/Content";
-import NavigationPoint from "../components/NavigationPoint";
+import Ticket from "../../components/Ticket";
+import Content from "../../components/Content";
+import NavigationPoint from "../../components/NavigationPoint";
+import Messages from "../../components/Messages";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {
   function openTicket(id: number) {
     console.log(id);
   }
+
   return (
     <>
       <Head>
@@ -18,13 +20,11 @@ export default function JobBoard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-
         <Content
           title="Messages"
           navigation={<NavigationPoint />}
-          central={<Ticket openTicket={openTicket} />}
+          central={<Messages />}
         />
-
       </main>
     </>
   );

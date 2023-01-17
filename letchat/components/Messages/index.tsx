@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import messageData from "../../data/messageData";
 import { ChangeEvent, ChangeEventHandler, useState } from "react";
+import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 
 export default function Messages() {
@@ -34,8 +35,13 @@ export default function Messages() {
       (today.getMonth() + 1) +
       "-" +
       today.getDate();
-    const time =
-      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    let minutes = today.getMinutes().toString();
+    if (minutes.length < 2) {
+      minutes = "0" + today.getMinutes();
+    }
+
+    const time = today.getHours() + ":" + minutes + ":" + today.getSeconds();
 
     // create new message object
     const newMessage = {
@@ -60,42 +66,82 @@ export default function Messages() {
 
   // render messages
   return (
-    <div className="w-4/5 mx-auto h-full">
+    <div className="p-8 w-4/5 mx-auto h-full backdrop-blur-md rounded-3xl drop-shadow-md border">
+      <a href="/jobboard">
+        <span className="flex flex-row">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            className="w-6 h-6 hover:text-light-primary"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+            />
+          </svg>{" "}
+          <p className="hover:text-light-primary">Back</p>
+        </span>
+      </a>
       <h2 className="mb-10 text-center text-black">Ticket ID: {id}</h2>
       {/* Map over messages array, rendering each msg based on role */}
       <div className="flex flex-col gap-1 overflow-y-scroll h-[60vh] p-6">
         {conversation.map((message, index) => {
           // if message role is tenant, render chat bubble for tenant
-          console.log(conversation[index].user, message.user);
           if (message.role === "tenant") {
             return (
-              <div className="chat chat-start flex flex-col" key={message.id}>
-                
-                  <p className="msg-info">{message.user}</p>
-                
-                <div className="chat-bubble bg-light-primary text-white">
-                  {message.message}
+              <>
+                {index === 0 ||
+                conversation[index - 1].date !== message.date ? (
+                  <span className="flex justify-center">
+                    <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit">
+                      {message.date}
+                    </p>
+                  </span>
+                ) : null}
+                <div className="chat chat-start flex flex-col" key={message.id}>
+                  {index === 0 ||
+                  conversation[index - 1].user !== message.user ? (
+                    <p className="msg-info">{message.user}</p>
+                  ) : null}
+                  <div className="chat-bubble bg-light-primary text-white">
+                    {message.message}
+                  </div>
+                  <p className="msg-info">{message.time.slice(0, 5)}</p>
                 </div>
-                <p className="msg-info">
-                  {message.time}, {message.date}
-                </p>
-              </div>
+              </>
             );
             // if message role is landlord, render chat bubble for landlord
           } else {
             return (
-              <div className="chat chat-end flex flex-col" key={message.id}>
-                <p className="msg-info">{message.user}</p>
-                <div
-                  className="chat-bubble bg-gray-200
+              <>
+                {index === 0 ||
+                conversation[index - 1].date !== message.date ? (
+                  <span className="flex justify-center">
+                    <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit">
+                      {message.date}
+                    </p>
+                  </span>
+                ) : null}
+
+                <div className="chat chat-end flex flex-col" key={message.id}>
+                  {index === 0 ||
+                  conversation[index - 1].user !== message.user ? (
+                    <p className="msg-info">{message.user}</p>
+                  ) : null}
+
+                  <div
+                    className="chat-bubble bg-gray-200
                text-black"
-                >
-                  {message.message}
+                  >
+                    {message.message}
+                  </div>
+                  <p className="msg-info">{message.time.slice(0, 5)}</p>
                 </div>
-                <p className="msg-info">
-                  {message.time}, {message.date}
-                </p>
-              </div>
+              </>
             );
           }
         })}

@@ -6,39 +6,59 @@ import {
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
-import { initFirebase } from "../../firebase/firebaseApp";
+// import { initFirebase } from "../../firebase/firebaseApp";
 import Link from "next/link";
+import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 const LogUser = () => {
-  initFirebase();
-  const provider = new GoogleAuthProvider();
-  const auth = getAuth();
-  const [user, loading] = useAuthState(auth);
   const router = useRouter();
+  const { user, login } = useAuth();
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (user) {
-    router.push("/jobboard");
-    return <div>Loading...</div>;
-  }
-
-  const signIn = async () => {
-    const result = await signInWithPopup(auth, provider);
-    console.log(result.user);
+  const handleLogin = async (e: any) => {
+    e.preventDefault();
+    try {
+      await login(data.email, data.password);
+      router.push("/jobboard");
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(data);
   };
 
-  const logOut = async () => {
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  };
+  // initFirebase();
+  // const provider = new GoogleAuthProvider();
+  // const auth = getAuth();
+  // const [user, loading] = useAuthState(auth);
+  // const router = useRouter();
+
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
+
+  // if (user) {
+  //   router.push("/jobboard");
+  //   return <div>Loading...</div>;
+  // }
+
+  // const signIn = async () => {
+  //   const result = await signInWithPopup(auth, provider);
+  //   console.log(result.user);
+  // };
+
+  // const logOut = async () => {
+  //   signOut(auth)
+  //     .then(() => {
+  //       // Sign-out successful.
+  //     })
+  //     .catch((error) => {
+  //       // An error happened.
+  //     });
+  // };
 
   return (
     <div className="hero h-[100vh] lg:place-items-start">
@@ -60,21 +80,6 @@ const LogUser = () => {
 
               <div className="mt-8">
                 <div className="mt-6">
-                  <button
-                    type="submit"
-                    onClick={signIn}
-                    className="text-center mt-6 text-5xl font-bold tracking-tight text-gray-900 "
-                  >
-                    Firebase LogIn
-                  </button>
-
-                  <button
-                    className="text-center mt-6 text-5xl font-bold tracking-tight text-gray-900"
-                    onClick={() => auth.signOut()}
-                  >
-                    Firebase LogOut
-                  </button>
-
                   <form action="#" method="POST" className="space-y-6">
                     <div>
                       <label
@@ -85,6 +90,10 @@ const LogUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
+                          onChange={(e: any) => {
+                            setData({ ...data, email: e.target.value });
+                          }}
+                          value={data.email}
                           id="email"
                           name="email"
                           type="email"
@@ -103,6 +112,10 @@ const LogUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
+                          onChange={(e: any) => {
+                            setData({ ...data, password: e.target.value });
+                          }}
+                          value={data.password}
                           id="password"
                           name="password"
                           type="password"
@@ -114,6 +127,7 @@ const LogUser = () => {
                     </div>
                     <div>
                       <button
+                        onClick={handleLogin}
                         type="submit"
                         className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       >

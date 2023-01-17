@@ -3,6 +3,7 @@ import { Inter } from "@next/font/google";
 import Tabs from "../../components/Tabs";
 import Content from "../../components/Content";
 import NavigationPoint from "../../components/NavigationPoint";
+import Tabs from "../../components/Tabs";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {

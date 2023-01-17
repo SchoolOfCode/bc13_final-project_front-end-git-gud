@@ -2,8 +2,10 @@ import Link from "next/link";
 import { SocialGrid } from "../../utils";
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { useRouter } from "next/router";
 
 const SignUser = () => {
+  const router = useRouter();
   const { user, signup } = useAuth();
   const [data, setData] = useState({
     email: "",
@@ -14,6 +16,7 @@ const SignUser = () => {
     e.preventDefault();
     try {
       await signup(data.email, data.password);
+      router.push("/jobboard");
     } catch (err) {
       console.log(err);
     }

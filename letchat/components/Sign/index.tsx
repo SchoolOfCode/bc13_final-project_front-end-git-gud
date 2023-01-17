@@ -1,7 +1,24 @@
 import Link from "next/link";
 import { SocialGrid } from "../../utils";
+import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 const SignUser = () => {
+  const { user, signup } = useAuth();
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSignup = async (e: any) => {
+    e.preventDefault();
+    try {
+      await signup(data.email, data.password);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="hero h-[100vh] align-center lg:w-[50%]">
       <div className="hero-content h-full lg:h-[65%] lg:mb-[25%] w-full ">
@@ -53,6 +70,10 @@ const SignUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
+                          onChange={(e: any) => {
+                            setData({ ...data, email: e.target.value });
+                          }}
+                          value={data.email}
                           id="email"
                           name="email"
                           type="email"
@@ -71,6 +92,10 @@ const SignUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
+                          onChange={(e: any) => {
+                            setData({ ...data, password: e.target.value });
+                          }}
+                          value={data.password}
                           id="password"
                           name="password"
                           type="password"
@@ -82,6 +107,7 @@ const SignUser = () => {
                     </div>
                     <div>
                       <button
+                        onClick={handleSignup}
                         type="submit"
                         className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       >

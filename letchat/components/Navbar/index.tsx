@@ -1,7 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logout, login } = useAuth();
+  const router = useRouter();
+
   return (
     <div className="navbar relative min-h-[8rem] p-6 justify-center  ">
       <div className=" navbar max-w-[2500px] absolute z-40  ">
@@ -17,13 +23,32 @@ const Navbar = () => {
           </a>
         </div>
         <div className="flex-1 justify-end h-20">
-          <div className="dropdown dropdown-end">
-            <div>
-              <button className="btn border-none w-35 h-10 bg-light-secondary hover:opacity-60 hover:bg-light-secondary text-black mr-6">
-                Login
-              </button>
+          {/* {This button needs to render when no user is logged in} */}
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div>
+                <button
+                  onClick={() => {
+                    logout(), router.push("/login");
+                  }}
+                  className="btn border-none w-35 h-10 bg-light-secondary hover:opacity-60 hover:bg-light-secondary text-black mr-6"
+                >
+                  Logout
+                </button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="dropdown dropdown-end">
+              <div>
+                <Link href="/login">
+                  <button className="btn border-none w-35 h-10 bg-light-secondary hover:opacity-60 hover:bg-light-secondary text-black mr-6">
+                    Login
+                  </button>
+                </Link>
+              </div>
+            </div>
+          )}
+
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-12 rounded-full">

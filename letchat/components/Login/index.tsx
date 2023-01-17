@@ -12,6 +12,7 @@ import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 
 const LogUser = () => {
+  const router = useRouter();
   const { user, login } = useAuth();
   const [data, setData] = useState({
     email: "",
@@ -22,6 +23,7 @@ const LogUser = () => {
     e.preventDefault();
     try {
       await login(data.email, data.password);
+      router.push("/jobboard");
     } catch (err) {
       console.log(err);
     }
@@ -78,21 +80,6 @@ const LogUser = () => {
 
               <div className="mt-8">
                 <div className="mt-6">
-                  <button
-                    type="submit"
-                    // onClick={signIn}
-                    className="text-center mt-6 text-5xl font-bold tracking-tight text-gray-900 "
-                  >
-                    Firebase LogIn
-                  </button>
-
-                  <button
-                    className="text-center mt-6 text-5xl font-bold tracking-tight text-gray-900"
-                    // onClick={() => auth.signOut()}
-                  >
-                    Firebase LogOut
-                  </button>
-
                   <form action="#" method="POST" className="space-y-6">
                     <div>
                       <label

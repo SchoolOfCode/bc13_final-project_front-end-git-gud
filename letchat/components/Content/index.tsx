@@ -22,7 +22,9 @@ const Content = ({ title, navigation, central }: ContentProps) => {
 
             <div className="flex justify-center">
               <div className="flex w-[30%] items-center justify-around">
-                    {/* <Tabs /> */}
+
+                {central}
+
               </div>
             </div>
 
@@ -30,7 +32,7 @@ const Content = ({ title, navigation, central }: ContentProps) => {
 
             <div className="hidden">{navigation}</div>
 
-            <div className="w-full">{central}</div>
+            {/* <div className="w-1/2 ">{central}</div> */}
           </div>
           <Footer />
         </div>

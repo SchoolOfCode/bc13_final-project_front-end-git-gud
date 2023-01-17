@@ -1,19 +1,21 @@
 import Image from "next/image";
 import avatar from "../../public/assets/images/img_avatar.png";
 import Link from "next/link";
-
+import Toggle from "../Toggle";
 // Ticket interface
-type TicketProps = {
+export type TicketObject = {
+  key: number;
   id: number;
-  name?: string;
-  subject?: string;
-  date?: string;
-  time?: string;
-  lastMessage?: string;
-  completed?: boolean;
+  name: string;
+  subject: string;
+  date: string;
+  time: string;
+  lastMessage: string;
+  completed : boolean;
 };
 
-const Ticket = (ticket: TicketProps) => {
+
+const Ticket = (ticket: TicketObject) => {
 
   return (
     // Ticket
@@ -53,7 +55,9 @@ const Ticket = (ticket: TicketProps) => {
           <button className="bg-light-hot rounded-lg px-2 py-1 mt-2 float-right">
             Read more
           </button>
+          
         </Link>
+        <Toggle completed={ticket.completed}/>
       </main>
     </article>
   );

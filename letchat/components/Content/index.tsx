@@ -28,9 +28,9 @@ const Content = ({ title, navigation, central }: ContentProps) => {
 
             <div className="flex bg-yellow-200"></div>
 
-            <div className="hidden ">{navigation}</div>
+            <div className="hidden">{navigation}</div>
 
-            {/* <div className="w-1/2 ">{central}</div> */}
+            {/* <div className="w-full">{central}</div> */}
           </div>
           <Footer />
         </div>

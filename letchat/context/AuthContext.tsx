@@ -51,12 +51,13 @@ export const AuthContextProvider = ({
     return unsubscribe;
   }, []);
 
-  const signup = (email: string, password: string, role: string) => {
+  const signup = (email: string, password: string, role: string, name: string) => {
     return createUserWithEmailAndPassword(auth, email, password).then(
       (user) => {
         const { uid } = user.user;
         const userRef = doc(firestoreDB, `users/${uid}`);
         setDoc(userRef, {
+          name: name,
           email: email,
           role: role,
         });

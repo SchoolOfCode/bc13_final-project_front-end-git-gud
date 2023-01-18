@@ -9,6 +9,7 @@ const SignUser = () => {
     email: "",
     password: "",
     role: "",
+    name: "",
   });
   const router = useRouter();
   const { signup } = useAuth();
@@ -20,7 +21,7 @@ const SignUser = () => {
   const submitHandler = async (e: any) => {
     e.preventDefault();
     try {
-      await signup(data.email, data.password, data.role);
+      await signup(data.email, data.password, data.role, data.name);
       router.push("/jobboard");
     } catch (err) {
       console.log(err);
@@ -81,6 +82,27 @@ const SignUser = () => {
                         <option value="landlord">Landlord</option>
                         <option value="tenant">Tenant</option>
                       </select>
+                    </div>
+                    <div className="space-y-1">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Name:
+                      </label>
+                      <div className="mt-1">
+                        <input
+                          
+                          onChange={changeHandler}
+                          value={data.name}
+                          id="name"
+                          name="name"
+                          type="name"
+                          autoComplete="current-name"
+                          required
+                          className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        />
+                      </div>
                     </div>
                     <div>
                       <label

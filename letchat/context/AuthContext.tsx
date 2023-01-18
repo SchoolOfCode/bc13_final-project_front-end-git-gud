@@ -40,7 +40,7 @@ export const AuthContextProvider = ({
         const role = await getRole(uid);
         setUser({
           uid,
-          role,
+          ...role,
         });
       } else {
         setUser(null);

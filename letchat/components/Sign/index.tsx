@@ -5,17 +5,32 @@ import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
 
 const SignUser = () => {
-  const router = useRouter();
-  const { user, signup } = useAuth();
   const [data, setData] = useState({
     email: "",
     password: "",
+    role: "",
+    firstname: "",
+    surname: "",
+    phonenumber: "",
   });
+  const router = useRouter();
+  const { signup } = useAuth();
 
-  const handleSignup = async (e: any) => {
+  const changeHandler = (e: any) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const submitHandler = async (e: any) => {
     e.preventDefault();
     try {
-      await signup(data.email, data.password);
+      await signup(
+        data.email,
+        data.password,
+        data.role,
+        data.firstname,
+        data.surname,
+        data.phonenumber
+      );
       router.push("/jobboard");
     } catch (err) {
       console.log(err);
@@ -39,12 +54,8 @@ const SignUser = () => {
             <div className="flex flex-col h-full justify-center">
               <div>
                 <h2 className="text-center mt-4 text-3xl font-bold tracking-tight text-gray-900">
-                  Sign in to your account
+                  Create an account
                 </h2>
-
-                <p className="mt-2 text-sm text-gray-600 p-5"> buttons </p>
-
-                <SocialGrid />
 
                 <div className="relative mt-6">
                   <div
@@ -63,7 +74,81 @@ const SignUser = () => {
 
               <div className="mt-8">
                 <div className="mt-6">
-                  <form action="#" method="POST" className="space-y-6">
+                  <form onSubmit={submitHandler} className="space-y-6">
+                    <div>
+                      <label>Role:</label>
+                      <select
+                        name="role"
+                        id="role"
+                        required
+                        onChange={changeHandler}
+                      >
+                        <option value="">{null}</option>
+                        <option value="landlord">Landlord</option>
+                        <option value="tenant">Tenant</option>
+                      </select>
+                    </div>
+                    <div className="space-y-1">
+                      <label
+                        htmlFor="firstname"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        First Name:
+                      </label>
+                      <div className="mt-1">
+                        <input
+                          onChange={changeHandler}
+                          value={data.firstname}
+                          id="firstname"
+                          name="firstname"
+                          type="firstname"
+                          autoComplete="current-name"
+                          required
+                          className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Surname:
+                      </label>
+                      <div className="mt-1">
+                        <input
+                          onChange={changeHandler}
+                          value={data.surname}
+                          id="surname"
+                          name="surname"
+                          type="surname"
+                          autoComplete="current-surname"
+                          required
+                          className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Contact Number:
+                      </label>
+                      <div className="mt-1">
+                        <input
+                          onChange={changeHandler}
+                          value={data.phonenumber}
+                          id="phonenumber"
+                          name="phonenumber"
+                          type="phonenumber"
+                          autoComplete="current-phonenumber"
+                          required
+                          className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        />
+                      </div>
+                    </div>
+
                     <div>
                       <label
                         htmlFor="email"
@@ -73,9 +158,7 @@ const SignUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
-                          onChange={(e: any) => {
-                            setData({ ...data, email: e.target.value });
-                          }}
+                          onChange={changeHandler}
                           value={data.email}
                           id="email"
                           name="email"
@@ -95,9 +178,7 @@ const SignUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
-                          onChange={(e: any) => {
-                            setData({ ...data, password: e.target.value });
-                          }}
+                          onChange={changeHandler}
                           value={data.password}
                           id="password"
                           name="password"
@@ -110,11 +191,10 @@ const SignUser = () => {
                     </div>
                     <div>
                       <button
-                        onClick={handleSignup}
                         type="submit"
                         className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       >
-                        <Link href="/jobboard"> Sign up</Link>
+                        Sign up
                       </button>
                     </div>
 

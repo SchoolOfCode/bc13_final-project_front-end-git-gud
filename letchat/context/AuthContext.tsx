@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendEmailVerification,
   signOut,
   getAuth,
 } from "firebase/auth";
@@ -24,16 +25,19 @@ export const AuthContextProvider = ({
 }) => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  console.log(user);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      async function getRole(uid: string) {
+      const getRole = async (uid: string) => {
         const userRef = doc(firestoreDB, `users/${uid}`);
-        const userCoded = await getDoc(userRef);
-        const user = userCoded.data();
-        return user;
-      }
+        const docSnap = await getDoc(userRef);
+        console.log(user);
+        if (docSnap.exists()) {
+          return docSnap.data();
+        } else {
+          return null;
+        }
+      };
 
       if (user) {
         const { uid } = user;
@@ -56,7 +60,8 @@ export const AuthContextProvider = ({
     password: string,
     role: string,
     firstname: string,
-    surname: string
+    surname: string,
+    phonenumber: string
   ) => {
     return createUserWithEmailAndPassword(auth, email, password).then(
       (user) => {
@@ -65,9 +70,12 @@ export const AuthContextProvider = ({
         setDoc(userRef, {
           firstname: firstname,
           surname: surname,
+
+          phonenumber: phonenumber,
           email: email,
           role: role,
         });
+        sendEmailVerification(user.user);
       }
     );
   };

@@ -11,6 +11,7 @@ const SignUser = () => {
     role: "",
     firstname: "",
     surname: "",
+    phonenumber: "",
   });
   const router = useRouter();
   const { signup } = useAuth();
@@ -27,7 +28,8 @@ const SignUser = () => {
         data.password,
         data.role,
         data.firstname,
-        data.surname
+        data.surname,
+        data.phonenumber
       );
       router.push("/jobboard");
     } catch (err) {
@@ -52,12 +54,8 @@ const SignUser = () => {
             <div className="flex flex-col h-full justify-center">
               <div>
                 <h2 className="text-center mt-4 text-3xl font-bold tracking-tight text-gray-900">
-                  Sign in to your account
+                  Create an account
                 </h2>
-
-                <p className="mt-2 text-sm text-gray-600 p-5"> buttons </p>
-
-                <SocialGrid />
 
                 <div className="relative mt-6">
                   <div
@@ -130,6 +128,27 @@ const SignUser = () => {
                         />
                       </div>
                     </div>
+                    <div className="space-y-1">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Contact Number:
+                      </label>
+                      <div className="mt-1">
+                        <input
+                          onChange={changeHandler}
+                          value={data.phonenumber}
+                          id="phonenumber"
+                          name="phonenumber"
+                          type="phonenumber"
+                          autoComplete="current-phonenumber"
+                          required
+                          className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        />
+                      </div>
+                    </div>
+
                     <div>
                       <label
                         htmlFor="email"

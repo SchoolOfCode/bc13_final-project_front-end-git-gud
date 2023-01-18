@@ -5,17 +5,22 @@ import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
 
 const SignUser = () => {
-  const router = useRouter();
-  const { user, signup } = useAuth();
   const [data, setData] = useState({
     email: "",
     password: "",
+    role: "",
   });
+  const router = useRouter();
+  const { signup } = useAuth();
 
-  const handleSignup = async (e: any) => {
+  const changeHandler = (e: any) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const submitHandler = async (e: any) => {
     e.preventDefault();
     try {
-      await signup(data.email, data.password);
+      await signup(data.email, data.password, data.role);
       router.push("/jobboard");
     } catch (err) {
       console.log(err);
@@ -63,7 +68,20 @@ const SignUser = () => {
 
               <div className="mt-8">
                 <div className="mt-6">
-                  <form action="#" method="POST" className="space-y-6">
+                  <form onSubmit={submitHandler} className="space-y-6">
+                    <div>
+                      <label>Role:</label>
+                      <select
+                        name="role"
+                        id="role"
+                        required
+                        onChange={changeHandler}
+                      >
+                        <option value="">{null}</option>
+                        <option value="landlord">Landlord</option>
+                        <option value="tenant">Tenant</option>
+                      </select>
+                    </div>
                     <div>
                       <label
                         htmlFor="email"
@@ -73,9 +91,7 @@ const SignUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
-                          onChange={(e: any) => {
-                            setData({ ...data, email: e.target.value });
-                          }}
+                          onChange={changeHandler}
                           value={data.email}
                           id="email"
                           name="email"
@@ -95,9 +111,7 @@ const SignUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
-                          onChange={(e: any) => {
-                            setData({ ...data, password: e.target.value });
-                          }}
+                          onChange={changeHandler}
                           value={data.password}
                           id="password"
                           name="password"
@@ -110,7 +124,7 @@ const SignUser = () => {
                     </div>
                     <div>
                       <button
-                        onClick={handleSignup}
+                        onClick={changeHandler}
                         type="submit"
                         className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       >

@@ -1,11 +1,17 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { doc, setDoc, getFirestore, getDoc } from "firebase/firestore";
+import { firebaseApp } from "../firebase/firebaseApp";
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  getAuth,
 } from "firebase/auth";
-import { auth } from "../firebase/firebaseApp";
+
+const auth = getAuth(firebaseApp);
+
+const firestoreDB = getFirestore(firebaseApp);
 
 const AuthContext = createContext<any>({});
 
@@ -21,12 +27,20 @@ export const AuthContextProvider = ({
   console.log(user);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      async function getRole(uid: string) {
+        const userRef = doc(firestoreDB, `users/${uid}`);
+        const userCoded = await getDoc(userRef);
+        const user = userCoded.data();
+        return user;
+      }
+
       if (user) {
+        const { uid } = user;
+        const role = await getRole(uid);
         setUser({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
+          uid,
+          role,
         });
       } else {
         setUser(null);
@@ -34,11 +48,20 @@ export const AuthContextProvider = ({
       setLoading(false);
     });
 
-    return () => unsubscribe();
+    return unsubscribe;
   }, []);
 
-  const signup = (email: string, password: string) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  const signup = (email: string, password: string, role: string) => {
+    return createUserWithEmailAndPassword(auth, email, password).then(
+      (user) => {
+        const { uid } = user.user;
+        const userRef = doc(firestoreDB, `users/${uid}`);
+        setDoc(userRef, {
+          email: email,
+          role: role,
+        });
+      }
+    );
   };
 
   const login = (email: string, password: string) => {

@@ -7,7 +7,10 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) {
+    if (user) {
+      console.log(user.emailVerified);
+      if (user.emailVerified) router.push("/jobboard");
+    } else {
       router.push("/login");
     }
   }, [router, user]);

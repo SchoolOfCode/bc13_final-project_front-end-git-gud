@@ -1,11 +1,18 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { doc, setDoc, getFirestore, getDoc } from "firebase/firestore";
+import { firebaseApp } from "../firebase/firebaseApp";
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendEmailVerification,
   signOut,
+  getAuth,
 } from "firebase/auth";
-import { auth } from "../firebase/firebaseApp";
+
+const auth = getAuth(firebaseApp);
+
+const firestoreDB = getFirestore(firebaseApp);
 
 const AuthContext = createContext<any>({});
 
@@ -18,15 +25,26 @@ export const AuthContextProvider = ({
 }) => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  console.log(user);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      const getRole = async (uid: string) => {
+        const userRef = doc(firestoreDB, `users/${uid}`);
+        const docSnap = await getDoc(userRef);
+        console.log(user);
+        if (docSnap.exists()) {
+          return docSnap.data();
+        } else {
+          return null;
+        }
+      };
+
       if (user) {
+        const { uid } = user;
+        const role = await getRole(uid);
         setUser({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
+          uid,
+          ...role,
         });
       } else {
         setUser(null);
@@ -34,11 +52,32 @@ export const AuthContextProvider = ({
       setLoading(false);
     });
 
-    return () => unsubscribe();
+    return unsubscribe;
   }, []);
 
-  const signup = (email: string, password: string) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  const signup = (
+    email: string,
+    password: string,
+    role: string,
+    firstname: string,
+    surname: string,
+    phonenumber: string
+  ) => {
+    return createUserWithEmailAndPassword(auth, email, password).then(
+      (user) => {
+        const { uid } = user.user;
+        const userRef = doc(firestoreDB, `users/${uid}`);
+        setDoc(userRef, {
+          firstname: firstname,
+          surname: surname,
+
+          phonenumber: phonenumber,
+          email: email,
+          role: role,
+        });
+        sendEmailVerification(user.user);
+      }
+    );
   };
 
   const login = (email: string, password: string) => {

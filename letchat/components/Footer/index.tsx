@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer data-testid="footer" className="hidden toast toast-bottom p-4 lg:block bg-light-primary w-[100%] border-t-2 ">
+    <footer data-testid="footer" className="hidden toast toast-bottom p-4 lg:block bg-light-primary w-[100%]">
       <div className="flex justify-between items-center">
         <Link href="/" className="flex items-center mb-4 sm:mb-0">
           <Image

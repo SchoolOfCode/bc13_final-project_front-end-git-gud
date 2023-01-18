@@ -9,7 +9,7 @@ const SignUser = () => {
     email: "",
     password: "",
     role: "",
-    name: "",
+    firstname: "",
     surname: "",
   });
   const router = useRouter();
@@ -26,7 +26,7 @@ const SignUser = () => {
         data.email,
         data.password,
         data.role,
-        data.name,
+        data.firstname,
         data.surname
       );
       router.push("/jobboard");
@@ -92,18 +92,18 @@ const SignUser = () => {
                     </div>
                     <div className="space-y-1">
                       <label
-                        htmlFor="name"
+                        htmlFor="firstname"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Name:
+                        First Name:
                       </label>
                       <div className="mt-1">
                         <input
                           onChange={changeHandler}
-                          value={data.name}
-                          id="name"
-                          name="name"
-                          type="name"
+                          value={data.firstname}
+                          id="firstname"
+                          name="firstname"
+                          type="firstname"
                           autoComplete="current-name"
                           required
                           className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"

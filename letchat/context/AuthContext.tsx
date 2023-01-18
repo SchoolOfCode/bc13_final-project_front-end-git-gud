@@ -55,7 +55,7 @@ export const AuthContextProvider = ({
     email: string,
     password: string,
     role: string,
-    name: string,
+    firstname: string,
     surname: string
   ) => {
     return createUserWithEmailAndPassword(auth, email, password).then(
@@ -63,7 +63,7 @@ export const AuthContextProvider = ({
         const { uid } = user.user;
         const userRef = doc(firestoreDB, `users/${uid}`);
         setDoc(userRef, {
-          name: name,
+          firstname: firstname,
           surname: surname,
           email: email,
           role: role,

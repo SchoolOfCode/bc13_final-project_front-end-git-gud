@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import Container from "../components/Container";
 import { useAuth } from "../context/AuthContext";
+import { Card, CardContainer } from "../utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,12 @@ export default function Storage() {
       </Head>
       <main>
         <Container>
+          <CardContainer
+            firstname={user.firstname}
+            surname={user.surname}
+            phonenumber={user.phonenumber}
+            email={user.email}
+          />
           {user.role == "landlord" ? (
             <h1>Landlord: "{user.firstname}"</h1>
           ) : (

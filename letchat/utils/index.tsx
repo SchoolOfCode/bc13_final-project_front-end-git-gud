@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export const SocialGrid = () => {
   return (
     <div className="mt-1 grid grid-cols-3 gap-3">
@@ -113,7 +115,7 @@ export const HomeContainer = ({ title, description, link }: ContainerProps) => {
 
 type LoginProps = {
   title?: string;
-  children?: React.ReactNode; 
+  children?: React.ReactNode;
 };
 
 export const LoginContainer = ({ title, children }: LoginProps) => {
@@ -139,9 +141,7 @@ export const LoginContainer = ({ title, children }: LoginProps) => {
               </div>
 
               <div>
-                <div className="mt-6">
-                {children}
-                </div>
+                <div className="mt-6">{children}</div>
               </div>
             </div>
           </div>
@@ -151,3 +151,33 @@ export const LoginContainer = ({ title, children }: LoginProps) => {
   );
 };
 
+type CardContainerProps = {
+  firstname?: string;
+  surname?: string;
+  phonenumber?: string;
+  email?: string;
+};
+
+export const CardContainer = ({
+  firstname,
+  surname,
+  phonenumber,
+  email,
+}: CardContainerProps) => {
+  return (
+    <div className="invisible lg:visible flex-row ml-10  max-w-[25%]   ">
+      <div className=" bg-light-primary rounded-tl-2xl rounded-tr-2xl bg-opacity-90 shadow-lg shadow-black px-10">
+        <h2 className="md:text-[30px] text-center bold uppercase text-[50px]">
+          <p>
+            {firstname} {surname}
+          </p>
+        </h2>
+      </div>
+      <div className="md:text-[20px] flex-col bg-light-primary text-center rounded-bl-2xl rounded-br-2xl bg-opacity-50 bold uppercase px-10">
+        <p className="text-[20px] py-4">Status: Online</p>
+        <p className="text-[20px] py-2">Contact no: {phonenumber}</p>
+        <p className="text-[15px] py-4">Email: {email}</p>
+      </div>
+    </div>
+  );
+};

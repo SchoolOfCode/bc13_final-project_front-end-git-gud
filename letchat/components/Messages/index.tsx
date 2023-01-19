@@ -1,10 +1,19 @@
 import { useRouter } from "next/router";
-import messageData from "../../data/messageData";
 import { ChangeEvent, useEffect, useState } from "react";
+
+type messageData = {
+  id: number;
+  user_id: string;
+  ticket_id: number;
+  user_role: string;
+  message: string;
+  time: string;
+  date: string;
+};
 
 export default function Messages() {
   const [input, setInput] = useState(""); // input state
-  const [messages, setMessages] = useState(messageData); // messages array state
+  const [messages, setMessages] = useState<messageData[]>([]); // messages array state
   const [newMessage, setNewMessage] = useState(""); // new message
   const router = useRouter(); // get router object
   const { id } = router.query; // get id from router object
@@ -12,7 +21,7 @@ export default function Messages() {
   type newMessageObject = {
     ticket_id: number;
     user_id: number;
-    role: string;
+    user_role: string;
     message: string;
   };
 
@@ -26,7 +35,6 @@ export default function Messages() {
     };
     function callFetchMessages() {
       fetchMessages();
-      console.log(messages);
     }
     callFetchMessages();
   }, [newMessage]);
@@ -51,7 +59,7 @@ export default function Messages() {
     const newMessage = {
       ticket_id: Number(id), // get ticketId from router object
       user_id: 1,
-      role: "landlord",
+      user_role: "landlord",
       message: input,
     };
     postNewMessage(newMessage);
@@ -70,7 +78,7 @@ export default function Messages() {
       },
       body: JSON.stringify(newMessage),
     });
-    const data = await res.json()
+    const data = await res.json();
   };
 
   // render messages
@@ -82,13 +90,13 @@ export default function Messages() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="w-6 h-6 hover:text-light-primary"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
             />
           </svg>{" "}
@@ -96,13 +104,13 @@ export default function Messages() {
         </span>
       </a>
       <h2 className="mb-10 text-center text-black">Ticket ID: {id}</h2>
-      {/* Map over messages array, rendering each msg based on role */}
+      {/* Map over messages array, rendering each msg based on user_role */}
       <div className="flex flex-col gap-1 overflow-y-scroll h-[60vh] p-6">
         {messages.map((message, index) => {
-          // if message role is tenant, render chat bubble for tenant
-          if (message.role === "tenant") {
+          // if message user_role is tenant, render chat bubble for tenant
+          if (message.user_role === "tenant") {
             return (
-              <>
+              <div key={message.id}>
                 {index === 0 || messages[index - 1].date !== message.date ? (
                   <span className="flex justify-center">
                     <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit">
@@ -111,20 +119,20 @@ export default function Messages() {
                   </span>
                 ) : null}
                 <div className="chat chat-start flex flex-col" key={message.id}>
-                  {index === 0 || messages[index - 1].user !== message.user ? (
-                    <p className="msg-info">{message.user}</p>
+                  {index === 0 || messages[index - 1].user_role !== message.user_role ? (
+                    <p className="msg-info">{message.user_id}</p>
                   ) : null}
                   <div className="chat-bubble bg-light-primary text-white">
                     {message.message}
                   </div>
                   <p className="msg-info">{message.time.slice(0, 5)}</p>
                 </div>
-              </>
+              </div>
             );
-            // if message role is landlord, render chat bubble for landlord
+            // if message user_role is landlord, render chat bubble for landlord
           } else {
             return (
-              <>
+              <div key={message.id}>
                 {index === 0 || messages[index - 1].date !== message.date ? (
                   <span className="flex justify-center">
                     <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit">
@@ -134,8 +142,8 @@ export default function Messages() {
                 ) : null}
 
                 <div className="chat chat-end flex flex-col" key={message.id}>
-                  {index === 0 || messages[index - 1].user !== message.user ? (
-                    <p className="msg-info">{message.user}</p>
+                  {index === 0 || messages[index - 1].user_role !== message.user_role ? (
+                    <p className="msg-info">{message.user_id}</p>
                   ) : null}
 
                   <div
@@ -146,7 +154,7 @@ export default function Messages() {
                   </div>
                   <p className="msg-info">{message.time.slice(0, 5)}</p>
                 </div>
-              </>
+              </div>
             );
           }
         })}

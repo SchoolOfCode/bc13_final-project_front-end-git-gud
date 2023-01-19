@@ -1,7 +1,6 @@
-import { useState } from "react";
 import Container from "../Container";
 import Footer from "../Footer";
-import Tabs from "../Tabs";
+
 
 type ContentProps = {
   title: string;
@@ -12,7 +11,7 @@ type ContentProps = {
 const Content = ({ title, navigation, central }: ContentProps) => {
 
   return (
-    <>
+    <div className="flex flex-col justify-around">
       <Container>
         <div className="hero lg:place-items-center">
           <div className="container h-full relative">
@@ -22,9 +21,7 @@ const Content = ({ title, navigation, central }: ContentProps) => {
 
             <div className="flex justify-center">
               <div className="flex w-[30%] items-center justify-around">
-
                 {central}
-
               </div>
             </div>
 
@@ -34,10 +31,11 @@ const Content = ({ title, navigation, central }: ContentProps) => {
 
             {/* <div className="w-1/2 ">{central}</div> */}
           </div>
-          <Footer />
         </div>
+          
       </Container>
-    </>
+        <Footer/>
+    </div>
   );
 };
 export default Content;

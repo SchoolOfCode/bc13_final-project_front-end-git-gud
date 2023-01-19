@@ -9,6 +9,7 @@ import {
   signOut,
   getAuth,
 } from "firebase/auth";
+import { useRouter } from "next/router";
 
 const auth = getAuth(firebaseApp);
 
@@ -25,6 +26,7 @@ export const AuthContextProvider = ({
 }) => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -50,6 +52,17 @@ export const AuthContextProvider = ({
         setUser(null);
       }
       setLoading(false);
+
+      if (user) {
+        setUser(user);
+        if (!user.emailVerified) {
+          logout();
+          router.push("/login");
+          alert("Please authenticate your account.");
+        }
+      } else {
+        setUser(null);
+      }
     });
 
     return unsubscribe;

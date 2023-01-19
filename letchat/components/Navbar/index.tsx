@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { RxHamburgerMenu } from "react-icons/rx";
+
 import { useAuth } from "../../context/AuthContext";
+import HamburgerMenu from "../HamburgerMenu";
 
 const Navbar = () => {
   const { user, logout, login } = useAuth();
-  const router = useRouter();
+  
+  
 
   return (
     <div className="navbar w-[100vw] relative min-h-[8rem] p-6 justify-center  ">
@@ -25,34 +26,9 @@ const Navbar = () => {
         <div className="flex-1 justify-end h-20">
           {/* {This button needs to render when no user is logged in} */}
           {user ? (
-            <div className="dropdown dropdown-end mr-2">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-12 rounded-full">
-                  <img src="https://placeimg.com/80/80/people" />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li
-                  onClick={() => {
-                    logout(), router.push("/login");
-                  }}
-                >
-                  <a>Logout</a>
-                </li>
-              </ul>
-            </div>
+           
+              <HamburgerMenu logout={logout} path={'login'} />
+
           ) : (
             <div className="dropdown dropdown-end">
               <div>
@@ -67,9 +43,6 @@ const Navbar = () => {
         </div>
 
         {/* <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="lg:hidden btn btn-ghost">
-            <RxHamburgerMenu />
-          </label>
           <ul
             tabIndex={0}
             className="g-2 flex flex-col menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-screen h-screen align-center justify-center"

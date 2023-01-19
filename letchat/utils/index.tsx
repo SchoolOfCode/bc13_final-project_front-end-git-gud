@@ -111,5 +111,43 @@ export const HomeContainer = ({ title, description, link }: ContainerProps) => {
   );
 };
 
+type LoginProps = {
+  title?: string;
+  children?: React.ReactNode; 
+};
 
+export const LoginContainer = ({ title, children }: LoginProps) => {
+  return (
+    <div className="hero h-[100vh] align-center lg:w-[50%]">
+      <div className="hero-content h-full lg:h-[65%] lg:mb-[25%] w-full ">
+        <div className="flex h-full border-slate-800 border-4  flex-col justify-around  w-[98%] drop-shadow-lg rounded-t-[20%] lg:drop-shadow-none lg:w-full lg:border-none bg-light-light lg:bg-transparent">
+          <div className="flex items-center justify-center mt-4 lg:hidden">
+            <div className="w-5 h-5 rounded-full bg-slate-600 flex justify-center items-center">
+              <div className="w-1 h-1 rounded-full bg-slate-300 "></div>
+            </div>
+            <div className="w-32 h-5 rounded-full bg-slate-600 ml-3 flex justify-center items-center">
+              <div className="w-28 h-1 rounded-full bg-slate-300"></div>
+            </div>
+          </div>
+
+          <div className="mx-auto p-6 flex justify-start flex-1 flex-col w-[95%] h-full lg:glass lg:w-[80%]  drop-shadow-2xl">
+            <div className="flex flex-col h-full justify-center">
+              <div>
+                <h2 className="text-center mt-0 text-3xl font-bold tracking-tight text-gray-900">
+                  {title}
+                </h2>
+              </div>
+
+              <div>
+                <div className="mt-6">
+                {children}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 

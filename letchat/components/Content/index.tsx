@@ -14,7 +14,7 @@ const Content = ({ title, navigation, central }: ContentProps) => {
   return (
     <>
       <Container>
-        <div className="hero h-[100vh] lg:place-items-center">
+        <div className="hero lg:place-items-center">
           <div className="container h-full relative">
             <div className="text-center">
               <h1 className="text-black">{title}</h1>

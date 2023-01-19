@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { SocialGrid } from "../../utils";
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
@@ -34,8 +33,11 @@ const SignUser = () => {
       router.push("/jobboard");
     } catch (err) {
       console.log(err);
+      alert("User already exists");
     }
   };
+
+
 
   return (
     <div className="hero h-[100vh] align-center lg:w-[50%]">

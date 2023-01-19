@@ -1,14 +1,7 @@
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-} from "firebase/auth";
-import { useAuthState } from "react-firebase-hooks/auth";
+
 import { useRouter } from "next/router";
-// import { initFirebase } from "../../firebase/firebaseApp";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 
 const LogUser = () => {
@@ -19,46 +12,25 @@ const LogUser = () => {
     password: "",
   });
 
-  const handleLogin = async (e: any) => {
-    e.preventDefault();
-    try {
-      await login(data.email, data.password);
+  useEffect(() => {
+    if (user) {
       router.push("/jobboard");
-    } catch (err) {
-      console.log(err);
     }
-    console.log(data);
+  }, [user]);
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    await login(data.email, data.password);
   };
 
-  // initFirebase();
-  // const provider = new GoogleAuthProvider();
-  // const auth = getAuth();
-  // const [user, loading] = useAuthState(auth);
-  // const router = useRouter();
+  const changeHandler = (e: any) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+  
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  
 
-  // if (user) {
-  //   router.push("/jobboard");
-  //   return <div>Loading...</div>;
-  // }
 
-  // const signIn = async () => {
-  //   const result = await signInWithPopup(auth, provider);
-  //   console.log(result.user);
-  // };
-
-  // const logOut = async () => {
-  //   signOut(auth)
-  //     .then(() => {
-  //       // Sign-out successful.
-  //     })
-  //     .catch((error) => {
-  //       // An error happened.
-  //     });
-  // };
 
   return (
     <div className="hero h-[100vh] lg:place-items-start">
@@ -80,7 +52,7 @@ const LogUser = () => {
 
               <div className="mt-8">
                 <div className="mt-6">
-                  <form action="#" method="POST" className="space-y-6">
+                  <form className="space-y-6" action="#" method="POST">
                     <div>
                       <label
                         htmlFor="email"
@@ -90,9 +62,7 @@ const LogUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
-                          onChange={(e: any) => {
-                            setData({ ...data, email: e.target.value });
-                          }}
+                          onChange={changeHandler}
                           value={data.email}
                           id="email"
                           name="email"
@@ -112,9 +82,7 @@ const LogUser = () => {
                       </label>
                       <div className="mt-1">
                         <input
-                          onChange={(e: any) => {
-                            setData({ ...data, password: e.target.value });
-                          }}
+                          onChange={changeHandler}
                           value={data.password}
                           id="password"
                           name="password"
@@ -126,15 +94,15 @@ const LogUser = () => {
                       </div>
                     </div>
                     <div>
-                      <Link href="/jobboard">
+                     
                         <button
-                          onClick={handleLogin}
+                          onClick={handleSubmit}
                           type="submit"
                           className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                           Login
                         </button>
-                      </Link>
+                     
                     </div>
 
                     <div className="flex items-center justify-center ">

@@ -1,4 +1,3 @@
-
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -20,17 +19,16 @@ const LogUser = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    await login(data.email, data.password);
+    try {
+      await login(data.email, data.password);
+    } catch (err) {
+      alert("Email or Password is incorrect");
+    }
   };
 
   const changeHandler = (e: any) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-  
-
-  
-
-
 
   return (
     <div className="hero h-[100vh] lg:place-items-start">
@@ -94,15 +92,13 @@ const LogUser = () => {
                       </div>
                     </div>
                     <div>
-                     
-                        <button
-                          onClick={handleSubmit}
-                          type="submit"
-                          className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        >
-                          Login
-                        </button>
-                     
+                      <button
+                        onClick={handleSubmit}
+                        type="submit"
+                        className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      >
+                        Login
+                      </button>
                     </div>
 
                     <div className="flex items-center justify-center ">

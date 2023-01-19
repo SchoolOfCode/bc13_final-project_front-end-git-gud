@@ -33,7 +33,7 @@ const LogUser = () => {
 
   return (
     <>
-      <LoginContainer title="Login account">
+     <LoginContainer title="Login account">
         <form className="space-y-6" action="#" method="POST">
           <div>
             <label
@@ -85,67 +85,6 @@ const LogUser = () => {
               Login
             </button>
           </div>
-
-        </div>
-        <div className="flex flex-1 flex-col py-12 sm:px-6 lg:flex-none lg:px-10 lg:glass">
-          <div className="mx-auto w-72 h-full max-w-sm lg:w-96  drop-shadow-2xl">
-            <div className="flex flex-col justify-between pb-14">
-              <h2 className="text-center mt-6 text-5xl font-bold tracking-tight text-gray-900">
-                Login
-              </h2>
-
-              <div className="mt-8">
-                <div className="mt-6">
-                  <form className="space-y-6" action="#" method="POST">
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Email address
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          onChange={changeHandler}
-                          value={data.email}
-                          id="email"
-                          name="email"
-                          type="email"
-                          autoComplete="email"
-                          required
-                          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <label
-                        htmlFor="password"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Password
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          onChange={changeHandler}
-                          value={data.password}
-                          id="password"
-                          name="password"
-                          type="password"
-                          autoComplete="current-password"
-                          required
-                          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <button
-                        onClick={handleSubmit}
-                        type="submit"
-                        className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                        Login
-                      </button>
-                    </div>
 
           <div className="flex items-center justify-center ">
             <div className="text-md w-full pl-2">

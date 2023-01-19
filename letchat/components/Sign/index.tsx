@@ -42,9 +42,17 @@ const SignUser = () => {
     <>
       <LoginContainer title="Create an account">
         <form onSubmit={submitHandler} className="space-y-3">
-          <div>
-            <label>Role:</label>
-            <select name="role" id="role" required onChange={changeHandler}>
+          <div className="flex items-center justify-between">
+            <label className="w-[60%]">
+              Would you like to register as a Tenant or Landlord?
+            </label>
+            <select
+              className="ml-6 w-[35%]"
+              name="role"
+              id="role"
+              required
+              onChange={changeHandler}
+            >
               <option value="">{null}</option>
               <option value="landlord">Landlord</option>
               <option value="tenant">Tenant</option>
@@ -161,7 +169,7 @@ const SignUser = () => {
           <div>
             <button
               type="submit"
-              className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="flex w-full  rounded-full justify-center border border-transparent bg-light-primary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Sign up
             </button>

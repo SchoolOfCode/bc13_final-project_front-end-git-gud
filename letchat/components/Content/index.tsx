@@ -29,7 +29,7 @@ const Content = ({ title, navigation, central }: ContentProps) => {
 
             <div className="hidden">{navigation}</div>
 
-            {/* <div className="w-1/2 ">{central}</div> */}
+            
           </div>
         </div>
           

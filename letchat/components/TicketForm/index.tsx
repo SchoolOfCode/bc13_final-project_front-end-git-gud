@@ -3,13 +3,38 @@ import { useState } from "react";
 const TicketForm = () => {
   const [ticket, setTicket] = useState({
     property_id: "",
-    request: "",
+    subject: "",
     message: "",
+    landlord_id: 1,
+    completed: false,
+    raised_by: "landlord",
+    tenant_id: 1,
   });
 
+  async function postNewTicket(ticket: {
+    property_id: string;
+    subject: string;
+    message: string;
+    landlord_id: number;
+    completed: boolean;
+    raised_by: string;
+    tenant_id: number;
+  }) {
+    fetch("http://localhost:3001/api/tickets/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(ticket),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
+
   function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
+    e.preventDefault(); // prevent page refresh
     console.log(ticket);
+    postNewTicket(ticket);
   }
 
   function handleChange(
@@ -34,7 +59,7 @@ const TicketForm = () => {
         </div>
         <div className="form-group mb-6">
           <input
-            name="request"
+            name="subject"
             onChange={handleChange}
             type="email"
             className="form-control block

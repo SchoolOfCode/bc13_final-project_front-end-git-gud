@@ -10,7 +10,8 @@ export type TicketObject = {
   id: number;
   property_id: number;
   tenant_id: number;
-  request: string;
+  subject: string;
+  message: string;
   completed: boolean;
   raised_by: string;
   first_name: string;
@@ -30,33 +31,30 @@ const TicketBoard = ({ completed }: CompletedProp) => {
     fetchTickets();
   }, []);
 
-  
-
   return (
     <div className="gap-3 overflow-y-scroll w-full flex flex-col items-center h-[60vh] text-black">
       {/* Map over tickets array, rendering each ticket */}
       {tickets.map((ticket: TicketObject) => {
+        // async function getLastMessage(id: number) {
+        //   let res = await fetch(`http://localhost:3001/api/messages/tickets/${id}`)
+        //   let data = await res.json();
+        //   let messageArrLength = await data.payload.length;
+        //   let lastMessageObj = await data.payload[messageArrLength - 1];
+        //   return lastMessageObj;
+        // }
 
-      // async function getLastMessage(id: number) {
-      //   let res = await fetch(`http://localhost:3001/api/messages/tickets/${id}`)
-      //   let data = await res.json();
-      //   let messageArrLength = await data.payload.length;
-      //   let lastMessageObj = await data.payload[messageArrLength - 1];
-      //   return lastMessageObj;
-      // }
-      
-      // async function getLastMessageText(id: number) {
-      //   let lastMessageObj = await getLastMessage(id);
-      //   let lastMessageText = await lastMessageObj.message;
-      //   return lastMessageText;
-      // }
+        // async function getLastMessageText(id: number) {
+        //   let lastMessageObj = await getLastMessage(id);
+        //   let lastMessageText = await lastMessageObj.message;
+        //   return lastMessageText;
+        // }
 
-      // function callGetLastMessageText(id: number) {
-      //   let lastMessageText = getLastMessageText(id);
-      //   return lastMessageText;
-      // }
+        // function callGetLastMessageText(id: number) {
+        //   let lastMessageText = getLastMessageText(id);
+        //   return lastMessageText;
+        // }
 
-      // let lastMessageText = callGetLastMessageText(ticket.id);
+        // let lastMessageText = callGetLastMessageText(ticket.id);
 
         return ticket.completed === completed ? (
           <Ticket
@@ -66,7 +64,8 @@ const TicketBoard = ({ completed }: CompletedProp) => {
             last_name={ticket.last_name}
             property_id={ticket.property_id}
             tenant_id={ticket.tenant_id}
-            request={ticket.request}
+            subject={ticket.subject}
+            message={ticket.message}
             raised_by={ticket.raised_by}
             completed={ticket.completed}
             // lastMessage={lastMessageText}
@@ -78,6 +77,3 @@ const TicketBoard = ({ completed }: CompletedProp) => {
 };
 
 export default TicketBoard;
-
-
-

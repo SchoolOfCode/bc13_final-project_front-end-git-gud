@@ -21,7 +21,7 @@ export default function Storage() {
       <main>
         <Container>
           {user.role == "landlord" ? (
-            <h1>Landlord: "{user.role}"</h1>
+            <h1>Landlord: "{user.firstname}"</h1>
           ) : (
             <h1>Tenant: "{user.role}"</h1>
           )}

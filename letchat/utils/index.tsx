@@ -93,9 +93,9 @@ type ContainerProps = {
 };
 export const HomeContainer = ({ title, description, link }: ContainerProps) => {
   return (
-    <div className="hero min-h-[80vh] flex align-center lg:w-[50%]">
-      <div className="hero-content mb-10 w-full">
-        <div className="flex items-center glass p-10 h-full flex-col text-black justify-around text-center lg:text-left ">
+    <div className="hero h-[100vh] justify-center flex  align-center lg:w-[50%]">
+      <div className="hero-content h-full w-full ">
+        <div className="flex items-center glass p-10 h-fit flex-col text-black justify-around text-center lg:text-left ">
           <h1 className="text-[5rem] font-bold lg:text-[8rem]">{title}</h1>
           <p className="text-justify text-[1rem] lg:text-[1.5rem] ">
             {description}

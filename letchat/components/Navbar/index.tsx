@@ -9,8 +9,8 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <div className="navbar relative min-h-[8rem] p-6 justify-center  ">
-      <div className=" navbar max-w-[2500px] absolute z-40  ">
+    <div className="navbar w-[100vw] relative min-h-[8rem] p-6 justify-center  ">
+      <div className=" navbar px-5 max-w-[2500px] absolute z-50  ">
         <div className="flex-1 pl-8">
           <a>
             <Image
@@ -25,17 +25,33 @@ const Navbar = () => {
         <div className="flex-1 justify-end h-20">
           {/* {This button needs to render when no user is logged in} */}
           {user ? (
-            <div className="dropdown dropdown-end">
-              <div>
-                <button
+            <div className="dropdown dropdown-end mr-2">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-12 rounded-full">
+                  <img src="https://placeimg.com/80/80/people" />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li
                   onClick={() => {
                     logout(), router.push("/login");
                   }}
-                  className="btn border-none w-35 h-10 bg-light-secondary hover:opacity-60 hover:bg-light-secondary text-black mr-6"
                 >
-                  Logout
-                </button>
-              </div>
+                  <a>Logout</a>
+                </li>
+              </ul>
             </div>
           ) : (
             <div className="dropdown dropdown-end">
@@ -48,32 +64,8 @@ const Navbar = () => {
               </div>
             </div>
           )}
-
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-12 rounded-full">
-                <img src="https://placeimg.com/80/80/people" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
         </div>
+
         {/* <div className="dropdown dropdown-end">
           <label tabIndex={0} className="lg:hidden btn btn-ghost">
             <RxHamburgerMenu />

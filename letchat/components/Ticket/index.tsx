@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import avatar from "../../public/assets/images/img_avatar.png";
 import Link from "next/link";
@@ -9,13 +10,12 @@ type TicketObjectProps = {
   key: number;
   property_id: number;
   tenant_id: number;
+  request: string;
   completed: boolean;
   raised_by: string;
   first_name: string;
   last_name: string;
-  date: string;
-  time: string;
-  // lastMessage: string;
+  // lastMessageText: promise<any>;
 };
 
 const Ticket = (ticket: TicketObjectProps) => {
@@ -30,7 +30,6 @@ const Ticket = (ticket: TicketObjectProps) => {
     console.log(ticketID);
   }
 
-  // let lastMessage: Promise<any> = ticket.getLastMessage(ticket.id);
 
   return (
     // Ticket
@@ -62,6 +61,9 @@ const Ticket = (ticket: TicketObjectProps) => {
         <Link href={`/jobboard/${ticket.id}`}>
           {" "}
           {/* Link to ticket messages page */}
+        <div>
+          <h3 className="font-bold">{ticket.request}</h3>
+        </div>
           <button className="bg-light-hot rounded-lg px-2 py-1 mt-2 float-right">
             Read more
           </button>
@@ -72,3 +74,4 @@ const Ticket = (ticket: TicketObjectProps) => {
   );
 };
 export default Ticket;
+

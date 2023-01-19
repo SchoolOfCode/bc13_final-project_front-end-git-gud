@@ -1,14 +1,43 @@
 import { useRouter } from "next/router";
-import messageData from "../../data/messageData";
-import { ChangeEvent, ChangeEventHandler, useState } from "react";
-import Link from "next/link";
-import { v4 as uuidv4 } from "uuid";
+import { ChangeEvent, useEffect, useState } from "react";
+
+type messageData = {
+  id: number;
+  user_id: string;
+  ticket_id: number;
+  user_role: string;
+  message: string;
+  time: string;
+  date: string;
+};
 
 export default function Messages() {
   const [input, setInput] = useState(""); // input state
-  const [messages, setMessages] = useState(messageData); // messages array state
+  const [messages, setMessages] = useState<messageData[]>([]); // messages array state
+  const [newMessage, setNewMessage] = useState(""); // new message
   const router = useRouter(); // get router object
   const { id } = router.query; // get id from router object
+
+  type newMessageObject = {
+    ticket_id: number;
+    user_id: number;
+    user_role: string;
+    message: string;
+  };
+
+  useEffect(() => {
+    const fetchMessages = async () => {
+      const res = await fetch(
+        `http://localhost:3001/api/messages/tickets/${id}`
+      );
+      const data = await res.json();
+      setMessages(data.payload);
+    };
+    function callFetchMessages() {
+      fetchMessages();
+    }
+    callFetchMessages();
+  }, [newMessage]);
 
   // handle input change, setting input state to the value of the input field
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,45 +53,33 @@ export default function Messages() {
 
   // create message object and add it to the messages array
   const handleClick = () => {
-    console.log(input);
     if (!input) return; // do nothing if input is empty
-    const today = new Date();
-
-    // get current date and time and save them in variables
-    const date =
-      today.getFullYear() +
-      "-" +
-      (today.getMonth() + 1) +
-      "-" +
-      today.getDate();
-
-    let minutes = today.getMinutes().toString();
-    if (minutes.length < 2) {
-      minutes = "0" + today.getMinutes();
-    }
-
-    const time = today.getHours() + ":" + minutes + ":" + today.getSeconds();
 
     // create new message object
     const newMessage = {
-      id: uuidv4(), // generate random id
-      ticketId: Number(id), // get ticketId from router object
-      user: "Jason Chalangary",
-      role: "landlord",
+      ticket_id: Number(id), // get ticketId from router object
+      user_id: 1,
+      user_role: "landlord",
       message: input,
-      date: date,
-      time: time,
     };
-    // add new message to the messages array
-    setMessages([...messages, newMessage]);
+    postNewMessage(newMessage);
+    // add new message
+    setNewMessage(newMessage.message);
     // clear input
     setInput("");
   };
 
-  // filter messages array to get messages with the same ticketId as the current ticket
-  const conversation = messages.filter(
-    (message) => message.ticketId == Number(id)
-  );
+  const postNewMessage = async (newMessage: newMessageObject) => {
+    const res = await fetch(`http://localhost:3001/api/messages/`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newMessage),
+    });
+    const data = await res.json();
+  };
 
   // render messages
   return (
@@ -73,13 +90,13 @@ export default function Messages() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="w-6 h-6 hover:text-light-primary"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
             />
           </svg>{" "}
@@ -87,15 +104,14 @@ export default function Messages() {
         </span>
       </a>
       <h2 className="mb-10 text-center text-black">Ticket ID: {id}</h2>
-      {/* Map over messages array, rendering each msg based on role */}
+      {/* Map over messages array, rendering each msg based on user_role */}
       <div className="flex flex-col gap-1 overflow-y-scroll h-[60vh] p-6">
-        {conversation.map((message, index) => {
-          // if message role is tenant, render chat bubble for tenant
-          if (message.role === "tenant") {
+        {messages.map((message, index) => {
+          // if message user_role is tenant, render chat bubble for tenant
+          if (message.user_role === "tenant") {
             return (
-              <>
-                {index === 0 ||
-                conversation[index - 1].date !== message.date ? (
+              <div key={message.id}>
+                {index === 0 || messages[index - 1].date !== message.date ? (
                   <span className="flex justify-center">
                     <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit">
                       {message.date}
@@ -103,23 +119,21 @@ export default function Messages() {
                   </span>
                 ) : null}
                 <div className="chat chat-start flex flex-col" key={message.id}>
-                  {index === 0 ||
-                  conversation[index - 1].user !== message.user ? (
-                    <p className="msg-info">{message.user}</p>
+                  {index === 0 || messages[index - 1].user_role !== message.user_role ? (
+                    <p className="msg-info">{message.user_id}</p>
                   ) : null}
                   <div className="chat-bubble bg-light-primary text-white">
                     {message.message}
                   </div>
                   <p className="msg-info">{message.time.slice(0, 5)}</p>
                 </div>
-              </>
+              </div>
             );
-            // if message role is landlord, render chat bubble for landlord
+            // if message user_role is landlord, render chat bubble for landlord
           } else {
             return (
-              <>
-                {index === 0 ||
-                conversation[index - 1].date !== message.date ? (
+              <div key={message.id}>
+                {index === 0 || messages[index - 1].date !== message.date ? (
                   <span className="flex justify-center">
                     <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit">
                       {message.date}
@@ -128,9 +142,8 @@ export default function Messages() {
                 ) : null}
 
                 <div className="chat chat-end flex flex-col" key={message.id}>
-                  {index === 0 ||
-                  conversation[index - 1].user !== message.user ? (
-                    <p className="msg-info">{message.user}</p>
+                  {index === 0 || messages[index - 1].user_role !== message.user_role ? (
+                    <p className="msg-info">{message.user_id}</p>
                   ) : null}
 
                   <div
@@ -141,7 +154,7 @@ export default function Messages() {
                   </div>
                   <p className="msg-info">{message.time.slice(0, 5)}</p>
                 </div>
-              </>
+              </div>
             );
           }
         })}

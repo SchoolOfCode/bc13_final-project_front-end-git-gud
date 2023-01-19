@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import avatar from "../../public/assets/images/img_avatar.png";
 import Link from "next/link";
@@ -10,7 +9,8 @@ type TicketObjectProps = {
   key: number;
   property_id: number;
   tenant_id: number;
-  request: string;
+  subject: string;
+  message: string;
   completed: boolean;
   raised_by: string;
   first_name: string;
@@ -30,7 +30,6 @@ const Ticket = (ticket: TicketObjectProps) => {
     console.log(ticketID);
   }
 
-
   return (
     // Ticket
     <article
@@ -49,9 +48,10 @@ const Ticket = (ticket: TicketObjectProps) => {
         {/* Ticket meta/info */}
         <div
           id="ticket-info"
-          className="flex flex-col text-right justify-right"
+          className="flex items-center text-right justify-right"
         >
-          <h5>Ticket #{ticket.id}</h5>
+          {/* <h5>Ticket #{ticket.id}</h5> */}
+          <h5 className="font-bold">{ticket.subject}</h5>
         </div>
       </header>
       {/* Ticket body */}
@@ -61,9 +61,9 @@ const Ticket = (ticket: TicketObjectProps) => {
         <Link href={`/jobboard/${ticket.id}`}>
           {" "}
           {/* Link to ticket messages page */}
-        <div>
-          <h3 className="font-bold">{ticket.request}</h3>
-        </div>
+          <div>
+            <p>{ticket.message}</p>
+          </div>
           <button className="bg-light-hot rounded-lg px-2 py-1 mt-2 float-right">
             Read more
           </button>
@@ -74,4 +74,3 @@ const Ticket = (ticket: TicketObjectProps) => {
   );
 };
 export default Ticket;
-

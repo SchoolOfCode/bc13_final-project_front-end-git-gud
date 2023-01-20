@@ -2,10 +2,12 @@ import { useRouter } from "next/router";
 
 type HamburgerMenuProps = {
   logout: () => void;
+  profile: string;
+  settings: string;
   path: string;
 };
 
-const HamburgerMenu = ({ logout, path }: HamburgerMenuProps) => {
+const HamburgerMenu = ({ logout, path ,profile, settings}: HamburgerMenuProps) => {
   const router = useRouter();
   return (
     <div className="flex justify-around items-center">
@@ -40,12 +42,16 @@ const HamburgerMenu = ({ logout, path }: HamburgerMenuProps) => {
           className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-light-hot rounded-box w-52"
         >
           <li className="hover:bg-light-tertiary font-bold">
-            <a className="justify-between">
+            <a className="justify-between" onClick={() => {
+               router.push(`/${profile}`);
+            }}>
               Profile
               <span className="badge bg-light-primary text-light-hot">New</span>
             </a>
           </li>
-          <li className="hover:bg-light-tertiary font-bold">
+          <li className="hover:bg-light-tertiary font-bold" onClick={() => {
+             router.push(`/${settings}`);
+            }}>
             <a>Settings</a>
           </li>
           <li

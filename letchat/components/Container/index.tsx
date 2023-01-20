@@ -27,7 +27,7 @@ const Container = ({ children, logo, images }: ContainerProps) => {
         <Navbar />
         <div
           id="children"
-          className="container h-full max-w-[2560px] relative z-40 overflow-hidden"
+          className="container h-full max-w-[2560px] relative z-40  overflow-hidden"
         >
           {children}
         </div>

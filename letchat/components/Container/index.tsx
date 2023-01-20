@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Bubbles from "../Bubbles";
+import Footer from "../Footer";
 import Navbar from "../Navbar";
 
 type ContainerProps = {
@@ -18,15 +19,15 @@ const Container = ({ children, logo, images }: ContainerProps) => {
   }, [logo, images]);
 
   return (
-    <div className="container min-h-[100vh] min-w-[100vw] bg-black flex flex-col items-center justify-center ">
+    <div className="container min-h-[80vh] min-w-[100vw] bg-black flex flex-col items-center justify-center ">
       <div
         id="container"
-        className="container h-full bg-light-light max-w-[2560px] relative overflow-hidden"
+        className="container min-h-[100vh] bg-light-light max-w-[2560px] relative overflow-hidden"
       >
         <Navbar />
         <div
           id="children"
-          className="container min-h-full max-w-[2560px] relative z-40 overflow-hidden"
+          className="container h-full max-w-[2560px] relative z-40  overflow-hidden"
         >
           {children}
         </div>

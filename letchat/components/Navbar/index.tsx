@@ -1,75 +1,74 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { RxHamburgerMenu } from "react-icons/rx";
+import styles from "../../styles/Navbar.module.css";
+
 import { useAuth } from "../../context/AuthContext";
+import HamburgerMenu from "../HamburgerMenu";
+
+type NavLinkProps = {
+  path: string;
+  title: string;
+};
+
+const NavLink = ({ path, title }: NavLinkProps) => {
+  return (
+    <>
+      <li className="flex justify-center items-center">
+        <Link
+          href={`/${path}`}
+          className={`${styles.listLink} mr-5 hidden md:flex mt-4 text-md uppercase`}
+        >
+          {title}
+        </Link>
+      </li>
+    </>
+  );
+};
 
 const Navbar = () => {
-  const { user, logout, login } = useAuth();
-  const router = useRouter();
+  const { user, logout } = useAuth();
 
   return (
-    <div className="navbar w-[100vw] relative min-h-[8rem] p-6 justify-center  ">
-      <div className=" navbar px-5 max-w-[2500px] absolute z-50  ">
-        <div className="flex-1 pl-8">
-          <a>
-            <Image
-              src="/assets/images/letchatLogo.png"
-              alt="LetChat logo"
-              height={80}
-              width={80}
-              className=" bg-light-primary w-20 h-20 border-none hover:opacity-60 hover:bg-light-primary rounded-full"
+    <div className="navbar w-[100vw] sticky z-50  p-6">
+      <a>
+        <Image
+          src="/assets/images/letchatLogo.png"
+          alt="LetChat logo"
+          height={100}
+          width={100}
+          className=" bg-light-primary min-w-[4rem] min-h-[4rem] border-none hover:opacity-60 hover:bg-light-primary rounded-full"
+        />
+      </a>
+      <div className="flex-1 justify-end h-20">
+        {/* {This button needs to render when no user is logged in} */}
+        {user ? (
+          <div className="flex justify-between items-center absolute z-40">
+            <ul className="flex  mr-8">
+              <NavLink path={""} title={"Home"} />
+              <NavLink path={"jobboard"} title={"Job Board"} />
+              <NavLink path={"storage"} title={"File Storage"} />
+            </ul>
+            <HamburgerMenu
+              profile={"profile"}
+              settings={"settings"}
+              path={"login"}
+              logout={logout}
             />
-          </a>
-        </div>
-        <div className="flex-1 justify-end h-20">
-          {/* {This button needs to render when no user is logged in} */}
-          {user ? (
-            <div className="dropdown dropdown-end mr-2">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-12 rounded-full">
-                  <img src="https://placeimg.com/80/80/people" />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li
-                  onClick={() => {
-                    logout(), router.push("/login");
-                  }}
-                >
-                  <a>Logout</a>
-                </li>
-              </ul>
+          </div>
+        ) : (
+          <div className="dropdown dropdown-end">
+            <div>
+              <Link href="/login">
+                <button className="btn border-none w-35 h-10 bg-light-secondary hover:opacity-60 hover:bg-light-secondary text-black mr-6">
+                  Login
+                </button>
+              </Link>
             </div>
-          ) : (
-            <div className="dropdown dropdown-end">
-              <div>
-                <Link href="/login">
-                  <button className="btn border-none w-35 h-10 bg-light-secondary hover:opacity-60 hover:bg-light-secondary text-black mr-6">
-                    Login
-                  </button>
-                </Link>
-              </div>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
+      </div>
 
-        {/* <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="lg:hidden btn btn-ghost">
-            <RxHamburgerMenu />
-          </label>
+      {/* <div className="dropdown dropdown-end">
           <ul
             tabIndex={0}
             className="g-2 flex flex-col menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-screen h-screen align-center justify-center"
@@ -96,7 +95,6 @@ const Navbar = () => {
             </div>
           </ul>
         </div> */}
-      </div>
     </div>
   );
 };

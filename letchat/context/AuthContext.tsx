@@ -9,6 +9,7 @@ import {
   signOut,
   getAuth,
 } from "firebase/auth";
+import { useRouter } from "next/router";
 
 const auth = getAuth(firebaseApp);
 
@@ -25,13 +26,14 @@ export const AuthContextProvider = ({
 }) => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       const getRole = async (uid: string) => {
         const userRef = doc(firestoreDB, `users/${uid}`);
         const docSnap = await getDoc(userRef);
-        console.log(user);
+
         if (docSnap.exists()) {
           return docSnap.data();
         } else {
@@ -50,6 +52,16 @@ export const AuthContextProvider = ({
         setUser(null);
       }
       setLoading(false);
+
+      if (user) {
+        if (!user.emailVerified) {
+          logout();
+          router.push("/login");
+          alert("Please authenticate your account.");
+        }
+      } else {
+        setUser(null);
+      }
     });
 
     return unsubscribe;

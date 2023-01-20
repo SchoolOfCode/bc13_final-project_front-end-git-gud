@@ -1,27 +1,70 @@
-import burger from "./burger-bar.png"
-import Image from "next/image";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { useRouter } from "next/router";
 
+type HamburgerMenuProps = {
+  logout: () => void;
+  profile: string;
+  settings: string;
+  path: string;
+};
 
-
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ logout, path ,profile, settings}: HamburgerMenuProps) => {
+  const router = useRouter();
   return (
-    <div className="drawer drawer-end">
-    <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-    <div className="drawer-content">
-      <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary text-3xl"><RxHamburgerMenu/></label>
-    </div> 
-    <div className="drawer-side">
-      <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-full h-full bg-base-100 text-base-content flex flex-wrap flex-row items-center">
-          {/* <!-- Sidebar content here --> */}
-          <li className="h-16 inline-flex w-2/5"><a>Documents</a></li>
-          <li className="h-16 inline-flex w-2/5"><a>Dashboard</a></li>
-          <li className="h-16 inline-flex w-2/5"><a>Placeholder</a></li>
-          <li className="h-16 inline-flex w-2/5"><a>Tools and Guides</a></li>
+    <div className="flex justify-around items-center">
+      <div className="hidden md:avatar">
+        <img
+          src="https://placeimg.com/80/80/people"
+          alt="Picture Profile"
+          className="cursor-pointer bg-light-primary object-scale-down min-h-[5rem] min-w-[5rem]  border-none hover:opacity-60 hover:bg-light-primary rounded-full"
+        />
+      </div>
+      <div className="dropdown dropdown-end md:mx-4 ">
+        <button
+          tabIndex={0}
+          className="btn btn-square btn-ghost bg-light-secondary opacity-60 hover:bg-light-primary"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            className="inline-block w-5 h-5 stroke-current"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+        <ul
+          tabIndex={0}
+          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-light-hot rounded-box w-52"
+        >
+          <li className="hover:bg-light-tertiary font-bold">
+            <a className="justify-between" onClick={() => {
+               router.push(`/${profile}`);
+            }}>
+              Profile
+              <span className="badge bg-light-primary text-light-hot">New</span>
+            </a>
+          </li>
+          <li className="hover:bg-light-tertiary font-bold" onClick={() => {
+             router.push(`/${settings}`);
+            }}>
+            <a>Settings</a>
+          </li>
+          <li
+            className="hover:bg-light-tertiary font-bold"
+            onClick={() => {
+              logout(), router.push(`/${path}`);
+            }}
+          >
+            <a>Logout</a>
+          </li>
         </ul>
+      </div>
     </div>
-  </div>
-  )
+  );
 };
 export default HamburgerMenu;

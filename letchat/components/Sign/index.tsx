@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { SocialGrid } from "../../utils";
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
+import { LoginContainer } from "../../utils";
 
 const SignUser = () => {
   const [data, setData] = useState({
@@ -34,173 +34,159 @@ const SignUser = () => {
       router.push("/jobboard");
     } catch (err) {
       console.log(err);
+      alert("User already exists");
     }
   };
 
   return (
-    <div className="hero h-[100vh] align-center lg:w-[50%]">
-      <div className="hero-content h-full lg:h-[65%] lg:mb-[25%] w-full ">
-        <div className="flex h-full border-slate-800 border-4  flex-col justify-around  w-[98%] drop-shadow-lg rounded-t-[20%] lg:drop-shadow-none lg:w-full lg:border-none bg-light-light lg:bg-transparent">
-          <div className="flex items-center justify-center mt-4 lg:hidden">
-            <div className="w-5 h-5 rounded-full bg-slate-600 flex justify-center items-center">
-              <div className="w-1 h-1 rounded-full bg-slate-300 "></div>
+    <>
+      <LoginContainer title="Create an account">
+        <form onSubmit={submitHandler} className="space-y-3">
+          <div className="flex items-center justify-between">
+            <label className="w-[60%]">
+              Would you like to register as a Tenant or Landlord?
+            </label>
+            <select
+              className="ml-6 w-[35%]"
+              name="role"
+              id="role"
+              required
+              onChange={changeHandler}
+            >
+              <option value="">{null}</option>
+              <option value="landlord">Landlord</option>
+              <option value="tenant">Tenant</option>
+            </select>
+          </div>
+          <div className="space-y-1">
+            <label
+              htmlFor="firstname"
+              className="block text-sm font-medium text-gray-700"
+            >
+              First Name:
+            </label>
+            <div className="mt-1">
+              <input
+                placeholder="First Name"
+                onChange={changeHandler}
+                value={data.firstname}
+                id="firstname"
+                name="firstname"
+                type="firstname"
+                autoComplete="current-name"
+                required
+                className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              />
             </div>
-            <div className="w-32 h-5 rounded-full bg-slate-600 ml-3 flex justify-center items-center">
-              <div className="w-28 h-1 rounded-full bg-slate-300"></div>
+          </div>
+          <div className="space-y-1">
+            <label
+              htmlFor="surname"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Surname:
+            </label>
+            <div className="mt-1">
+              <input
+                placeholder="Surname"
+                onChange={changeHandler}
+                value={data.surname}
+                id="surname"
+                name="surname"
+                type="surname"
+                autoComplete="current-surname"
+                required
+                className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <div className="space-y-1">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Contact Number:
+            </label>
+            <div className="mt-0">
+              <input
+                placeholder="Contact Number (e.g. 07777777777)"
+                onChange={changeHandler}
+                value={data.phonenumber}
+                id="phonenumber"
+                name="phonenumber"
+                type="phonenumber"
+                autoComplete="current-phonenumber"
+                pattern="^(?:(?:\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3}|\d{11})$"
+                required
+                className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              />
             </div>
           </div>
 
-          <div className="mx-auto p-6 flex justify-start flex-1 flex-col w-[95%] h-full lg:glass lg:w-[80%]  drop-shadow-2xl">
-            <div className="flex flex-col h-full justify-center">
-              <div>
-                <h2 className="text-center mt-0 text-3xl font-bold tracking-tight text-gray-900">
-                  Create an account
-                </h2>
-              </div>
-
-              <div>
-                <div className="mt-6">
-                  <form onSubmit={submitHandler} className="space-y-3">
-                    <div>
-                      <label>Role:</label>
-                      <select
-                        name="role"
-                        id="role"
-                        required
-                        onChange={changeHandler}
-                      >
-                        <option value="">{null}</option>
-                        <option value="landlord">Landlord</option>
-                        <option value="tenant">Tenant</option>
-                      </select>
-                    </div>
-                    <div className="space-y-1">
-                      <label
-                        htmlFor="firstname"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        First Name:
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          onChange={changeHandler}
-                          value={data.firstname}
-                          id="firstname"
-                          name="firstname"
-                          type="firstname"
-                          autoComplete="current-name"
-                          required
-                          className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Surname:
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          onChange={changeHandler}
-                          value={data.surname}
-                          id="surname"
-                          name="surname"
-                          type="surname"
-                          autoComplete="current-surname"
-                          required
-                          className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Contact Number:
-                      </label>
-                      <div className="mt-0">
-                        <input
-                          onChange={changeHandler}
-                          value={data.phonenumber}
-                          id="phonenumber"
-                          name="phonenumber"
-                          type="phonenumber"
-                          autoComplete="current-phonenumber"
-                          required
-                          className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Email address
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          onChange={changeHandler}
-                          value={data.email}
-                          id="email"
-                          name="email"
-                          type="email"
-                          autoComplete="email"
-                          required
-                          className="block w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <label
-                        htmlFor="password"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Password
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          onChange={changeHandler}
-                          value={data.password}
-                          id="password"
-                          name="password"
-                          type="password"
-                          autoComplete="current-password"
-                          required
-                          className="block w-full text-black  appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <button
-                        type="submit"
-                        className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                        Sign up
-                      </button>
-                    </div>
-
-                    <div className="flex items-center justify-center ">
-                      <div className="text-md w-full text-center">
-                        <p className="font-medium text-gray-900 tracking-wide">
-                          <span className="text-light-primary hover:text-light-primary underline">
-                            <a>Forgot your password?</a>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email address
+            </label>
+            <div className="mt-1">
+              <input
+                placeholder="Email address"
+                onChange={changeHandler}
+                value={data.email}
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required
+                className="block w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+          <div className="space-y-1">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
+            <div className="mt-1">
+              <input
+                placeholder="Password"
+                onChange={changeHandler}
+                value={data.password}
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                required
+                className="block w-full text-black  appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <div>
+            <button
+              type="submit"
+              className="flex w-full  rounded-full justify-center border border-transparent bg-light-primary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              Sign up
+            </button>
+          </div>
+
+          <div className="flex items-center justify-center ">
+            <div className="text-md w-full text-center">
+              <p className="font-medium text-gray-900 tracking-wide">
+                <span className="text-light-primary hover:text-light-primary underline">
+                  <a>Forgot your password?</a>
+                </span>
+              </p>
+            </div>
+          </div>
+        </form>
+      </LoginContainer>
+    </>
   );
 };
 

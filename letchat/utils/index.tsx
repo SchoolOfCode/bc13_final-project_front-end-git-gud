@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export const SocialGrid = () => {
   return (
     <div className="mt-1 grid grid-cols-3 gap-3">
@@ -85,25 +87,42 @@ export const Card = ({ children, primary, secondary, title }: CardProps) => {
   );
 };
 
-type ContainerProps = {
+
+type LoginProps = {
   title?: string;
-  description?: string;
-  // path is a link to the page you want to navigate to with Link
-  link?: React.ReactNode;
+  children?: React.ReactNode;
 };
-export const HomeContainer = ({ title, description, link }: ContainerProps) => {
+import styles from '../styles/Main.module.css'
+export const LoginContainer = ({ title, children }: LoginProps) => {
   return (
-    <div className="hero h-[100vh] justify-center flex  align-center lg:w-[50%]">
-      <div className="hero-content h-full w-full ">
-        <div className="flex items-center glass p-10 h-fit flex-col text-black justify-around text-center lg:text-left ">
-          <h1 className="text-[5rem] font-bold lg:text-[8rem]">{title}</h1>
-          <p className="text-justify text-[1rem] lg:text-[1.5rem] ">
-            {description}
-          </p>
-          <div className="mt-10 px-5 w-[15rem] lg:w-full">
-            <button className="btn w-full  text-2xl tracking-wider rounded-full text-black hover:bg-light-secondary hover:opacity-70 active:bg-light-hot bg-light-secondary  lg:text-white lg:hover:bg-light-primary lg:hover:opacity-70 lg:active:bg-light-hot lg:bg-light-primary ">
-              {link}
-            </button>
+    <div className="hero h-[100vh] align-center lg:w-[50%]">
+      <div className="hero-content h-full lg:h-[65%] lg:mb-[25%] w-full ">
+        <div className="flex h-full border-slate-800 border-4  flex-col justify-around  w-[98%] drop-shadow-lg rounded-t-[20%] lg:drop-shadow-none lg:w-full lg:border-none bg-light-light lg:bg-transparent">
+          <div className="flex items-center justify-center mt-4 lg:hidden">
+            <div className="w-5 h-5 rounded-full bg-slate-600 flex justify-center items-center">
+              <div className="w-1 h-1 rounded-full bg-slate-300 "></div>
+            </div>
+            <div className="w-32 h-5 rounded-full bg-slate-600 ml-3 flex justify-center items-center">
+              <div className="w-28 h-1 rounded-full bg-slate-300"></div>
+            </div>
+          </div>
+          <div className='flex w-full justify-center'>
+          <h1 className={`${styles.title} ${styles.underlined}`}><span className={`${styles.underlined}`}>Let</span><span className={`${styles.underlined} ${styles.underlineMask}`}>Chat</span></h1>
+          </div>
+          
+
+          <div className="mx-auto p-6 flex justify-start flex-1 flex-col w-[95%] h-full lg:glass lg:w-[80%]  drop-shadow-2xl">
+            <div className="flex flex-col h-full justify-center">
+              <div>
+                <h2 className="text-center mb-12 text-4xl font-bold tracking-tight text-gray-900">
+                  {title}
+                </h2>
+              </div>
+
+              <div>
+                <div className="mt-6">{children}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -111,5 +130,33 @@ export const HomeContainer = ({ title, description, link }: ContainerProps) => {
   );
 };
 
+type CardContainerProps = {
+  firstname?: string;
+  surname?: string;
+  phonenumber?: string;
+  email?: string;
+};
 
-
+export const CardContainer = ({
+  firstname,
+  surname,
+  phonenumber,
+  email,
+}: CardContainerProps) => {
+  return (
+    <div className="invisible lg:visible flex-row ml-10  max-w-[25%]   ">
+      <div className=" bg-light-primary rounded-tl-2xl rounded-tr-2xl bg-opacity-90 shadow-lg shadow-black px-10">
+        <h2 className="md:text-[30px] text-center bold uppercase text-[50px]">
+          <p>
+            {firstname} {surname}
+          </p>
+        </h2>
+      </div>
+      <div className="md:text-[20px] flex-col bg-light-primary text-center rounded-bl-2xl rounded-br-2xl bg-opacity-50 bold uppercase px-10">
+        <p className="text-[20px] py-4">Status: Online</p>
+        <p className="text-[20px] py-2">Contact no: {phonenumber}</p>
+        <p className="text-[15px] py-4">Email: {email}</p>
+      </div>
+    </div>
+  );
+};

@@ -9,13 +9,13 @@ type TicketObjectProps = {
   key: number;
   property_id: number;
   tenant_id: number;
+  subject: string;
+  message: string;
   completed: boolean;
   raised_by: string;
   first_name: string;
   last_name: string;
-  date: string;
-  time: string;
-  // lastMessage: string;
+  // lastMessageText: promise<any>;
 };
 
 const Ticket = (ticket: TicketObjectProps) => {
@@ -29,8 +29,6 @@ const Ticket = (ticket: TicketObjectProps) => {
     let ticketID = Number(ticketIDText.match(/[0-9]/g));
     console.log(ticketID);
   }
-
-  // let lastMessage: Promise<any> = ticket.getLastMessage(ticket.id);
 
   return (
     // Ticket
@@ -50,9 +48,10 @@ const Ticket = (ticket: TicketObjectProps) => {
         {/* Ticket meta/info */}
         <div
           id="ticket-info"
-          className="flex flex-col text-right justify-right"
+          className="flex items-center text-right justify-right"
         >
-          <h5>Ticket #{ticket.id}</h5>
+          {/* <h5>Ticket #{ticket.id}</h5> */}
+          <h5 className="font-bold">{ticket.subject}</h5>
         </div>
       </header>
       {/* Ticket body */}
@@ -62,6 +61,9 @@ const Ticket = (ticket: TicketObjectProps) => {
         <Link href={`/jobboard/${ticket.id}`}>
           {" "}
           {/* Link to ticket messages page */}
+          <div>
+            <p>{ticket.message}</p>
+          </div>
           <button className="bg-light-hot rounded-lg px-2 py-1 mt-2 float-right">
             Read more
           </button>

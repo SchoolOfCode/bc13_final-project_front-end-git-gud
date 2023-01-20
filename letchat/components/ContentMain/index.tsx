@@ -9,9 +9,9 @@ export const ContentMain = ({ title, description, link }: ContainerProps) => {
   return (
     <div className="hero h-[100vh] justify-center flex  align-center lg:w-[50%]">
       
-        <div className=" hero-content flex items-center glass min-h-[60%] p-10 h-fit flex-col text-black justify-around text-center lg:text-left mb-16 ">
+        <div className=" hero-content flex items-center glass min-h-[70%] p-10 h-fit flex-col text-black justify-around text-center lg:text-left mb-16 ">
         <h1 className={`${styles.title} ${styles.underlined}`}><span className={`${styles.underlined}`}>Let</span><span className={`${styles.underlined} ${styles.underlineOverflow}`}>Chat</span></h1>
-          <p className="text-justify text-[1rem] lg:text-[1.5rem] ">
+          <p className="text-justify text-[1.5rem]  ">
             {description}
           </p>
           <div className="mt-10 px-5 w-[15rem] lg:w-full">

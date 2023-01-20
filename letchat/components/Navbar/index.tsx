@@ -32,11 +32,11 @@ const Navbar = () => {
     <div className="navbar w-[100vw] sticky z-50  p-6">
       <a>
         <Image
-          src="/assets/images/letchatLogo.png"
+          src={"/assets/images/letchatLogov2.png"}
           alt="LetChat logo"
-          height={100}
-          width={100}
-          className=" bg-light-primary min-w-[4rem] min-h-[4rem] border-none hover:opacity-60 hover:bg-light-primary rounded-full"
+          height={80}
+          width={80}
+          className=" min-w-[4rem] min-h-[4rem] border-none hover:opacity-60 hover:bg-light-primary"
         />
       </a>
       <div className="flex-1 justify-end h-20">

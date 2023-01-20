@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
+
 import { ChangeEvent, useEffect, useState, useRef } from "react";
+
 import { useAuth } from "../../context/AuthContext";
 
 type messageData = {
@@ -41,6 +43,18 @@ export default function Messages() {
   };
 
   useEffect(() => {
+
+    const fetchMessages = async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/tickets/${id}`
+      );
+      const data = await res.json();
+      setMessages(data.payload);
+    };
+    function callFetchMessages() {
+      fetchMessages();
+    }
+
     callFetchMessages();
   }, [newMessage]);
 

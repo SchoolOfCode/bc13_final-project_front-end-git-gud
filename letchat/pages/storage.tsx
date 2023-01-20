@@ -1,15 +1,16 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
-import Navbar from "../components/Navbar";
-import Container from "../components/Container";
 import { useAuth } from "../context/AuthContext";
-import { Card, CardContainer } from "../utils";
+import { CardContainer } from "../utils";
+import Content from "../components/Content";
+import NavigationPoint from "../components/NavigationPoint";
+import Tabs from "../components/Tabs";
+import NewsFeed from "../components/NewsFeed";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Storage() {
-  const { user, logout, login } = useAuth();
+  const { user } = useAuth();
 
   return (
     <>
@@ -20,19 +21,23 @@ export default function Storage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Container>
-          <CardContainer
+        
+        
+        <Content
+          title={"Storage"}
+          navigation={<NavigationPoint />}
+          newsfeed={<NewsFeed title={'News Feed'}/>}
+          central={<Tabs />}
+          profile={ <CardContainer
             firstname={user.firstname}
             surname={user.surname}
             phonenumber={user.phonenumber}
             email={user.email}
-          />
-          {user.role == "landlord" ? (
-            <h1>Landlord: "{user.firstname}"</h1>
-          ) : (
-            <h1>Tenant: "{user.role}"</h1>
-          )}
-        </Container>
+          />}
+        />
+    
+          
+       
       </main>
     </>
   );

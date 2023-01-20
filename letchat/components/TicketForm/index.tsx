@@ -25,7 +25,9 @@ const TicketForm = () => {
     raised_by: string;
     tenant_id: number;
   }) {
-    fetch(`${process.env.BACKEND_URL}/api/tickets/`, {
+
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/`, {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",

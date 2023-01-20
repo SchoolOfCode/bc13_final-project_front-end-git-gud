@@ -13,7 +13,7 @@ const Content = ({ title, navigation, central }: ContentProps) => {
   return (
     <>
       <Container>
-        <div className="hero min-h-[70vh] lg:place-items-center">
+        <div className="hero min-h-[75vh] lg:place-items-center">
           <div className="container h-full relative">
             <div className="text-center">
               <h1 className="text-black">{title}</h1>

@@ -33,7 +33,7 @@ export const AuthContextProvider = ({
       const getRole = async (uid: string) => {
         const userRef = doc(firestoreDB, `users/${uid}`);
         const docSnap = await getDoc(userRef);
-        console.log(user);
+
         if (docSnap.exists()) {
           return docSnap.data();
         } else {
@@ -54,7 +54,6 @@ export const AuthContextProvider = ({
       setLoading(false);
 
       if (user) {
-        setUser(user);
         if (!user.emailVerified) {
           logout();
           router.push("/login");

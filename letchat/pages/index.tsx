@@ -25,10 +25,12 @@ export default function Home() {
       <main>
         <Container logo={true}>
           {!login ? (
+
             <ContentMain
               link={<Link href="/sign">Sign up</Link>}
               description="The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls."
             />
+
           ) : (
             //redirect to login page
 

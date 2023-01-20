@@ -1,4 +1,3 @@
-
 import { useRouter } from "next/router";
 
 type HamburgerMenuProps = {
@@ -9,22 +8,19 @@ type HamburgerMenuProps = {
 const HamburgerMenu = ({ logout, path }: HamburgerMenuProps) => {
   const router = useRouter();
   return (
-    <>
-     <div className="avatar mr-5 ">
-          <div className="w-14 rounded-full cursor-pointer">
-            <img
-              src="https://placeimg.com/80/80/people"
-              alt="Picture Profile"
-              height={100}
-              width={100}
-              className=" bg-light-primary w-20 h-20 border-none hover:opacity-60 hover:bg-light-primary rounded-full"
-            />
-          </div>
-        </div>
-      <div className="dropdown dropdown-end mr-6 flex items-center justify-between ">
-       
-
-        <button tabIndex={0} className="btn btn-square btn-ghost bg-light-secondary opacity-60 hover:bg-light-primary">
+    <div className="flex justify-around items-center">
+      <div className="hidden md:avatar">
+        <img
+          src="https://placeimg.com/80/80/people"
+          alt="Picture Profile"
+          className="cursor-pointer bg-light-primary object-scale-down min-h-[5rem] min-w-[5rem]  border-none hover:opacity-60 hover:bg-light-primary rounded-full"
+        />
+      </div>
+      <div className="dropdown dropdown-end md:mx-4 ">
+        <button
+          tabIndex={0}
+          className="btn btn-square btn-ghost bg-light-secondary opacity-60 hover:bg-light-primary"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -62,9 +58,7 @@ const HamburgerMenu = ({ logout, path }: HamburgerMenuProps) => {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 export default HamburgerMenu;
-
-

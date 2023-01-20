@@ -2,13 +2,13 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import { useState } from "react";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+
 
 import {  NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 import Container from "../components/Container";
-import { HomeContainer } from "../utils";
+import ContentMain from "../components/ContentMain";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +29,7 @@ export default function Home() {
 
         <Container logo={true} images={true}>
           {!login ? (
-            <HomeContainer link={<Link href="/login">Login</Link>} title="LetChat" description="The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls."/>
+            <ContentMain link={<Link href="/login">Login</Link>}  description="The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls."/>
       
           ) : (
            //redirect to login page

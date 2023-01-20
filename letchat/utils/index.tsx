@@ -85,37 +85,12 @@ export const Card = ({ children, primary, secondary, title }: CardProps) => {
   );
 };
 
-type ContainerProps = {
-  title?: string;
-  description?: string;
-  // path is a link to the page you want to navigate to with Link
-  link?: React.ReactNode;
-};
-export const HomeContainer = ({ title, description, link }: ContainerProps) => {
-  return (
-    <div className="hero h-[100vh] justify-center flex  align-center lg:w-[50%]">
-      <div className="hero-content h-full w-full ">
-        <div className="flex items-center glass p-10 h-fit flex-col text-black justify-around text-center lg:text-left ">
-          <h1 className="text-[5rem] font-bold lg:text-[8rem]">{title}</h1>
-          <p className="text-justify text-[1rem] lg:text-[1.5rem] ">
-            {description}
-          </p>
-          <div className="mt-10 px-5 w-[15rem] lg:w-full">
-            <button className="btn w-full  text-2xl tracking-wider rounded-full text-black hover:bg-light-secondary hover:opacity-70 active:bg-light-hot bg-light-secondary  lg:text-white lg:hover:bg-light-primary lg:hover:opacity-70 lg:active:bg-light-hot lg:bg-light-primary ">
-              {link}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 type LoginProps = {
   title?: string;
   children?: React.ReactNode; 
 };
-
+import styles from '../styles/Main.module.css'
 export const LoginContainer = ({ title, children }: LoginProps) => {
   return (
     <div className="hero h-[100vh] align-center lg:w-[50%]">
@@ -129,11 +104,15 @@ export const LoginContainer = ({ title, children }: LoginProps) => {
               <div className="w-28 h-1 rounded-full bg-slate-300"></div>
             </div>
           </div>
+          <div className='flex w-full justify-center'>
+          <h1 className={`${styles.title} ${styles.underlined}`}><span className={`${styles.underlined}`}>Let</span><span className={`${styles.underlined} ${styles.underlineMask}`}>Chat</span></h1>
+          </div>
+          
 
           <div className="mx-auto p-6 flex justify-start flex-1 flex-col w-[95%] h-full lg:glass lg:w-[80%]  drop-shadow-2xl">
             <div className="flex flex-col h-full justify-center">
               <div>
-                <h2 className="text-center mt-0 text-3xl font-bold tracking-tight text-gray-900">
+                <h2 className="text-center mb-12 text-4xl font-bold tracking-tight text-gray-900">
                   {title}
                 </h2>
               </div>

@@ -22,12 +22,12 @@ const Container = ({ children, logo, images }: ContainerProps) => {
     <div className="container min-h-[80vh] min-w-[100vw] bg-black flex flex-col items-center justify-center ">
       <div
         id="container"
-        className="container h-full bg-light-light max-w-[2560px] relative overflow-hidden"
+        className="container min-h-[100vh] bg-light-light max-w-[2560px] relative overflow-hidden"
       >
         <Navbar />
         <div
           id="children"
-          className="container min-h-[80vh] max-w-[2560px] relative z-40 overflow-hidden"
+          className="container h-full max-w-[2560px] relative z-40 overflow-hidden"
         >
           {children}
         </div>

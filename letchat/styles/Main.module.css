@@ -1,6 +1,6 @@
 .title {
   font-size: clamp(3rem, 15vmin, 8rem);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: hsl(0 0% 98%);
 }
 
@@ -29,7 +29,6 @@
   );
 }
 
-
 .underlineOverflow:after {
   content: "";
   position: absolute;
@@ -48,17 +47,4 @@
     white 0 var(--spread),
     transparent var(--spread)
   );
-}
-
-
-
-@media screen and (min-width: 768px) {
-  .underlineMask:hover:after {
-    --spread: 360deg;
-    --start: 0deg;
-    transition: all 0.5s ease;
-    transform: translate(-80%, 5%);
-    width: 130%;
-  }
-  
 }

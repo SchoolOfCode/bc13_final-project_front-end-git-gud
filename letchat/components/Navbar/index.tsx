@@ -44,7 +44,7 @@ const Navbar = () => {
         {user ? (
           <div className="flex justify-between items-center absolute z-40">
             <ul className="flex  mr-8">
-              <NavLink path={""} title={"Home"} />
+              <NavLink path={"jobboard"} title={"Home"} />
               <NavLink path={"jobboard"} title={"Job Board"} />
               <NavLink path={"storage"} title={"File Storage"} />
             </ul>

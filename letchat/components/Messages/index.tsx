@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState, useRef } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 type messageData = {
   id: number;
@@ -12,6 +13,8 @@ type messageData = {
 };
 
 export default function Messages() {
+  const { user } = useAuth();
+
   const [input, setInput] = useState(""); // input state
   const [messages, setMessages] = useState<messageData[]>([]); // messages array state
   const [newMessage, setNewMessage] = useState(""); // new message
@@ -25,17 +28,19 @@ export default function Messages() {
     message: string;
   };
 
+  function callFetchMessages() {
+    fetchMessages();
+  }
+
+  const fetchMessages = async () => {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/tickets/${id}`
+    );
+    const data = await res.json();
+    setMessages(data.payload);
+  };
+
   useEffect(() => {
-    const fetchMessages = async () => {
-      const res = await fetch(
-        `http://localhost:3001/api/messages/tickets/${id}`
-      );
-      const data = await res.json();
-      setMessages(data.payload);
-    };
-    function callFetchMessages() {
-      fetchMessages();
-    }
     callFetchMessages();
   }, [newMessage]);
 
@@ -59,27 +64,41 @@ export default function Messages() {
     const newMessage = {
       ticket_id: Number(id), // get ticketId from router object
       user_id: 1,
-      user_role: "landlord",
+      user_role: user?.role,
       message: input,
     };
     postNewMessage(newMessage);
     // add new message
     setNewMessage(newMessage.message);
+    callFetchMessages();
     // clear input
     setInput("");
   };
 
   const postNewMessage = async (newMessage: newMessageObject) => {
-    const res = await fetch(`http://localhost:3001/api/messages/`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newMessage),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newMessage),
+      }
+    );
     const data = await res.json();
   };
+
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   // render messages
   return (
@@ -108,7 +127,7 @@ export default function Messages() {
       <div className="flex flex-col gap-1 overflow-y-scroll h-[60vh] p-6">
         {messages.map((message, index) => {
           // if message user_role is tenant, render chat bubble for tenant
-          if (message.user_role === "tenant") {
+          if (user?.role === message.user_role) {
             return (
               <div key={message.id}>
                 {index === 0 || messages[index - 1].date !== message.date ? (
@@ -119,7 +138,8 @@ export default function Messages() {
                   </span>
                 ) : null}
                 <div className="chat chat-start flex flex-col" key={message.id}>
-                  {index === 0 || messages[index - 1].user_role !== message.user_role ? (
+                  {index === 0 ||
+                  messages[index - 1].user_role === user?.role ? (
                     <p className="msg-info">{message.user_id}</p>
                   ) : null}
                   <div className="chat-bubble bg-light-primary text-white">
@@ -142,7 +162,8 @@ export default function Messages() {
                 ) : null}
 
                 <div className="chat chat-end flex flex-col" key={message.id}>
-                  {index === 0 || messages[index - 1].user_role !== message.user_role ? (
+                  {index === 0 ||
+                  messages[index - 1].user_role === message.user_role ? (
                     <p className="msg-info">{message.user_id}</p>
                   ) : null}
 
@@ -157,7 +178,8 @@ export default function Messages() {
               </div>
             );
           }
-        })}
+        })}{" "}
+        <div ref={messagesEndRef} />
       </div>
       <div className="flex flex-row mt-2">
         {/* Input field and send button */}

@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 const TicketForm = () => {
+  const { user } = useAuth();
+
+  console.log(user);
+
   const [ticket, setTicket] = useState({
     property_id: "",
     subject: "",
     message: "",
     landlord_id: 1,
     completed: false,
-    raised_by: "landlord",
+    raised_by: user?.role,
     tenant_id: 1,
   });
 
@@ -20,7 +25,7 @@ const TicketForm = () => {
     raised_by: string;
     tenant_id: number;
   }) {
-    fetch("http://localhost:3001/api/tickets/", {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

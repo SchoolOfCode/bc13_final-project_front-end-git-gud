@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const NavigationPoint = () => {
   return (
-    <div className="grid md:grid-cols-2 max-w-[1240px] px-2 py-2 gap-2 rounded-full bg-primary">
+    <div className="grid md:grid-cols-2 w-[12rem]  px-2 py-2 gap-2 rounded-full bg-primary">
       <Link href="/storage">
         <div
           className="flex bg-[#FAB8C4] p-10 rounded-tl-full font-bold hover:scale-110 justify-center items-center shadow-lg shadow-black  select-none

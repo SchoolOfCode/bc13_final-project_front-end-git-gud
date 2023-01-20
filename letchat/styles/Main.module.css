@@ -1,6 +1,6 @@
 .title {
   font-size: clamp(3rem, 15vmin, 8rem);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: hsl(0 0% 98%);
 }
 
@@ -29,7 +29,6 @@
   );
 }
 
-
 .underlineOverflow:after {
   content: "";
   position: absolute;
@@ -49,6 +48,4 @@
     transparent var(--spread)
   );
 }
-
-
 

@@ -33,12 +33,12 @@ const LogUser = () => {
 
   return (
     <>
-     <LoginContainer title="Login account">
+      <LoginContainer title="Login account">
         <form className="space-y-6" action="#" method="POST">
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md  text-gray-700 font-bold"
             >
               Email address
             </label>
@@ -59,7 +59,7 @@ const LogUser = () => {
           <div className="space-y-1">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md  text-gray-700 font-bold"
             >
               Password
             </label>
@@ -88,7 +88,7 @@ const LogUser = () => {
 
           <div className="flex items-center justify-center ">
             <div className="text-md w-full pl-2">
-              <p className="font-medium text-gray-900 tracking-wide">
+              <p className="font-bold text-gray-900 tracking-wide">
                 Not a member?
                 <span className="text-light-primary cursor-pointer hover:text-light-primary underline ml-5">
                   <Link href="/sign">Register</Link>

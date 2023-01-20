@@ -1,6 +1,7 @@
 // import tickets from "../../data/ticketData";
 import { useState, useEffect } from "react";
 import Ticket from "../Ticket";
+import { env } from "process";
 
 type CompletedProp = {
   completed: boolean;
@@ -24,7 +25,9 @@ const TicketBoard = ({ completed }: CompletedProp) => {
 
   useEffect(() => {
     async function fetchTickets() {
-      const res = await fetch("http://localhost:3001/api/tickets/landlords/1");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/landlords/1`
+      );
       const data = await res.json();
       setTickets(data.payload);
     }

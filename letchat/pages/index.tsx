@@ -2,13 +2,13 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import { useState } from "react";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+
 
 import {  NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 import Container from "../components/Container";
-
+import ContentMain from "../components/ContentMain";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,25 +27,10 @@ export default function Home() {
       </Head>
       <main>
 
-        <Container logo={true} images={true}>
+        <Container logo={true}>
           {!login ? (
-            <div className="hero lg:place-items-start lg:pt-[20vh] lg:pl-[3rem]">
-              <div className="hero-content h-[40rem] justify-between flex-col max-w-[28rem] lg:max-w-[34rem] lg:glass">
-                <div className="flex flex-col pt-[20rem] text-white h-[20rem] justify-around text-center lg:text-left  lg:text-black lg:pt-[10rem]">
-                  <h1 className="text-[5rem] font-bold lg:text-[8rem]">LetChat</h1>
-                  <p className="py-6 px-8 text-justify text-[1rem] lg:text-[1.5rem] ">
-                  The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls.
-                  </p>
-
-                </div>
-                <div className="px-5 w-[15rem] lg:w-full">
-                <button className="btn w-full  text-2xl tracking-wider rounded-full text-black hover:bg-light-secondary hover:opacity-70 active:bg-light-hot bg-light-secondary  lg:text-white lg:hover:bg-light-primary lg:hover:opacity-70 lg:active:bg-light-hot lg:bg-light-primary ">
-                    <Link href="/login">Login</Link>
-                  </button>
-                </div>
-                  
-              </div>
-            </div>
+            <ContentMain link={<Link href="/sign">Sign</Link>}  description="The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls."/>
+      
           ) : (
            //redirect to login page
            

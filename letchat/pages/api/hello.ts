@@ -9,6 +9,7 @@ type Data = {
     date: string;
     time: string;
     lastMessage: string;
+    completed : boolean;
   }[];
 };
 
@@ -25,6 +26,7 @@ export default function handler(
       time: "10:00",
       lastMessage:
         "There is mould under the sink in the kitchen. Please can you send someone to fix it.",
+      completed: false,
     },
     {
       id: 2,
@@ -34,6 +36,7 @@ export default function handler(
       time: "11:00",
       lastMessage:
         "The toilet in the bathroom is broken. Please can you send someone to fix it.",
+        completed : true,
     },
     {
       id: 3,
@@ -43,6 +46,7 @@ export default function handler(
       time: "12:00",
       lastMessage:
         "The window in the bedroom is broken. Please can you send someone to fix it.",
+      completed: false,
     },
     {
       id: 4,
@@ -52,6 +56,7 @@ export default function handler(
       time: "13:00",
       lastMessage:
         "The door in the living room is broken. Please can you send someone to fix it.",
+        completed: true,
     },
 
   ] });

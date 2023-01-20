@@ -3,10 +3,14 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import Container from "../components/Container";
+import { useAuth } from "../context/AuthContext";
+import { Card, CardContainer } from "../utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Storage() {
+  const { user, logout, login } = useAuth();
+
   return (
     <>
       <Head>
@@ -17,7 +21,17 @@ export default function Storage() {
       </Head>
       <main>
         <Container>
-          <Navbar />
+          <CardContainer
+            firstname={user.firstname}
+            surname={user.surname}
+            phonenumber={user.phonenumber}
+            email={user.email}
+          />
+          {user.role == "landlord" ? (
+            <h1>Landlord: "{user.firstname}"</h1>
+          ) : (
+            <h1>Tenant: "{user.role}"</h1>
+          )}
         </Container>
       </main>
     </>

@@ -3,19 +3,16 @@ import { Inter } from "@next/font/google";
 import { useState } from "react";
 import Link from "next/link";
 
-
-import {  NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 import Container from "../components/Container";
 import ContentMain from "../components/ContentMain";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
 export default function Home() {
   const [login, setLogin] = useState(false);
-  
 
   return (
     <>
@@ -26,19 +23,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-
         <Container logo={true}>
           {!login ? (
-            <ContentMain link={<Link href="/sign">Sign up</Link>}  description="The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls."/>
-      
+            <ContentMain
+              link={<Link href="/sign">Sign up</Link>}
+              description="The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls."
+            />
           ) : (
-           //redirect to login page
-           
-            <h1>
-              Redirect user to login page
-            </h1>
-                
-            
+            //redirect to login page
+
+            <h1>Redirect user to login page</h1>
           )}
         </Container>
       </main>

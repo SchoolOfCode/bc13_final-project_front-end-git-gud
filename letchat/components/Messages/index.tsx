@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
-import { ChangeEvent, useEffect, useState } from "react";
+
+import { ChangeEvent, useEffect, useState, useRef } from "react";
+
 import { useAuth } from "../../context/AuthContext";
 
 type messageData = {
@@ -28,7 +30,20 @@ export default function Messages() {
     message: string;
   };
 
+  function callFetchMessages() {
+    fetchMessages();
+  }
+
+  const fetchMessages = async () => {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/tickets/${id}`
+    );
+    const data = await res.json();
+    setMessages(data.payload);
+  };
+
   useEffect(() => {
+
     const fetchMessages = async () => {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/tickets/${id}`
@@ -39,6 +54,7 @@ export default function Messages() {
     function callFetchMessages() {
       fetchMessages();
     }
+
     callFetchMessages();
   }, [newMessage]);
 
@@ -68,6 +84,7 @@ export default function Messages() {
     postNewMessage(newMessage);
     // add new message
     setNewMessage(newMessage.message);
+    callFetchMessages();
     // clear input
     setInput("");
   };
@@ -86,6 +103,16 @@ export default function Messages() {
     );
     const data = await res.json();
   };
+
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   // render messages
   return (
@@ -165,7 +192,8 @@ export default function Messages() {
               </div>
             );
           }
-        })}
+        })}{" "}
+        <div ref={messagesEndRef} />
       </div>
       <div className="flex flex-row mt-2">
         {/* Input field and send button */}

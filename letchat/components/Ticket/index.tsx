@@ -26,9 +26,14 @@ const Ticket = (ticket: TicketObjectProps) => {
       e.target.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByTagName(
         "h5"
       )[0].innerText;
+    console.log(ticketIDText);
     let ticketID = Number(ticketIDText.match(/[0-9]/g));
     console.log(ticketID);
   }
+
+  // async function handleClick(id:number) {
+  //   console.log(id);
+  // }
 
   return (
     // Ticket
@@ -48,9 +53,10 @@ const Ticket = (ticket: TicketObjectProps) => {
         {/* Ticket meta/info */}
         <div
           id="ticket-info"
-          className="flex items-center text-right justify-right"
+          className="flex-col items-center text-right justify-right"
         >
           {/* <h5>Ticket #{ticket.id}</h5> */}
+          <h4>{ticket.id}</h4>
           <h5 className="font-bold">{ticket.subject}</h5>
         </div>
       </header>

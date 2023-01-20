@@ -3,9 +3,13 @@ import { Inter } from "@next/font/google";
 import Tabs from "../../components/Tabs";
 import Content from "../../components/Content";
 import NavigationPoint from "../../components/NavigationPoint";
+import NewsFeed from "../../components/NewsFeed";
+import { CardContainer } from "../../utils";
+import { useAuth } from "../../context/AuthContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {
+  const { user } = useAuth();
   return (
     <>
       <Head>
@@ -15,10 +19,17 @@ export default function JobBoard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Content
-          title="Job Board"
+      <Content
+          title={"Storage"}
           navigation={<NavigationPoint />}
+          newsfeed={<NewsFeed title={'News Feed'}/>}
           central={<Tabs />}
+          profile={ <CardContainer
+            firstname={user.firstname}
+            surname={user.surname}
+            phonenumber={user.phonenumber}
+            email={user.email}
+          />}
         />
       </main>
     </>

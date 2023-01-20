@@ -13,15 +13,15 @@
   content: "";
   position: absolute;
   top: 95%;
-  width: 160%;
   aspect-ratio: 3 / 1;
   left: 50%;
-  transform: translate(-50%, 0);
   border-radius: 50%;
   border: 6px solid hsl(280 80% 50%);
   /* Use a conic gradient mask to hide and show the bits you want */
-  --spread: 140deg;
-  --start: 290deg;
+  --spread: 360deg;
+  --start: 0deg;
+  transform: translate(-80%, 5%);
+  width: 130%;
   mask: conic-gradient(
     from var(--start),
     white 0 var(--spread),
@@ -52,13 +52,3 @@
 
 
 
-@media screen and (min-width: 768px) {
-  .underlineMask:hover:after {
-    --spread: 360deg;
-    --start: 0deg;
-    transition: all 0.5s ease;
-    transform: translate(-80%, 5%);
-    width: 130%;
-  }
-  
-}

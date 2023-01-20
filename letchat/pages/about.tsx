@@ -2,12 +2,9 @@ import style from "../styles/About.module.scss";
 import Container from "../components/Container";
 
 const About = () => {
-  
   return (
     <>
       <Container>
-      
-
         <div id={style.aboutMain}>
           <div className={style.jumbotron}>
             <div className={style.jumbotronInner}>
@@ -15,16 +12,27 @@ const About = () => {
                 <div className={style.contentBox}>
                   <h1>About Us</h1>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nesciunt quidem non, est provident quasi possimus voluptatem inventore sed architecto et, omnis sequi rerum minus doloremque eligendi veritatis tempora accusamus!{" "}
-                    <br /> Our mission is to make developers productive through
-                    automatic code generation.
+                    Hi there! We're GitGud and we are a team of 6 bootcampers
+                    from the The School of Code. We are currently building our
+                    final project for the bootcamp and are excited to tell you a
+                    bit more about it.
+                    <br />
+                    <br />
+                    Our mission was to bring tenants and landlords closer
+                    together by streamlining the way they connect, the way
+                    important documents are stored and have a wide range of
+                    additional ideas we can bring to our project beyond School
+                    of Code.
                   </p>
                 </div>
               </div>
             </div>
             <div className={style.imgLayerContainer}>
               <div className={style.teamImage} id={style.teamImage}>
-                <img alt='Team image' src="https://apimatic.io/img/theme/aboutUs/images-1.png" />
+                <img
+                  alt="Team image"
+                  src="https://apimatic.io/img/theme/aboutUs/images-1.png"
+                />
               </div>
 
               <div className="circles-container">
@@ -39,20 +47,25 @@ const About = () => {
           </div>
           <div className={style.storyContainer}>
             <div className={style.needContainer}>
-              <h3 className={style.textCenter}>Need for DX</h3>
+              <h3 className={style.textCenter}>Need for LetChat</h3>
               <p>
-                Application Programming Interfaces (APIs) have taken the world
-                by storm and are now the de facto standard of software
-                communication. Almost every software product nowadays consumes
-                APIs. The business model of numerous companies around the world
-                relies upon the consumption of their APIs. API providers,
-                therefore, strive to increase API adoption rates by spending
-                millions of dollars every year to improve developer experience.
-                This is usually done by providing Software Development Kits
-                (SDKs) and API documentation to developer consuming their
-                API(s). Developing SDKs and writing documentation, however, are
-                arduous, monotonous and error-prone tasks. It is a slow process
-                and costs a lot of time and money.
+                During our market research we found that there seemed to be an
+                overwhelming need, from both sides of the home letting process,
+                for a platform that would allow tenants and landlords to connect
+                and communicate more effectively. We also found that there was a
+                strong desire for a way that would allow tenants and landlords
+                to store important documents in one place, with quick and easy
+                access if needed.
+                <br />
+                <br />
+                This resulted in us deciding to build LetChat, a platform that
+                would solve these problems whilst being wrapped in a user
+                friendly and intuitive design.
+                <br />
+                <br />
+                We are also looking to add additional features to our project in
+                the future, such as a means of downloading transcripts and
+                additional features bases on constant user feedback.
               </p>
               <div className={style.imgContainer}>
                 <img
@@ -64,20 +77,30 @@ const About = () => {
             </div>
             <div className={style.containerDivider}></div>
             <div className={style.techContainer}>
-              <h3 className={style.textCenter}>Our Technology</h3>
+              <h3 className={style.textCenter}>How we built it</h3>
               <p>
-                Our code generation engine enables API providers to generate
-                SDKs for their APIs within minutes and at a fraction of the
-                cost. We provide tools like our API editor and API transformer
-                to further aid API providers in minimizing the time required to
-                ship excellent quality SDKs to the developers using their APIs.
-                Our code generation engine is also capable of generating
-                succinct and error-free documentation for APIs and SDKs, both.
-                The documentation for the SDKs includes dynamic screenshots
-                detailing usage instructions tailored to the provider's specific
-                API and also code snippets showing example usage. As the cherry
-                on the cake, we provide beautifully designed DX portals to
-                encapsulate this documentation.
+                It started with a very producitve ideation phase where we came
+                up with a list of features we wanted to include in our project.
+                We then broke those down further to ensure we could complete the
+                project in a realistic timeframe and this was done using Miro
+                and Figma.
+                <br />
+                We then went ahead and built the low and high fidelity
+                wireframes, component tree and database schema.
+                <br />
+                <br />
+                The following weeks, we commenced building the project using
+                Next.js, Typescript, TailwindCSS, Express, and Firebase.
+                <br />
+                <br />
+                Throughout development we used Trello and Github to ensure our
+                project was on track, we were able to communicate effectively
+                and ensuring our branches were up to date and protected.
+                <br />
+                <br />
+                We constantly came together to re-evaluate our user journeys and
+                improve the user experience all whilst making sure we were on
+                track to complete the project in time.
               </p>
               <div className={style.imgContainer}>
                 <img

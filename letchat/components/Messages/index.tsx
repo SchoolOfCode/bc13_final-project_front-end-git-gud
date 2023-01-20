@@ -31,7 +31,7 @@ export default function Messages() {
   useEffect(() => {
     const fetchMessages = async () => {
       const res = await fetch(
-        `${process.env.BACKEND_URL}/api/messages/tickets/${id}`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/tickets/${id}`
       );
       const data = await res.json();
       setMessages(data.payload);
@@ -73,14 +73,17 @@ export default function Messages() {
   };
 
   const postNewMessage = async (newMessage: newMessageObject) => {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/messages/`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newMessage),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newMessage),
+      }
+    );
     const data = await res.json();
   };
 

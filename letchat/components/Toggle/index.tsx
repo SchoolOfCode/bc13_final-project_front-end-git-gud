@@ -1,6 +1,7 @@
 type ToggleProps = {
     completed : boolean,
     handleClick : React.MouseEventHandler<HTMLInputElement>,
+    id: number
 }
 
 

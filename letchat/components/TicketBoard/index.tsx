@@ -26,7 +26,7 @@ const TicketBoard = ({ completed }: CompletedProp) => {
   useEffect(() => {
     async function fetchTickets() {
       const res = await fetch(
-        `${process.env.BACKEND_URL}/api/tickets/landlords/1`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/landlords/1`
       );
       const data = await res.json();
       setTickets(data.payload);
@@ -34,6 +34,7 @@ const TicketBoard = ({ completed }: CompletedProp) => {
     fetchTickets();
   }, []);
 
+  console.log(tickets);
   return (
     <div className="gap-3 overflow-y-scroll w-full flex flex-col items-center h-[60vh] text-black">
       {/* Map over tickets array, rendering each ticket */}

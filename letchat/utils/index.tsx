@@ -87,12 +87,11 @@ export const Card = ({ children, primary, secondary, title }: CardProps) => {
   );
 };
 
-
 type LoginProps = {
   title?: string;
   children?: React.ReactNode;
 };
-import styles from '../styles/Main.module.css'
+import styles from "../styles/Main.module.css";
 export const LoginContainer = ({ title, children }: LoginProps) => {
   return (
     <div className="hero h-[100vh] align-center lg:w-[50%]">
@@ -106,10 +105,14 @@ export const LoginContainer = ({ title, children }: LoginProps) => {
               <div className="w-28 h-1 rounded-full bg-slate-300"></div>
             </div>
           </div>
-          <div className='flex w-full justify-center'>
-          <h1 className={`${styles.title} ${styles.underlined}`}><span className={`${styles.underlined}`}>Let</span><span className={`${styles.underlined} ${styles.underlineMask}`}>Chat</span></h1>
+          <div className="flex w-full justify-center">
+            <h1 className={`${styles.title} ${styles.underlined}`}>
+              <span className={`${styles.underlined}`}>Let</span>
+              <span className={`${styles.underlined} ${styles.underlineMask}`}>
+                Chat
+              </span>
+            </h1>
           </div>
-          
 
           <div className="mx-auto p-6 flex justify-start flex-1 flex-col w-[95%] h-full lg:glass lg:w-[80%]  drop-shadow-2xl">
             <div className="flex flex-col h-full justify-center">
@@ -144,18 +147,18 @@ export const CardContainer = ({
   email,
 }: CardContainerProps) => {
   return (
-    <div className="invisible lg:visible flex-row ml-10  max-w-[25%]   ">
-      <div className=" bg-light-primary rounded-tl-2xl rounded-tr-2xl bg-opacity-90 shadow-lg shadow-black px-10">
-        <h2 className="md:text-[30px] text-center bold uppercase text-[50px]">
-          <p>
-            {firstname} {surname}
-          </p>
+    <div className="invisible lg:visible flex flex-col  w-max ml-10 min-h-[20rem]  bg-light-primary shadow-lg shadow-black bg-opacity-50 rounded-lg ">
+      <div className=" bg-light-secondary rounded-lg  bg-opacity-60 shadow-md shadow-light-tertiary h-full p-4 ">
+        <h2 className="md:text-[30px] text-center bold uppercase text-[50px] font-bold ">
+          {firstname} {surname}
         </h2>
       </div>
-      <div className="md:text-[20px] flex-col bg-light-primary text-center rounded-bl-2xl rounded-br-2xl bg-opacity-50 bold uppercase px-10">
-        <p className="text-[20px] py-4">Status: Online</p>
-        <p className="text-[20px] py-2">Contact no: {phonenumber}</p>
-        <p className="text-[15px] py-4">Email: {email}</p>
+      <div className="md:text-[20px] flex-col flex justify-between text-center rounded-bl-2xl rounded-br-2xl  bold uppercase mt-12 p-4 items-center ">
+        <p className="text-[20px] flex justify-between mb-2 w-[60%] items-center ">
+          Status: <span> Online</span>
+        </p>
+        <p className="text-[20px] ">Contact no: {phonenumber}</p>
+        <p className="text-[15px] ">Email: {email}</p>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "../../styles/Footer.module.css";
 
 const Footer = () => {
   return (
@@ -23,39 +24,52 @@ const Footer = () => {
     //     <p className="text-light-secondary text-lg">info@letchat.co.uk</p>
     //   </div>
     // </footer>
-    <footer data-test id="footer" className="hidden md:footer p-4  bg-light-primary w-[100%] text-base-content  place-items-center">
-   <div className="flex items-center">
-     <Link href="/" className="fill-current">
-     <Image
-            src="/assets/images/letchatLogo.png"
+    <footer
+      data-test
+      id="footer"
+      className="mt-auto hidden md:footer p-4  bg-light-primary w-[100%] text-base-content  place-items-center"
+    >
+      <div className="flex items-center">
+        <Link href="/" className="fill-current">
+          <Image
+            src="/assets/images/logoRoof.png"
             alt="LetChat logo"
             width={50}
             height={50}
-            className="bg-light-primary rounded-full"
+            className=""
           />
-          </Link>
-    <p
-    className="mt-3 text-light-light">LetChat Ltd.<br/>Providing reliable tech since 2023</p>
-  </div> 
-  <div>
-    <span className="footer-title text-light-secondary">Services</span> 
-    <a className="link link-hover text-light-light">Branding</a> 
-    <a className="link link-hover text-light-light">Design</a> 
-    <a className="link link-hover text-light-light">Marketing</a> 
-  </div> 
-  <div>
-    <span className="footer-title text-light-secondary">Company</span> 
-    <a className="link link-hover text-light-light">About us</a> 
-    <a className="link link-hover text-light-light">Contact</a> 
-    <a className="link link-hover text-light-light">Jobs</a> 
-  </div> 
-  <div>
-    <span className="footer-title text-light-secondary">Legal</span> 
-    <a className="link link-hover text-light-light">Terms of use</a> 
-    <a className="link link-hover text-light-light">Privacy policy</a> 
-    <a className="link link-hover text-light-light">Cookie policy</a>
-  </div>
-</footer>
+        </Link>
+        <p className="mt-3 text-light-light">
+          LetChat Ltd.
+          <br />
+          Providing reliable tech since 2023
+        </p>
+      </div>
+      <div>
+        <span className="footer-title text-light-secondary opacity-100">
+          Services
+        </span>
+        <a className="link link-hover text-light-light">Branding</a>
+        <a className="link link-hover text-light-light">Design</a>
+        <a className="link link-hover text-light-light">Marketing</a>
+      </div>
+      <div>
+        <span className="footer-title text-light-secondary opacity-100">
+          Company
+        </span>
+        <a className="link link-hover text-light-light">About us</a>
+        <a className="link link-hover text-light-light">Contact</a>
+        <a className="link link-hover text-light-light">Jobs</a>
+      </div>
+      <div>
+        <span className="footer-title text-light-secondary opacity-100">
+          Legal
+        </span>
+        <a className="link link-hover text-light-light">Terms of use</a>
+        <a className="link link-hover text-light-light">Privacy policy</a>
+        <a className="link link-hover text-light-light">Cookie policy</a>
+      </div>
+    </footer>
   );
 };
 export default Footer;

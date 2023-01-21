@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/Navbar.module.css";
+import logo from "../../public/assets/images/logoRoofText.png";
 
 import { useAuth } from "../../context/AuthContext";
 import HamburgerMenu from "../HamburgerMenu";
@@ -13,10 +14,10 @@ type NavLinkProps = {
 const NavLink = ({ path, title }: NavLinkProps) => {
   return (
     <>
-      <li className="flex justify-center items-center">
+      <li className="flex flex-end">
         <Link
           href={`/${path}`}
-          className={`${styles.listLink} mr-5 hidden md:flex mt-4 text-md uppercase`}
+          className={`${styles.listLink} md:flex mr-8 hidden text-md `}
         >
           {title}
         </Link>
@@ -29,46 +30,54 @@ const Navbar = () => {
   const { user, logout } = useAuth();
 
   return (
-    <div className="navbar w-[100vw] sticky z-50  p-6">
-      <a>
-        <Image
-          src={"/assets/images/letchatLogov2.png"}
-          alt="LetChat logo"
-          height={80}
-          width={80}
-          className=" min-w-[4rem] min-h-[4rem] border-none hover:opacity-60 hover:bg-light-primary"
-        />
-      </a>
-      <div className="flex-1 justify-end h-20">
+    <div className="m-auto max-w-[1400px]">
+      <div className="navbar h-16 w-[100%] z-50 flex flex-row items-center justify-between">
+        <div>
+          <a href="/jobboard">
+            <Image
+              src={logo}
+              alt="LetChat logo"
+              height={28}
+              className=" inline-block border-none m-auto"
+            />
+          </a>
+
+          <ul className="flex flex-row ml-16 mt-1">
+            <NavLink path={"jobboard"} title={"Dashboard"} />
+            {/* <NavLink path={"jobboard"} title={"Job Board"} /> */}
+            <NavLink path={"about"} title={"About Us"} />
+          </ul>
+        </div>
         {/* {This button needs to render when no user is logged in} */}
         {user ? (
-          <div className="flex justify-between items-center absolute z-40">
-            <ul className="flex  mr-8">
-              <NavLink path={"jobboard"} title={"Home"} />
-              {/* <NavLink path={"jobboard"} title={"Job Board"} /> */}
-              <NavLink path={"about"} title={"About Us"} />
-            </ul>
-            <HamburgerMenu
-              profile={"profile"}
-              settings={"settings"}
-              path={"login"}
-              logout={logout}
-            />
-          </div>
-        ) : (
-          <div className="dropdown dropdown-end">
+          // <div className="flex items-center absolute z-40">
+          <>
             <div>
-              <Link href="/login">
-                <button className="btn border-none w-35 h-10 bg-light-secondary hover:opacity-60 hover:bg-light-secondary text-black mr-6">
-                  Login
-                </button>
-              </Link>
+              <HamburgerMenu
+                profile={"profile"}
+                settings={"settings"}
+                path={"login"}
+                logout={logout}
+              />
             </div>
-          </div>
+          </>
+        ) : (
+          // </div>
+          <>
+            <NavLink path={"about"} title={"About Us"} />
+            <div className="dropdown dropdown-end">
+              <div>
+                <Link href="/login">
+                  <button className="btn border-none w-35 h-10 bg-light-secondary hover:opacity-60 hover:bg-light-secondary text-black mr-6">
+                    Login
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </>
         )}
-      </div>
 
-      {/* <div className="dropdown dropdown-end">
+        {/* <div className="dropdown dropdown-end">
           <ul
             tabIndex={0}
             className="g-2 flex flex-col menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-screen h-screen align-center justify-center"
@@ -95,6 +104,7 @@ const Navbar = () => {
             </div>
           </ul>
         </div> */}
+      </div>
     </div>
   );
 };

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Bubbles from "../Bubbles";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
+import Image from "next/image";
+import bgImage from "../../public/assets/images/bigPurple.png";
 
 type ContainerProps = {
   children?: React.ReactNode;
@@ -19,7 +21,7 @@ const Container = ({ children, logo, images }: ContainerProps) => {
   }, [logo, images]);
 
   return (
-    <div className="container min-h-[80vh] min-w-[100vw] bg-black flex flex-col items-center justify-center ">
+    <div className="container max-h-[1000vh] min-w-[100vw] bg-black flex flex-col items-center justify-center ">
       <div
         id="container"
         className="container min-h-[100vh] bg-light-light max-w-[2560px] relative overflow-hidden"
@@ -34,21 +36,24 @@ const Container = ({ children, logo, images }: ContainerProps) => {
 
         <section id="background">
           {logos ? (
-            <div className="container h-full w-full">
-              <div
-                id="big-purple-circle"
-                className="overflow-hidden absolute z-20 bg-light-primary min-w-[150%] min-h-[80%] top-[-50px] lg:min-w-[100%] lg:rounded-l-[100%] lg:min-h-[100%] lg:rounded-br-[80%] lg:right-[-50%] xl:min-w-[90%]"
-              ></div>
-              <div
-                id="purple-triangle"
-                className="overflow-hidden hidden z-30 border-b-light-primary border-x-[15rem] border-b-[15rem] border-x-solid border-x-transparent border-b-solid absolute right-[-120px] bottom-[48px] rounded-br-[50%] lg:block lg:right-[-50px] lg:bottom-[35px]"
-              ></div>
-            </div>
+            // CSS SPEECH BUBBLE
+
+            // <div className="container h-full w-full">
+            //   <div
+            //     id="big-purple-circle"
+            //     className="overflow-hidden absolute z-20 bg-light-primary min-w-[150%] min-h-[80%] top-[-50px] lg:min-w-[100%] lg:rounded-l-[100%] lg:min-h-[100%] lg:rounded-br-[80%] lg:right-[-50%] xl:min-w-[90%]"
+            //   ></div>
+            //   <div
+            //     id="purple-triangle"
+            //     className="overflow-hidden hidden z-30 border-b-light-primary border-x-[15rem] border-b-[15rem] border-x-solid border-x-transparent border-b-solid absolute right-[-120px] bottom-[48px] rounded-br-[50%] lg:block lg:right-[-50px] lg:bottom-[35px]"
+            //   ></div>
+            // </div>
+            <div></div>
           ) : null}
 
           <Bubbles />
 
-          {image ? (
+          {/* {image ? (
             <div className="static w-full h-full">
               <div
                 id="image-one"
@@ -71,7 +76,7 @@ const Container = ({ children, logo, images }: ContainerProps) => {
                 />
               </div>
             </div>
-          ) : null}
+          ) : null} */}
         </section>
       </div>
     </div>

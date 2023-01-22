@@ -21,39 +21,29 @@ const Container = ({ children, logo, images }: ContainerProps) => {
   }, [logo, images]);
 
   return (
-    <div className="container max-h-[1000vh] min-w-[100vw] bg-black flex flex-col items-center justify-center ">
-      <div
-        id="container"
-        className="container min-h-[100vh] bg-light-light max-w-[2560px] relative overflow-hidden"
-      >
-        <Navbar />
-        <div
-          id="children"
-          className="container h-full max-w-[2560px] relative z-40  overflow-hidden"
-        >
-          {children}
-        </div>
+    <div id="display">
+      <Navbar />
+      {children}
+      <Footer />
+      {/* <section id="background" className="overflow-hidden"> */}
+      {/* {logos ? (
+          CSS SPEECH BUBBLE
 
-        <section id="background">
-          {logos ? (
-            // CSS SPEECH BUBBLE
+          <div className="container h-full w-full">
+            <div
+              id="big-purple-circle"
+              className="overflow-hidden absolute z-20 bg-light-primary min-w-[150%] min-h-[80%] top-[-50px] lg:min-w-[100%] lg:rounded-l-[100%] lg:min-h-[100%] lg:rounded-br-[80%] lg:right-[-50%] xl:min-w-[90%]"
+            ></div>
+            <div
+              id="purple-triangle"
+              className="overflow-hidden hidden z-30 border-b-light-primary border-x-[15rem] border-b-[15rem] border-x-solid border-x-transparent border-b-solid absolute right-[-120px] bottom-[48px] rounded-br-[50%] lg:block lg:right-[-50px] lg:bottom-[35px]"
+            ></div>
+          </div>
+        ) : null} */}
 
-            // <div className="container h-full w-full">
-            //   <div
-            //     id="big-purple-circle"
-            //     className="overflow-hidden absolute z-20 bg-light-primary min-w-[150%] min-h-[80%] top-[-50px] lg:min-w-[100%] lg:rounded-l-[100%] lg:min-h-[100%] lg:rounded-br-[80%] lg:right-[-50%] xl:min-w-[90%]"
-            //   ></div>
-            //   <div
-            //     id="purple-triangle"
-            //     className="overflow-hidden hidden z-30 border-b-light-primary border-x-[15rem] border-b-[15rem] border-x-solid border-x-transparent border-b-solid absolute right-[-120px] bottom-[48px] rounded-br-[50%] lg:block lg:right-[-50px] lg:bottom-[35px]"
-            //   ></div>
-            // </div>
-            <div></div>
-          ) : null}
+      {/* <Bubbles /> */}
 
-          <Bubbles />
-
-          {/* {image ? (
+      {/* {image ? (
             <div className="static w-full h-full">
               <div
                 id="image-one"
@@ -77,8 +67,7 @@ const Container = ({ children, logo, images }: ContainerProps) => {
               </div>
             </div>
           ) : null} */}
-        </section>
-      </div>
+      {/* </section> */}
     </div>
   );
 };

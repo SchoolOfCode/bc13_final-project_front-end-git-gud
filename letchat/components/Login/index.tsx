@@ -34,7 +34,7 @@ const LogUser = () => {
   return (
     <>
       <LoginContainer title="Login account">
-        <form className="space-y-6" action="#" method="POST">
+        <form className="space-y-6 m-auto" action="#" method="POST">
           <div>
             <label
               htmlFor="email"

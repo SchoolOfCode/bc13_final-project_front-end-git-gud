@@ -23,7 +23,7 @@ const HamburgerMenu = ({
     //       className="h-12 cursor-pointer border-none hover:opacity-60 hover:bg-light-primary rounded-full"
     //     />
     //   </div> */}
-      <div className="hidden h-11 dropdown dropdown-end md:flex">
+      <div className="hidden dropdown dropdown-end md:flex">
         <button tabIndex={0}>
           <img
             src="https://placeimg.com/80/80/people"
@@ -33,7 +33,7 @@ const HamburgerMenu = ({
         </button>
         <ul
           tabIndex={0}
-          className="menu menu-compact dropdown-content bg-white mt-3 p-2 shadow rounded-box w-52"
+          className="menu menu-compact dropdown-content bg-white mt-14 p-2 shadow rounded-box w-52"
         >
           <li className=" font-bold">
             <a

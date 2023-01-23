@@ -27,11 +27,7 @@ export const ContentMain = ({ title, description, link }: ContainerProps) => {
           </h1>
           {/* Hero paragraph text */}
           <p id="hero-text" className="mt-3 text-gray-700">
-            {/* {description} */}
-            LetChat is a secure platform for landlords and tenants to
-            communicate with each other. It is a platform that allows landlords
-            to post adverts for their properties and tenants to apply for them.
-            It also
+            {description}
           </p>
         </div>
         {/* RIGHT/FORM SECTION */}

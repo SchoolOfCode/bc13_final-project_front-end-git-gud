@@ -146,7 +146,7 @@ main {
   }
 }
 
-#display {
+/* #display {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -154,7 +154,7 @@ main {
   width: 100vw;
   margin: 0;
   padding: 0;
-}
+} */
 
 .nav {
   margin: 0 auto;

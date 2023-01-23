@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end w-20">
             <div>
               <Link href="/login" className="w-4">
-                <button className="btn border-none  h-10 bg-light-hot hover:opacity-60 hover:bg-light-hot text-black mr-6">
+                <button className="btn border-none  h-10 bg-light-hot hover:opacity-60 hover:bg-light-hot text-black">
                   Login
                 </button>
               </Link>

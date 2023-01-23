@@ -60,6 +60,7 @@ export const AuthContextProvider = ({
           logout();
           router.push("/login");
           alert("Please authenticate your account.");
+          sendEmailVerification(user);
         }
       } else {
         setUser(null);

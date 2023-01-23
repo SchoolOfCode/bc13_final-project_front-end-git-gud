@@ -25,9 +25,7 @@ const TicketForm = () => {
     raised_by: string;
     tenant_id: number;
   }) {
-
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/`, {
-
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,8 +50,8 @@ const TicketForm = () => {
     setTicket({ ...ticket, [e.target.name]: e.target.value });
   }
   return (
-    <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-      <form>
+    <div className="p-6 rounded-lg shadow-lg w-screen md:w-0 lg:min-w-[600px]">
+      <form className="flex flex-col ">
         <div className="form-group mb-6">
           <input
             name="property_id"

@@ -19,27 +19,29 @@ const Content = ({
   return (
     <>
       <Container>
-        <div className="max-w-[1400px] m-auto p-10 min-h-[75vh] lg:place-items-center">
-          <div className="container  min-w-[8rem] h-full relative">
-            <div className="text-center">
-              <h1 className="text-black">{title}</h1>
+        <div className="w-screen flex-grow items-center justify-center flex">
+          <div className="hidden gap-12 px-10 lg:flex flex-col mt-10">
+            <div>{newsfeed}</div>
+            <div>{profile}</div>
+          </div>
+          <div>
+            <h1 className="text-black text-center">{title}</h1>
+            <div className="flex flex-col w-full p-4 items-center justify-between gap-5">
+              {central}
             </div>
-            <div className="container flex flex-row-reverse">
-              <div className="hidden md:flex flex-1 items-center flex-col justify-start mt-[5rem]">
-                <div className="w-full px-4">{newsfeed}</div>
-              </div>
-              <div className="flex-1 items-center justify-center">
-                {central}
-              </div>
-              <div className="hidden md:flex flex-1 items-center flex-col justify-center">
-                <div className="w-fit">{profile}</div>
+          </div>
 
+          {/* <div>{navigation}</div> */}
+
+          {/* <div className=" md:flex items-center md:flex-col justify-start mt-[5rem]">
+              <div className=" w-full px-4">{newsfeed}</div>
+              <div className=" md:flex items-center flex-col justify-center">
+                <div className="w-fit">{profile}</div>
                 <div className="flex mt-[6rem] flex-col justify-center items-center md:w-[10rem]">
                   {navigation}
                 </div>
               </div>
-            </div>
-          </div>
+            </div> */}
         </div>
       </Container>
     </>

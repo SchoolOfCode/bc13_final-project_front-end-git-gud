@@ -23,22 +23,22 @@ const Container = ({ children, logo, images }: ContainerProps) => {
   return (
     <div
       id="container"
-      className="min-h-screen flex-grow bg-light-light relative overflow-hidden"
+      className="w-full min-h-screen flex flex-col flex-grow bg-light-light relative overflow-hidden"
     >
       <div
         id="children"
-        className="flex flex-col min-h-screen min-w-screen m-0 p-0 justify-between items-center 
-          overflow-hidden container  max-w-[1440px] relative z-40"
+        className="flex flex-col flex-grow min-h-screen min-w-screen m-0 p-0 justify-between items-center 
+        overflow-hidden relative z-40"
       >
         <Navbar />
         {children}
         <Footer />
       </div>
+      <Bubbles />
       {/* <Navbar /> */}
       {/* <div className="container flex-grow  relative z-40  overflow-hidden  max-w-[1440px]"> */}
       {/* {children} */}
       {/* </div> */}
-      <Bubbles />
     </div>
   );
 };

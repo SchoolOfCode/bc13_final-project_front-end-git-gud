@@ -25,7 +25,7 @@ const Footer = () => {
     //   </div>
     // </footer>
     <footer data-test className="bg-light-primary flex w-screen">
-      <div className="section-container p-6 flex flex-col md:flex-row justify-between place-items-center">
+      <div className="max-w-[1400px] min-w-screen m-auto p-6 flex flex-col md:flex-row justify-between">
         <div className="flex flex-col items-start justify-start mb-6 md:mb-0">
           <Link href="/" className="fill-current">
             <Image

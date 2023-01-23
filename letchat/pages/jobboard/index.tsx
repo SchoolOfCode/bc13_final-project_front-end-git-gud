@@ -20,7 +20,7 @@ export default function JobBoard() {
       </Head>
       {/* <main> */}
       <Content
-        title={"Storage"}
+        title={"Job Board"}
         navigation={<NavigationPoint />}
         newsfeed={<NewsFeed title={"News Feed"} />}
         central={<Tabs />}

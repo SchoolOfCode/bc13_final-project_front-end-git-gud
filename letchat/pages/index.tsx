@@ -8,6 +8,7 @@ import type { NextRequest } from "next/server";
 
 import Container from "../components/Container";
 import ContentMain from "../components/ContentMain";
+import Footer from "../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,20 +23,25 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Container logo={true}>
-          {!login ? (
-            <ContentMain
-              link={<Link href="/sign">Sign up</Link>}
-              description="The secure communication platform for landlords and tenants. Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls."
-            />
-          ) : (
-            //redirect to login page
+      <Container logo={true}>
+        {!login ? (
+          <ContentMain
+            title="The secure communication platform for landlords and tenants. "
+            link={<Link href="/sign">Sign up</Link>}
+            description="Easily share and store important documents while keeping all communication organized in one place. Say goodbye to the hassle of back-and-forth emails and phone calls."
+          />
+        ) : (
+          //redirect to login page
 
-            <h1>Redirect user to login page</h1>
-          )}
-        </Container>
-      </main>
+          <h1>Redirect user to login page</h1>
+        )}
+      </Container>
+      {/* <div className="absolute max-h-[100vh] top-[-10rem] right-0 opacity-40 -z-50 mb-10 xl:top-[-30rem]">
+        <img
+          src="/assets/images/bigPurpleHalf.png"
+          className="mb-10 h-screen xl:h-[120vh]"
+        />
+      </div> */}
     </>
   );
 }

@@ -7,27 +7,76 @@ type HamburgerMenuProps = {
   path: string;
 };
 
-const HamburgerMenu = ({ logout, path ,profile, settings}: HamburgerMenuProps) => {
+const HamburgerMenu = ({
+  logout,
+  path,
+  profile,
+  settings,
+}: HamburgerMenuProps) => {
   const router = useRouter();
   return (
     <div className="flex justify-around items-center">
-      <div className="hidden md:avatar">
-        <img
-          src="https://placeimg.com/80/80/people"
-          alt="Picture Profile"
-          className="cursor-pointer bg-light-primary object-scale-down min-h-[5rem] min-w-[5rem]  border-none hover:opacity-60 hover:bg-light-primary rounded-full"
-        />
+      {/* //   <div className="">
+    //     <img
+    //       src="https://placeimg.com/80/80/people"
+    //       alt="User profile image"
+    //       className="h-12 cursor-pointer border-none hover:opacity-60 hover:bg-light-primary rounded-full"
+    //     />
+    //   </div> */}
+      <div className="hidden dropdown dropdown-end md:flex">
+        <button tabIndex={0}>
+          <img
+            src="https://placeimg.com/80/80/people"
+            alt="User profile image"
+            className="w-11 h-11 cursor-pointer border-none hover:opacity-60 hover:bg-light-primary rounded-full"
+          />
+        </button>
+        <ul
+          tabIndex={0}
+          className="menu menu-compact dropdown-content bg-white mt-14 p-2 shadow rounded-box w-52"
+        >
+          <li className=" font-bold">
+            <a
+              className="justify-between"
+              onClick={() => {
+                router.push(`/${profile}`);
+              }}
+            >
+              Profile
+              <span className="badge bg-light-primary text-white border-none">
+                New
+              </span>
+            </a>
+          </li>
+          <li
+            className=" font-bold"
+            onClick={() => {
+              router.push(`/${settings}`);
+            }}
+          >
+            <a>Settings</a>
+          </li>
+          <li
+            className=" font-bold"
+            onClick={() => {
+              logout(), router.push(`/${path}`);
+            }}
+          >
+            <a>Logout</a>
+          </li>
+        </ul>
       </div>
-      <div className="dropdown dropdown-end md:mx-4 ">
+      {/* Hamburger menu below */}
+      <div className="dropdown dropdown-end">
         <button
           tabIndex={0}
-          className="btn btn-square btn-ghost bg-light-secondary opacity-60 hover:bg-light-primary"
+          className="md:hidden ml-4 btn-square hover:bg-[#DEDDFB] rounded-lg"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            className="inline-block w-5 h-5 stroke-current"
+            className="inline-block w-6 h-6 stroke-current"
           >
             <path
               strokeLinecap="round"
@@ -39,23 +88,42 @@ const HamburgerMenu = ({ logout, path ,profile, settings}: HamburgerMenuProps) =
         </button>
         <ul
           tabIndex={0}
-          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-light-hot rounded-box w-52"
+          className="menu menu-compact dropdown-content bg-white mt-3 p-2 shadow rounded-box w-52"
         >
-          <li className="hover:bg-light-tertiary font-bold">
-            <a className="justify-between" onClick={() => {
-               router.push(`/${profile}`);
-            }}>
-              Profile
-              <span className="badge bg-light-primary text-light-hot">New</span>
+          <li className="hover:bg-[#e4e3ff] font-bold">
+            <a className="justify-between" href="/jobboard">
+              Home
             </a>
           </li>
-          <li className="hover:bg-light-tertiary font-bold" onClick={() => {
-             router.push(`/${settings}`);
-            }}>
+          <li className="hover:bg-[#e4e3ff] font-bold">
+            <a className="justify-between" href="/about">
+              About Us
+            </a>
+          </li>
+          <hr />
+          <li className="hover:bg-[#e4e3ff] font-bold">
+            <a
+              className="justify-between"
+              onClick={() => {
+                router.push(`/${profile}`);
+              }}
+            >
+              Profile
+              <span className="badge bg-light-primary text-white border-none">
+                New
+              </span>
+            </a>
+          </li>
+          <li
+            className="hover:bg-[#DEDDFB] font-bold"
+            onClick={() => {
+              router.push(`/${settings}`);
+            }}
+          >
             <a>Settings</a>
           </li>
           <li
-            className="hover:bg-light-tertiary font-bold"
+            className="hover:bg-[#DEDDFB] font-bold"
             onClick={() => {
               logout(), router.push(`/${path}`);
             }}

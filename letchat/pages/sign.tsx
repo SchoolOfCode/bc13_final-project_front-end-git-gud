@@ -14,11 +14,9 @@ export default function Sign() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Container logo={true} images={true}>
-          <SignUser />
-        </Container>
-      </main>
+      <Container logo={true} images={true}>
+        <SignUser />
+      </Container>
     </>
   );
 }

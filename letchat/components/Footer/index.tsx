@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "../../styles/Footer.module.css";
 
 const Footer = () => {
   return (
@@ -23,39 +24,52 @@ const Footer = () => {
     //     <p className="text-light-secondary text-lg">info@letchat.co.uk</p>
     //   </div>
     // </footer>
-    <footer data-test id="footer" className="hidden md:footer p-4  bg-light-primary w-[100%] text-base-content  place-items-center">
-   <div className="flex items-center">
-     <Link href="/" className="fill-current">
-     <Image
-            src="/assets/images/letchatLogo.png"
-            alt="LetChat logo"
-            width={50}
-            height={50}
-            className="bg-light-primary rounded-full"
-          />
+    <footer data-test className="bg-light-primary flex w-screen">
+      <div className="max-w-[1400px] min-w-screen m-auto p-6 flex flex-col md:flex-row justify-between">
+        <div className="flex flex-col items-start justify-start mb-6 md:mb-0">
+          <Link href="/" className="fill-current">
+            <Image
+              src="/assets/images/logoRoof.png"
+              alt="LetChat logo"
+              width={50}
+              height={50}
+            />
           </Link>
-    <p
-    className="mt-3 text-light-light">LetChat Ltd.<br/>Providing reliable tech since 2023</p>
-  </div> 
-  <div>
-    <span className="footer-title text-light-secondary">Services</span> 
-    <a className="link link-hover text-light-light">Branding</a> 
-    <a className="link link-hover text-light-light">Design</a> 
-    <a className="link link-hover text-light-light">Marketing</a> 
-  </div> 
-  <div>
-    <span className="footer-title text-light-secondary">Company</span> 
-    <a className="link link-hover text-light-light">About us</a> 
-    <a className="link link-hover text-light-light">Contact</a> 
-    <a className="link link-hover text-light-light">Jobs</a> 
-  </div> 
-  <div>
-    <span className="footer-title text-light-secondary">Legal</span> 
-    <a className="link link-hover text-light-light">Terms of use</a> 
-    <a className="link link-hover text-light-light">Privacy policy</a> 
-    <a className="link link-hover text-light-light">Cookie policy</a>
-  </div>
-</footer>
+          <p className="mt-3 text-light-light">
+            &copy; GitGud Ltd.
+            <br />
+            Providing reliable tech since 2023
+          </p>
+        </div>
+        {/*  */}
+        <div className="flex md:flex-row w-full gap-6 justify-between md:justify-around">
+          <div className="flex flex-col">
+            <span className="footer-title text-light-secondary opacity-100">
+              Services
+            </span>
+            <a className="link link-hover text-light-light">Branding</a>
+            <a className="link link-hover text-light-light">Design</a>
+            <a className="link link-hover text-light-light">Marketing</a>
+          </div>
+          <div className="flex flex-col">
+            <span className="footer-title text-light-secondary opacity-100">
+              Company
+            </span>
+            <a className="link link-hover text-light-light">About us</a>
+            <a className="link link-hover text-light-light">Contact</a>
+            <a className="link link-hover text-light-light">Jobs</a>
+          </div>
+          <div className="flex flex-col">
+            <span className="footer-title text-light-secondary opacity-100">
+              Legal
+            </span>
+            <a className="link link-hover text-light-light">Terms of use</a>
+            <a className="link link-hover text-light-light">Privacy policy</a>
+            <a className="link link-hover text-light-light">Cookie policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 export default Footer;

@@ -1,9 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;700;800&display=swap");
 
-:root {
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
@@ -43,9 +43,9 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
-}
+} */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -76,30 +76,21 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   color: black;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 0;
 }
 
 a {
@@ -110,17 +101,27 @@ a {
 h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 li {
   list-style: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 h2 {
   font-size: 1.5rem;
   font-weight: 500;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  margin: auto;
+  background-color: white;
+  z-index: -99;
+  height: 100%;
 }
 
 .msg-info {
@@ -129,8 +130,74 @@ h2 {
   color: #888888;
 }
 
-@media (prefers-color-scheme: dark) {
+.no-scroll {
+  overflow: hidden;
+}
+
+#hero-text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media screen and (min-width: 768px) {
+  #hero-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+  }
+}
+
+/* #display {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+} */
+
+/* .nav {
+  margin: 0 auto;
+  max-width: 1400px;
+} */
+
+/* .section-container {
+  max-width: 1400px;
+  margin: auto;
+} */
+
+#content-main {
+  background-image: url("/assets/images/bigPurple.png");
+  background-repeat: no-repeat;
+  background-size: 800px;
+  background-position: 50% calc(100% + 8em);
+}
+
+@media screen and (min-width: 768px) {
+  #content-main {
+    /* background-size: auto 95%; */
+    background-size: 650px;
+    background-position: calc(100% + 12em) 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #content-main {
+    /* background-size: auto 95%; */
+    background-size: 650px;
+    background-position: calc(100% + 6em) 50%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #content-main {
+    background-size: 100vw;
+    background-position: calc(40vw) calc(0vw);
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */

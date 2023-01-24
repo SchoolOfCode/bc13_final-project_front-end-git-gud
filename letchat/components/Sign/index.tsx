@@ -41,12 +41,15 @@ const SignUser = () => {
   return (
     <>
       <LoginContainer title="Create an account">
-        <form onSubmit={submitHandler} className="space-y-3">
-          <div className="flex items-center justify-between">
-            <label className="w-[60%]">
+        <form onSubmit={submitHandler} className="space-y-3 lg:space-y-4">
+          <h2 className="font-bold text-center text-gray-800">
+            See LetChat in action today
+          </h2>
+          <div className="flex flex-col items-center justify-between text-gray-700">
+            <label className="text-gray-700 text-center mb-4 sm:w-[50%] md:w-full">
               Would you like to register as a Tenant or Landlord?
             </label>
-            <select
+            {/* <select
               className="ml-6 w-[35%]"
               name="role"
               id="role"
@@ -56,15 +59,32 @@ const SignUser = () => {
               <option value="">{null}</option>
               <option value="landlord">Landlord</option>
               <option value="tenant">Tenant</option>
-            </select>
+            </select> */}
+            <div className="text-gray-700">
+              <input
+                type="radio"
+                name="role"
+                value="landlord"
+                onChange={changeHandler}
+              />{" "}
+              Landlord
+              <input
+                className="ml-6"
+                type="radio"
+                name="role"
+                value="tenant"
+                onChange={changeHandler}
+              />{" "}
+              Tenant
+            </div>
           </div>
           <div className="space-y-1">
-            <label
+            {/* <label
               htmlFor="firstname"
               className="block text-sm font-medium text-gray-700"
             >
               First Name:
-            </label>
+            </label> */}
             <div className="mt-1">
               <input
                 placeholder="First Name"
@@ -80,12 +100,12 @@ const SignUser = () => {
             </div>
           </div>
           <div className="space-y-1">
-            <label
+            {/* <label
               htmlFor="surname"
               className="block text-sm font-medium text-gray-700"
             >
               Surname:
-            </label>
+            </label> */}
             <div className="mt-1">
               <input
                 placeholder="Surname"
@@ -101,12 +121,12 @@ const SignUser = () => {
             </div>
           </div>
           <div className="space-y-1">
-            <label
+            {/* <label
               htmlFor="name"
               className="block text-sm font-medium text-gray-700"
             >
               Contact Number:
-            </label>
+            </label> */}
             <div className="mt-0">
               <input
                 placeholder="Contact Number (e.g. 07777777777)"
@@ -124,12 +144,12 @@ const SignUser = () => {
           </div>
 
           <div>
-            <label
+            {/* <label
               htmlFor="email"
               className="block text-sm font-medium text-gray-700"
             >
               Email address
-            </label>
+            </label> */}
             <div className="mt-1">
               <input
                 placeholder="Email address"
@@ -146,12 +166,12 @@ const SignUser = () => {
             </div>
           </div>
           <div className="space-y-1">
-            <label
+            {/* <label
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
             >
               Password
-            </label>
+            </label> */}
             <div className="mt-1">
               <input
                 placeholder="Password"
@@ -169,9 +189,9 @@ const SignUser = () => {
           <div>
             <button
               type="submit"
-              className="flex w-full  rounded-full justify-center border border-transparent bg-light-primary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="flex w-full  rounded-full justify-center border border-transparent bg-light-primary py-2 px-4 text-md font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
-              Sign up
+              Create your account
             </button>
           </div>
 

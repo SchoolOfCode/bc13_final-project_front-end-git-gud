@@ -4,8 +4,6 @@ import styles from "../styles/Home.module.css";
 import Container from "../components/Container";
 import LogUser from "../components/Login";
 
-
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Login() {
@@ -17,11 +15,11 @@ export default function Login() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <div id="display">
         <Container logo={true} images={true}>
           <LogUser />
         </Container>
-      </main>
+      </div>
     </>
   );
 }

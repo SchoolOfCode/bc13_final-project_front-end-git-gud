@@ -6,7 +6,7 @@ type CardContainerProps = {
 
 const NewsFeed = ({ title }: CardContainerProps) => {
   return (
-    <div className="invisible lg:visible min-h-[20rem]  bg-light-primary shadow-lg shadow-black bg-opacity-50 rounded-lg  ">
+    <div className="min-h-[20rem]  bg-light-primary shadow-lg shadow-black bg-opacity-50 rounded-lg  ">
       <div className=" bg-light-secondary rounded-lg  bg-opacity-60 shadow-md shadow-light-tertiary h-full p-4 w-full">
         <h2 className="md:text-[30px] text-center bold uppercase text-[50px] font-bold ">
           {title}

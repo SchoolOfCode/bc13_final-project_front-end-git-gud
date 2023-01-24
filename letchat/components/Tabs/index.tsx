@@ -8,7 +8,10 @@ const Tabs = () => {
 
   return (
     <>
-      <ul className="flex mb-0 list-none pt-3 pb-4 flex-row" role="tablist">
+      <ul
+        className="flex gap-2 p-2 list-none flex-row flex-wrap"
+        role="tablist"
+      >
         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
           <a
             className={
@@ -43,10 +46,10 @@ const Tabs = () => {
             Completed
           </a>
         </li>
-        <li className="-mb-px mr-2 last:mr-0 w-[5vw] text-center">
+        <li className=" shadow-lg rounded block">
           <a
             className={
-              "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+              "text-xs font-bold uppercase px-5  py-3 shadow-lg rounded block leading-normal " +
               (openTab === 3 ? "text-white bg-light-secondary" : "bg-white")
             }
             onClick={(e) => {
@@ -61,7 +64,7 @@ const Tabs = () => {
           </a>
         </li>
       </ul>
-      <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+      <div className="relative flex flex-col items-center bg-transparent break-words mb-6 shadow-lg rounded">
         <div className="px-4 py-5 flex-auto">
           <div className="tab-content tab-space">
             <div className={openTab === 1 ? "block" : "hidden"} id="link1">

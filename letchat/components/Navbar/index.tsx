@@ -30,8 +30,8 @@ const Navbar = () => {
   const { user, logout } = useAuth();
 
   return (
-    <nav className="m-w-[1400px] w-full navbar h-16 flex flex-row items-center justify-between">
-      <div>
+    <nav className="navbar px-10 h-16 flex flex-row items-center justify-between">
+      <>
         {user && (
           <a href="/jobboard">
             <Image
@@ -58,7 +58,7 @@ const Navbar = () => {
           <NavLink path={"about"} title={"About Us"} />
           <NavLink path={"features"} title={"Features"} />
         </ul>
-      </div>
+      </>
       {/* {This button needs to render when no user is logged in} */}
       {user ? (
         <>
@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end w-20">
             <div>
               <Link href="/login" className="w-4">
-                <button className="btn border-none  h-10 bg-light-hot hover:opacity-60 hover:bg-light-hot text-black mr-6">
+                <button className="btn border-none  h-10 bg-light-hot hover:opacity-60 hover:bg-light-hot text-black">
                   Login
                 </button>
               </Link>

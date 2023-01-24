@@ -21,53 +21,24 @@ const Container = ({ children, logo, images }: ContainerProps) => {
   }, [logo, images]);
 
   return (
-    <div id="display">
-      <Navbar />
-      {children}
-      <Footer />
-      {/* <section id="background" className="overflow-hidden"> */}
-      {/* {logos ? (
-          CSS SPEECH BUBBLE
-
-          <div className="container h-full w-full">
-            <div
-              id="big-purple-circle"
-              className="overflow-hidden absolute z-20 bg-light-primary min-w-[150%] min-h-[80%] top-[-50px] lg:min-w-[100%] lg:rounded-l-[100%] lg:min-h-[100%] lg:rounded-br-[80%] lg:right-[-50%] xl:min-w-[90%]"
-            ></div>
-            <div
-              id="purple-triangle"
-              className="overflow-hidden hidden z-30 border-b-light-primary border-x-[15rem] border-b-[15rem] border-x-solid border-x-transparent border-b-solid absolute right-[-120px] bottom-[48px] rounded-br-[50%] lg:block lg:right-[-50px] lg:bottom-[35px]"
-            ></div>
-          </div>
-        ) : null} */}
-
-      {/* <Bubbles /> */}
-
-      {/* {image ? (
-            <div className="static w-full h-full">
-              <div
-                id="image-one"
-                // className="hidden w-[581px] h-[545px] bg-light-hot absolute right-[20vw] top-[10vh] rounded-[100%] z-30 md:block"
-              >
-                <img
-                  src="https://placeimg.com/600/600/tech"
-                  alt="random image"
-                  className="hidden w-96 bg-light-hot absolute right-[20vw] top-[10vh] rounded-[100%] z-30 lg:block"
-                />
-              </div>
-              <div
-                id="image-one"
-                // className="hidden w-[387px] h-[356px] bg-light-secondary absolute right-[-5vw] bottom-[10vh] rounded-[100%] overflow-hidden z-30 md:block"
-              >
-                <img
-                  src="https://placeimg.com/600/600/people"
-                  alt="random image"
-                  className="hidden w-80 bg-light-secondary absolute right-[-5vw] bottom-[10vh] rounded-[100%] overflow-hidden z-30 lg:block xl:right-[0]"
-                />
-              </div>
-            </div>
-          ) : null} */}
-      {/* </section> */}
+    <div
+      id="container"
+      className="w-full min-h-screen flex flex-col flex-grow bg-light-light relative overflow-hidden"
+    >
+      <div
+        id="children"
+        className="flex flex-col flex-grow min-h-screen min-w-screen m-0 p-0 justify-between items-center 
+        overflow-hidden relative z-40"
+      >
+        <Navbar />
+        {children}
+        <Footer />
+      </div>
+      <Bubbles />
+      {/* <Navbar /> */}
+      {/* <div className="container flex-grow  relative z-40  overflow-hidden  max-w-[1440px]"> */}
+      {/* {children} */}
+      {/* </div> */}
     </div>
   );
 };

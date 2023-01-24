@@ -31,17 +31,8 @@ const About = () => {
               <div className={style.teamImage} id={style.teamImage}>
                 <img
                   alt="Team image"
-                  src="https://apimatic.io/img/theme/aboutUs/images-1.png"
+                  src=""
                 />
-              </div>
-
-              <div className="circles-container">
-                <div className={style.teamA}>
-                  <img src="https://apimatic.io/img/theme/aboutUs/Circles-1-1.svg" />
-                </div>
-                <div className={style.teamB}>
-                  <img src="https://apimatic.io/img/theme/aboutUs/Circles-2-1.svg" />
-                </div>
               </div>
             </div>
           </div>
@@ -69,8 +60,8 @@ const About = () => {
               </p>
               <div className={style.imgContainer}>
                 <img
-                  src="https://apimatic.io/img/theme/aboutUs/dxFlow.svg"
-                  alt="apimatic developer experience process"
+                  src=""
+                  alt=""
                   className="img-responsive"
                 />
               </div>
@@ -104,8 +95,8 @@ const About = () => {
               </p>
               <div className={style.imgContainer}>
                 <img
-                  src="https://apimatic.io/img/theme/cgaasIcons/cgaasProcess.gif"
-                  alt="apimatic code generation engine"
+                  src=""
+                  alt=""
                   className="img-responsive"
                 />
               </div>
@@ -114,40 +105,20 @@ const About = () => {
             <div className={style.originStoryContainer}>
               <h3 className={style.textCenter}>Origin Story</h3>
               <p>
-                While doing research work for their PhDs from the University of
-                Auckland in 2014, our founders came across one of the API
-                industry's pain points: SDKs. They realized that API providers
-                who spent hundreds of thousands of dollars every year on
-                improving developer experience, by providing SDKs and
-                user-friendly documentation were able to reach a wider developer
-                audience for their APIs compared to API providers who weren't
-                able to do so.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non iusto odio officiis magnam tempore mollitia, atque consequatur? Corrupti, tempora provident! Dolorem, eius quibusdam quisquam debitis iste dolorum animi doloribus! Architecto rem, a possimus laudantium, earum quasi soluta voluptatem excepturi iure, itaque quis. Numquam dolore quibusdam, perspiciatis quae voluptas blanditiis nesciunt doloremque rem nisi natus ea consequuntur maiores, rerum repellendus velit id mollitia, excepturi quis est at omnis delectus corrupti! Vitae!
               </p>
               <p>
-                It was so clear that even though writing SDKs and documentation
-                was a difficult and expensive task, it followed repeatable
-                patterns which could be defined as logic blocks in a code
-                generation engine. So, as a research project, they started
-                working on a code generation engine which dynamically generated
-                SDKs using API description as input.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat ex nemo impedit, corporis inventore laudantium harum facilis esse! Veritatis iure harum deserunt similique natus provident quo molestias corrupti quas nesciunt eius rem minima, possimus tempora labore praesentium illum impedit at aut alias sapiente! Perspiciatis dolorem repellendus harum dolor nihil porro pariatur totam voluptatem. Ad soluta voluptates quam qui enim, necessitatibus perferendis exercitationem consequatur sit id, ipsam at maxime voluptatibus?
               </p>
               <p>
-                After a rigorous journey, this research project was selected as
-                a candidate for commercialization by Return on Science (a NZ
-                national research commercialization program focused on bringing
-                new academic research to market) and the concept was transformed
-                into a product i.e. APIMatic.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam reprehenderit tempora fugiat, quo quasi animi sunt doloribus sed eos ut, minus nam provident iste ducimus quam! Beatae vitae doloribus voluptatibus, voluptate earum dolorem distinctio nisi nemo deserunt itaque possimus asperiores, nobis quasi commodi eius fugiat. Voluptatibus maxime ex sit distinctio iusto consequuntur, veritatis dolorem et non incidunt facilis reiciendis corporis sapiente fugit commodi illum, praesentium doloribus. Dolor accusantium impedit libero.
               </p>
             </div>
             <div className={style.containerDivider}></div>
             <div className={style.todayContainer}>
               <h3 className={style.textCenter}>Flash Forward Today</h3>
               <p>
-                APIMatic has come a long way since its inception 3 years ago.
-                Having started with only generating SDKs, APIMatic now provides
-                solutions in other areas of developer experience as well.
-                Presently, APIMatic is used by numerous organizations around the
-                world to:
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptatibus laboriosam et, exercitationem cumque sint voluptas unde officia dicta reprehenderit nemo corporis nam quasi provident voluptate a quod veniam, ad explicabo impedit odio quis. Aut iusto reprehenderit qui? Minus totam reprehenderit alias ut doloribus earum voluptates iusto necessitatibus ad animi laudantium mollitia saepe tenetur, optio labore aspernatur tempora quo expedita sed, maxime veniam at est quis minima. Quibusdam, pariatur atque!
               </p>
               <ul>
                 <li>Create and store definitions of their APIs</li>

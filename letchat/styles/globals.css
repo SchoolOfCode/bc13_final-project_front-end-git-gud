@@ -114,6 +114,11 @@ h2 {
   font-weight: 500;
 }
 
+h5 {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 main {
   display: flex;
   flex-direction: column;

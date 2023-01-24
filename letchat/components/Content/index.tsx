@@ -20,10 +20,8 @@ const Content = ({
     <>
       <Container>
         <div className="w-screen flex-grow items-start justify-evenly flex">
-          <div className="hidden gap-12 px-10 lg:flex flex-col mt-10">
-            <div>{newsfeed}</div>
+            {newsfeed}
             {/* <div>{profile}</div> */}
-          </div>
           <div className="flex-1 items-start">
             <h1 className="text-black text-center">{title}</h1>
              {central}

@@ -39,9 +39,8 @@ const Ticket = (ticket: TicketObjectProps) => {
     // Ticket
     <article
       key={ticket.id}
-      className="h-[15rem] flex flex-col w-full p-2 shadow-lg rounded-2xl"
+      className=" flex flex-col glass h-full md:w-full shadow-lg rounded-2xl"
     >
-      {/* Ticket header */}
       <header className="flex flex-row justify-between p-2 bg-light-primary rounded-t-2xl">
         <div id="ticket-author" className="flex flex-row align-center">
           {/* Avatar */}
@@ -55,27 +54,23 @@ const Ticket = (ticket: TicketObjectProps) => {
           id="ticket-info"
           className="flex-col items-center text-right justify-right"
         >
-          {/* <h5>Ticket #{ticket.id}</h5> */}
-          <h4 className="text-white">{ticket.id}</h4>
           <h5 className="font-bold text-white">{ticket.subject}</h5>
         </div>
       </header>
-      {/* Ticket body */}
-      <main className="p-2">
-        {/* <div>{ticket.lastMessage}</div> */}
-        {/* Ticket footer/read more button */}
-        <Link href={`/jobboard/${ticket.id}`}>
-          {" "}
-          {/* Link to ticket messages page */}
-          <div>
-            <p>{ticket.message}</p>
-          </div>
-          <button className="bg-light-tertiary  rounded-lg px-2 py-1 mt-2 float-right">
-            Read more
-          </button>
-        </Link>
-        <Toggle completed={ticket.completed} handleClick={handleClick} />
-      </main>
+      <div className="p-2 w-full">
+        <div className="flex justify-between items-center mb-5">
+          <Toggle completed={ticket.completed} handleClick={handleClick} />
+           {/* Link to ticket messages page */}
+          <Link
+            className="flex items-center bg-light-tertiary  rounded-lg px-2 py-1 h-full"
+            href={`/jobboard/${ticket.id}`}
+          >
+            <button>Read More</button>
+          </Link>
+        </div>
+        {/* Ticket body */}
+        <p>{ticket.message}</p>
+      </div>
     </article>
   );
 };

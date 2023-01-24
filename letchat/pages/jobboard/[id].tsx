@@ -3,10 +3,15 @@ import { Inter } from "@next/font/google";
 import Content from "../../components/Content";
 import NavigationPoint from "../../components/NavigationPoint";
 import Messages from "../../components/Messages";
+import { useAuth } from "../../context/AuthContext";
+import NewsFeed from "../../components/NewsFeed";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {
+  const { user } = useAuth();
+
   return (
     <>
       <Head>
@@ -20,6 +25,12 @@ export default function JobBoard() {
           title="Messages"
           navigation={<NavigationPoint />}
           central={<Messages />}
+          newsfeed={<NewsFeed 
+            firstname={user.firstname}
+            surname={user.surname}
+            phonenumber={user.phonenumber}
+            email={user.email} 
+            />}
         />
       </main>
     </>

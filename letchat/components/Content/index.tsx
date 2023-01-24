@@ -25,7 +25,7 @@ const Content = ({
             <div>{profile}</div>
           </div>
           <div className="flex-1 items-start">
-            <h1 className="text-black">{title}</h1>
+            <h1 className="text-black text-center">{title}</h1>
              {central}
           </div>
 

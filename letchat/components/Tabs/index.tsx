@@ -8,11 +8,11 @@ const Tabs = () => {
 
   return (
     <>
-      <ul className="flex mb-0 list-none pt-3 pb-4 flex-row" role="tablist">
+      <ul className="flex list-none ml-1 pt-3 pb-4 flex-wrap w-[95%]" role="tablist">
         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
           <a
             className={
-              "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+              "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
               (openTab === 1 ? "text-white bg-light-secondary" : "bg-white")
             }
             onClick={(e) => {
@@ -29,7 +29,7 @@ const Tabs = () => {
         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
           <a
             className={
-              "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+              "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
               (openTab === 2 ? "text-white bg-light-secondary" : "bg-white")
             }
             onClick={(e) => {
@@ -43,7 +43,7 @@ const Tabs = () => {
             Completed
           </a>
         </li>
-        <li className="-mb-px mr-2 last:mr-0 w-[5vw] text-center">
+        <li className="-mb-px mr-2 last:mr-0  text-center">
           <a
             className={
               "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +

@@ -13,7 +13,7 @@ const privacypolicy = () => {
       </Head>
 
       <Container>
-        <div className=" m-auto max-w-3xl ">
+        <div className=" m-auto max-w-3xl my-4">
           <h1>Privacy Policy</h1>
 
           <p>Last updated January 23, 2023</p>

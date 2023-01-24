@@ -1,9 +1,19 @@
+import Head from "next/head";
 import style from "../styles/About.module.scss";
 import Container from "../components/Container";
 
 const About = () => {
   return (
     <>
+      <Head>
+        <title>LetChat</title>
+        <meta
+          name="description"
+          content="Streamlined communication between tenants and landlords."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Container>
         <div id={style.aboutMain}>
           <div className={style.jumbotron}>

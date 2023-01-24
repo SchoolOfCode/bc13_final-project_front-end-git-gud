@@ -36,31 +36,31 @@ const TicketBoard = ({ completed }: CompletedProp) => {
 
   console.log(tickets);
   return (
-    <div className="gap-3 overflow-y-scroll  max-h-[55vh] flex flex-col items-center text-black">
+    <div className="gap-3 overflow-y-scroll  max-h-[55vh] grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 text-black">
       {/* Map over tickets array, rendering each ticket */}
       {tickets.map((ticket: TicketObject) => {
-        async function getLastMessage(id: number) {
-          let res = await fetch(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/tickets/${id}`
-          );
-          let data = await res.json();
-          let messageArrLength = await data.payload.length;
-          let lastMessageObj = await data.payload[messageArrLength - 1];
-          return lastMessageObj;
-        }
+        // async function getLastMessage(id: number) {
+        //   let res = await fetch(
+        //     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/${id}`
+        //   );
+        //   let data = await res.json();
+        //   let messageArrLength = await data.payload.length;
+        //   let lastMessageObj = await data.payload[messageArrLength - 1];
+        //   return lastMessageObj;
+        // }
 
-        async function getLastMessageText(id: number) {
-          let lastMessageObj = await getLastMessage(id);
-          let lastMessageText = await lastMessageObj.message;
-          return lastMessageText;
-        }
+        // async function getLastMessageText(id: number) {
+        //   let lastMessageObj = await getLastMessage(id);
+        //   let lastMessageText = await lastMessageObj.message;
+        //   return lastMessageText;
+        // }
 
-        function callGetLastMessageText(id: number) {
-          let lastMessageText = getLastMessageText(id);
-          return lastMessageText;
-        }
+        // function callGetLastMessageText(id: number) {
+        //   let lastMessageText = getLastMessageText(id);
+        //   return lastMessageText;
+        // }
 
-        let lastMessageText = callGetLastMessageText(ticket.id);
+        // let lastMessageText = callGetLastMessageText(ticket.id);
 
         return ticket.completed === completed ? (
           <Ticket

@@ -24,11 +24,9 @@ const Content = ({
             <div>{newsfeed}</div>
             <div>{profile}</div>
           </div>
-          <div className="w-screen">
-            <h1 className="text-black text-center">{title}</h1>
-            <div className="flex flex-col w-full p-4 items-center justify-between gap-5">
-              {central}
-            </div>
+          <div className="flex-1 items-start">
+            <h1 className="text-black">{title}</h1>
+             {central}
           </div>
 
           {/* <div>{navigation}</div> */}

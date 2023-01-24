@@ -5,7 +5,7 @@ type ContentProps = {
   title: string;
   navigation?: React.ReactNode;
   central?: React.ReactNode;
-  profile?: React.ReactNode;
+  // profile?: React.ReactNode;
   newsfeed?: React.ReactNode;
 };
 
@@ -13,7 +13,7 @@ const Content = ({
   title,
   navigation,
   central,
-  profile,
+  // profile,
   newsfeed,
 }: ContentProps) => {
   return (
@@ -22,7 +22,7 @@ const Content = ({
         <div className="w-screen flex-grow items-start justify-evenly flex">
           <div className="hidden gap-12 px-10 lg:flex flex-col mt-10">
             <div>{newsfeed}</div>
-            <div>{profile}</div>
+            {/* <div>{profile}</div> */}
           </div>
           <div className="flex-1 items-start">
             <h1 className="text-black text-center">{title}</h1>

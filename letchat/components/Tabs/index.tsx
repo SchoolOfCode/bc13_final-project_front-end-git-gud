@@ -13,7 +13,7 @@ const Tabs = () => {
           <a
             className={
               "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
-              (openTab === 1 ? "text-white bg-light-secondary" : "bg-white")
+              (openTab === 1 ? "text-white bg-light-primary" : "bg-white")
             }
             onClick={(e) => {
               e.preventDefault();
@@ -30,7 +30,7 @@ const Tabs = () => {
           <a
             className={
               "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
-              (openTab === 2 ? "text-white bg-light-secondary" : "bg-white")
+              (openTab === 2 ? "text-white bg-light-primary" : "bg-white")
             }
             onClick={(e) => {
               e.preventDefault();
@@ -47,7 +47,7 @@ const Tabs = () => {
           <a
             className={
               "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-              (openTab === 3 ? "text-white bg-light-secondary" : "bg-white")
+              (openTab === 3 ? "text-white bg-light-primary" : "bg-white")
             }
             onClick={(e) => {
               e.preventDefault();
@@ -61,8 +61,8 @@ const Tabs = () => {
           </a>
         </li>
       </ul>
-      <div className="relative flex flex-col break-words bg-white mb-6 shadow-lg rounded">
-        <div className="px-4 py-5 flex-auto">
+      <div className="relative flex flex-col mb-6 shadow-lg rounded">
+        <div className="px-4 py-5 flex-auto w-[95%]">
           <div className="tab-content tab-space">
             <div className={openTab === 1 ? "block" : "hidden"} id="link1">
               <TicketBoard completed={false} />

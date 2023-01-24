@@ -50,7 +50,7 @@ const TicketForm = () => {
     setTicket({ ...ticket, [e.target.name]: e.target.value });
   }
   return (
-    <form className="flex flex-col lg:flex-grow bg-red-600 p-6 rounded-lg shadow-lg">
+    <form className="flex flex-col lg:flex-grow p-6 rounded-lg shadow-lg">
       <div className="form-group mb-6">
         <input
           name="property_id"

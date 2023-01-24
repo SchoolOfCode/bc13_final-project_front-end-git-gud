@@ -25,16 +25,21 @@ export default function JobBoard() {
       <Content
         title={"Job Board"}
         navigation={<NavigationPoint />}
-        newsfeed={<NewsFeed title={"News Feed"} />}
-        central={<Tabs />}
-        profile={
-          <CardContainer
+        newsfeed={<NewsFeed 
             firstname={user.firstname}
             surname={user.surname}
             phonenumber={user.phonenumber}
-            email={user.email}
-          />
-        }
+            email={user.email} 
+            />}
+        central={<Tabs/>}
+        // profile={
+        //   <CardContainer
+        //     firstname={user.firstname}
+        //     surname={user.surname}
+        //     phonenumber={user.phonenumber}
+        //     email={user.email}
+        //   />
+        // }
       />
       {/* </main> */}
     </>

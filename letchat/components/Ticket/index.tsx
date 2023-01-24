@@ -39,14 +39,14 @@ const Ticket = (ticket: TicketObjectProps) => {
     // Ticket
     <article
       key={ticket.id}
-      className="h-[15rem] flex flex-col w-full p-2 shadow-lg bg-[#F0C8C2] rounded-2xl"
+      className="h-[15rem] flex flex-col w-full p-2 shadow-lg rounded-2xl"
     >
       {/* Ticket header */}
-      <header className="flex flex-row justify-between p-2 bg-light-hot rounded-t-2xl">
+      <header className="flex flex-row justify-between p-2 bg-light-primary rounded-t-2xl">
         <div id="ticket-author" className="flex flex-row align-center">
           {/* Avatar */}
           <Image src={avatar} alt="avatar" className="w-10 h-10 rounded-full" />
-          <p className="leading-10 ml-2">
+          <p className="leading-10 ml-2 text-white">
             {ticket.first_name} {ticket.last_name}
           </p>
         </div>
@@ -56,8 +56,8 @@ const Ticket = (ticket: TicketObjectProps) => {
           className="flex-col items-center text-right justify-right"
         >
           {/* <h5>Ticket #{ticket.id}</h5> */}
-          <h4>{ticket.id}</h4>
-          <h5 className="font-bold">{ticket.subject}</h5>
+          <h4 className="text-white">{ticket.id}</h4>
+          <h5 className="font-bold text-white">{ticket.subject}</h5>
         </div>
       </header>
       {/* Ticket body */}
@@ -70,7 +70,7 @@ const Ticket = (ticket: TicketObjectProps) => {
           <div>
             <p>{ticket.message}</p>
           </div>
-          <button className="bg-light-hot rounded-lg px-2 py-1 mt-2 float-right">
+          <button className="bg-light-tertiary  rounded-lg px-2 py-1 mt-2 float-right">
             Read more
           </button>
         </Link>

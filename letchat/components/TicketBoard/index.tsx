@@ -36,7 +36,7 @@ const TicketBoard = ({ completed }: CompletedProp) => {
 
   console.log(tickets);
   return (
-    <div className="gap-3 overflow-y-scroll w-full flex flex-col items-center h-[60vh] text-black">
+    <div className="gap-3 overflow-y-scroll max-w-[700px] flex flex-col items-center text-black">
       {/* Map over tickets array, rendering each ticket */}
       {tickets.map((ticket: TicketObject) => {
         // async function getLastMessage(id: number) {

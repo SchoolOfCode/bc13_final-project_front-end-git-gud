@@ -19,12 +19,12 @@ const Content = ({
   return (
     <>
       <Container>
-        <div className="w-screen flex-grow items-center justify-center flex">
+        <div className="w-screen flex-grow items-start justify-evenly flex">
           <div className="hidden gap-12 px-10 lg:flex flex-col mt-10">
             <div>{newsfeed}</div>
             <div>{profile}</div>
           </div>
-          <div>
+          <div className="w-screen">
             <h1 className="text-black text-center">{title}</h1>
             <div className="flex flex-col w-full p-4 items-center justify-between gap-5">
               {central}

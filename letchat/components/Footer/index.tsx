@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../../styles/Footer.module.css";
+import logoRoof from "../../public/assets/images/logoRoof.png";
+
 
 const Footer = () => {
   return (
@@ -27,12 +28,12 @@ const Footer = () => {
     <footer data-test className="bg-light-primary flex w-screen">
       <div className="m-auto p-6 flex flex-col md:flex-row w-full lg:max-w-[1400px] lg:justify-center">
         <div className="flex flex-col items-start justify-start mb-6 md:mb-0">
-          <Link href="/" className="fill-current">
+          <Link href="/" className="relative w-16 h-12 ">
             <Image
-              src="/assets/images/logoRoof.png"
+              src={logoRoof}
               alt="LetChat logo"
-              width={50}
-              height={50}
+              fill={true}
+              sizes="100%"
             />
           </Link>
           <p className="mt-3 text-light-light">

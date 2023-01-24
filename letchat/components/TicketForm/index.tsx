@@ -7,7 +7,7 @@ const TicketForm = () => {
   console.log(user);
 
   const [ticket, setTicket] = useState({
-    property_id: "",
+    property_id: 1,
     subject: "",
     message: "",
     landlord_id: 1,
@@ -17,7 +17,7 @@ const TicketForm = () => {
   });
 
   async function postNewTicket(ticket: {
-    property_id: string;
+    property_id: number;
     subject: string;
     message: string;
     landlord_id: number;
@@ -35,11 +35,24 @@ const TicketForm = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
   }
+  function resetFields() {
+    console.log("resetting fields");
+    setTicket({
+      property_id: 1,
+      subject: "",
+      message: "",
+      landlord_id: 1,
+      completed: false,
+      raised_by: user?.role,
+      tenant_id: 1,
+    });
+  }
 
   function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault(); // prevent page refresh
     console.log(ticket);
     postNewTicket(ticket);
+    resetFields();
   }
 
   function handleChange(

@@ -25,7 +25,7 @@ const Footer = () => {
     //   </div>
     // </footer>
     <footer data-test className="bg-light-primary flex w-screen">
-      <div className="max-w-[1400px] min-w-screen m-auto p-6 flex flex-col md:flex-row justify-between">
+      <div className="m-auto p-6 flex flex-col md:flex-row w-full lg:max-w-[1400px] lg:justify-center">
         <div className="flex flex-col items-start justify-start mb-6 md:mb-0">
           <Link href="/" className="fill-current">
             <Image
@@ -42,7 +42,7 @@ const Footer = () => {
           </p>
         </div>
         {/*  */}
-        <div className="flex md:flex-row w-full gap-6 justify-between md:justify-around">
+        <div className="flex md:flex-row w-full gap-6 justify-between lg:justify-around md:w-full md:max-w-[1400px] md:justify-around">
           <div className="flex flex-col">
             <span className="footer-title text-light-secondary opacity-100">
               Services

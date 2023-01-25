@@ -14,12 +14,12 @@ const NewsFeed = ({
   email,
 }: CardContainerProps) => {
   return (
-    <div className="hidden md:max-w-[200px] lg:block h-[80vh] bg-white shadow-lg shadow-slate-300 rounded-lg mt-[5rem]">
-      <div className="  rounded-lg shadow-sm shadow-light-tertiary h-[50%]">
-        <h4 className="md:text-[15px] p-4 bg-light-primary text-white text-center bold uppercase font-bold rounded-lg">
+    <div className="hidden md:max-w-[200px] lg:block h-[80vh] glass shadow-lg shadow-slate-300 rounded-lg mt-[5rem]">
+      <div className="rounded-lg shadow-sm shadow-light-tertiary h-[50%]">
+        <h4 className="bg-light-primary bg-opacity-80 md:text-[15px] p-4 text-white text-center bold uppercase font-bold rounded-lg">
           News feed
         </h4>
-        <div className="flex flex-col text-center md:text-[15px] p-4 ">
+        <div className="flex flex-col text-center md:text-[15px] p-4">
           <ul>
             <li>Landlord: Uploaded EPC</li>
             <li>Tenant: Uploaded ID document</li>
@@ -27,7 +27,7 @@ const NewsFeed = ({
         </div>
       </div>
         <div className="md:text-[16px] flex-col flex text-center rounded-lg">
-          <h2 className="md:text-[15px] p-4 text-center bold uppercase font-bold bg-light-secondary">
+          <h2 className="md:text-[15px] p-4 text-center bold uppercase font-bold bg-light-secondary rounded-b-lg">
             {firstname} {surname}
           </h2>
           <p className="text-[15px] mt-4">

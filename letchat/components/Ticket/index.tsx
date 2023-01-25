@@ -3,6 +3,7 @@ import avatar from "../../public/assets/images/img_avatar.png";
 import Link from "next/link";
 import Toggle from "../Toggle";
 import tickets from "../../pages/api/hello";
+import { useState } from "react";
 
 type TicketObjectProps = {
   id: number;
@@ -15,26 +16,13 @@ type TicketObjectProps = {
   raised_by: string;
   first_name: string;
   last_name: string;
+  handleClick: React.MouseEventHandler<HTMLInputElement>;
   // lastMessageText: promise<any>;
 };
 
+
 const Ticket = (ticket: TicketObjectProps) => {
-  function handleClick(e: any) {
-    // when a toggle is clicked, I want to send a patch request
-    // to the database to toggle the completed status of the row with the same id
-    let ticketIDText =
-      e.target.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByTagName(
-        "h5"
-      )[0].innerText;
-    console.log(ticketIDText);
-    let ticketID = Number(ticketIDText.match(/[0-9]/g));
-    console.log(ticketID);
-  }
-
-  // async function handleClick(id:number) {
-  //   console.log(id);
-  // }
-
+  
   return (
     // Ticket
     <article
@@ -59,8 +47,9 @@ const Ticket = (ticket: TicketObjectProps) => {
       </header>
       <div className="p-2 w-full">
         <div className="flex justify-between items-center mb-5">
-          <Toggle completed={ticket.completed} handleClick={handleClick} />
+          <Toggle completed={ticket.completed} handleClick={ticket.handleClick} />
            {/* Link to ticket messages page */}
+           
           <Link
             className="flex items-center bg-light-tertiary bg-opacity-50 rounded-lg px-2 py-1 h-full"
             href={`/jobboard/${ticket.id}`}

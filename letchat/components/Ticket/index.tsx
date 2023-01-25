@@ -39,9 +39,9 @@ const Ticket = (ticket: TicketObjectProps) => {
     // Ticket
     <article
       key={ticket.id}
-      className=" flex flex-col glass h-full md:w-full shadow-lg rounded-2xl"
+      className=" flex flex-col glass h-full md:w-full shadow-lg shadow-slate-300 hover:shadow-sm hover:shadow-light-tertiary rounded-2xl"
     >
-      <header className="flex flex-row justify-between p-2 bg-light-primary rounded-t-2xl">
+      <header className="flex flex-row justify-between p-2 bg-light-primary bg-opacity-80 rounded-t-2xl">
         <div id="ticket-author" className="flex flex-row align-center">
           {/* Avatar */}
           <Image src={avatar} alt="avatar" className="w-10 h-10 rounded-full" />
@@ -62,7 +62,7 @@ const Ticket = (ticket: TicketObjectProps) => {
           <Toggle completed={ticket.completed} handleClick={handleClick} />
            {/* Link to ticket messages page */}
           <Link
-            className="flex items-center bg-light-tertiary  rounded-lg px-2 py-1 h-full"
+            className="flex items-center bg-light-tertiary bg-opacity-50 rounded-lg px-2 py-1 h-full"
             href={`/jobboard/${ticket.id}`}
           >
             <button>Read More</button>

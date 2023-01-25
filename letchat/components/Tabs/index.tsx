@@ -8,12 +8,12 @@ const Tabs = () => {
 
   return (
     <>
-      <ul className="flex list-none ml-1 pt-3 pb-4 flex-wrap w-[95%]" role="tablist">
+      <ul className="flex list-none ml-1 p-4 flex-wrap gap-4 " role="tablist">
         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
           <a
             className={
               "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
-              (openTab === 1 ? " bg-light-tertiary bg-opacity-60" : "bg-white")
+              (openTab === 1 ? " bg-light-tertiary bg-opacity-50" : "bg-white")
             }
             onClick={(e) => {
               e.preventDefault();
@@ -30,7 +30,7 @@ const Tabs = () => {
           <a
             className={
               "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
-              (openTab === 2 ? "bg-light-tertiary bg-opacity-60" : "bg-white")
+              (openTab === 2 ? "bg-light-tertiary bg-opacity-50" : "bg-white")
             }
             onClick={(e) => {
               e.preventDefault();
@@ -47,7 +47,7 @@ const Tabs = () => {
           <a
             className={
               "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-              (openTab === 3 ? "bg-light-tertiary bg-opacity-60" : "bg-white")
+              (openTab === 3 ? "bg-light-tertiary bg-opacity-50" : "bg-white")
             }
             onClick={(e) => {
               e.preventDefault();

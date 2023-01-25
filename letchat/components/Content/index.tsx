@@ -19,10 +19,9 @@ const Content = ({
   return (
     <>
       <Container>
-        <div className="w-screen flex-grow items-start justify-evenly flex">
-            {newsfeed}
-            {/* <div>{profile}</div> */}
-          <div className="flex-1 items-start">
+        <div className="w-screen flex flex-grow items-start">
+          <div className="flex justify-center lg:w-[30%] xl:w-[20%]">{newsfeed}</div>
+          <div className="flex-1 lg:w-[60%] items-start">
             <h1 className="text-black text-center">{title}</h1>
              {central}
           </div>

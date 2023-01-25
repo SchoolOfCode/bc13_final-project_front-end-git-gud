@@ -28,7 +28,7 @@ const Footer = () => {
     <footer data-test className="bg-light-primary flex w-screen">
       <div className="m-auto p-6 flex flex-col md:flex-row w-full lg:max-w-[1400px] lg:justify-center">
         <div className="flex flex-col items-start justify-start mb-6 md:mb-0">
-          <Link href="/" className="relative w-16 h-12 ">
+          <Link href="/" className="relative w-16 h-8 ">
             <Image
               src={logoRoof}
               alt="LetChat logo"

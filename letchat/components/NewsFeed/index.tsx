@@ -14,23 +14,23 @@ const NewsFeed = ({
   email,
 }: CardContainerProps) => {
   return (
-    <div className="hidden lg:block h-[80vh] bg-white shadow-lg shadow-black rounded-lg  ">
-      <div className="  rounded-lg shadow-md shadow-light-tertiary  p-4 h-[50%]">
-        <h4 className="md:text-[30px] bg-light-primary text-white text-center bold uppercase font-bold ">
+    <div className="hidden md:max-w-[200px] lg:block h-[80vh] bg-white shadow-lg shadow-slate-300 rounded-lg mt-[5rem]">
+      <div className="  rounded-lg shadow-sm shadow-light-tertiary h-[50%]">
+        <h4 className="md:text-[15px] p-4 bg-light-primary text-white text-center bold uppercase font-bold rounded-lg">
           News feed
         </h4>
-        <div className="flex flex-col flex-grow justify-between text-center rounded-bl-2xl rounded-br-2xl  bold uppercase mt-12 p-4 items-center ">
+        <div className="flex flex-col text-center md:text-[15px] p-4 ">
           <ul>
             <li>Landlord: Uploaded EPC</li>
             <li>Tenant: Uploaded ID document</li>
           </ul>
         </div>
       </div>
-        <div className="md:text-[16px] flex-col flex justify-between text-center rounded-bl-2xl rounded-br-2xl  bold uppercase mt-12 p-4 items-center h-[50%] w-full">
-          <h2 className="md:text-[20px] text-center bold uppercase font-bold bg-light-secondary">
+        <div className="md:text-[16px] flex-col flex text-center rounded-lg">
+          <h2 className="md:text-[15px] p-4 text-center bold uppercase font-bold bg-light-secondary">
             {firstname} {surname}
           </h2>
-          <p className="text-[15px] flex justify-between mb-2 w-[60%] items-center ">
+          <p className="text-[15px] mt-4">
             Status: <span> Online</span>
           </p>
           <p className="text-[15px] ">Contact no: {phonenumber}</p>

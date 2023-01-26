@@ -24,7 +24,7 @@ export default function Storage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Content
+        {/* <Content
           title={"Storage"}
           navigation={<NavigationPoint />}
           newsfeed={<NewsFeed title={"News Feed"} />}
@@ -37,7 +37,7 @@ export default function Storage() {
               email={user.email}
             />
           }
-        />
+        /> */}
       </main>
     </>
   );

@@ -29,7 +29,9 @@ const Navbar = () => {
   const { user, logout } = useAuth();
 
   return (
-    <nav className="navbar flex h-16 flex-row items-center justify-between px-10">
+
+    <nav className="navbar px-3 md:px-10 h-16 flex flex-row items-center justify-between">
+
       <>
         <div>
           {user && (
@@ -38,7 +40,9 @@ const Navbar = () => {
                 src={logo}
                 alt="LetChat logo"
                 height={28}
-                className=" m-auto inline-block border-none"
+
+                className=" inline-block border-none m-auto"
+
               />
             </a>
           )}
@@ -48,11 +52,13 @@ const Navbar = () => {
                 src={logo}
                 alt="LetChat logo"
                 height={28}
-                className=" m-auto inline-block border-none"
+
+                className=" inline-block border-none m-auto"
               />
             </a>
           )}
-          <ul className="ml-16 mt-1 flex flex-row">
+          <ul className="flex flex-row ml-16 mt-1">
+
             <NavLink path={"jobboard"} title={"Home"} />
             <NavLink path={"about"} title={"About Us"} />
             <NavLink path={"features"} title={"Features"} />

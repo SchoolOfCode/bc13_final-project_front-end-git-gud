@@ -38,6 +38,7 @@ const SignUser = () => {
           data.surname,
           data.phonenumber
         );
+
         router.push("/jobboard");
       } catch (err) {
         alert("User already exists");
@@ -166,7 +167,9 @@ const SignUser = () => {
               Create your account
             </button>
           </div>
-          <div className="flex items-center justify-center ">
+
+          {/* <div className="flex items-center justify-center ">
+
             <div className="text-md w-full text-center">
               <p className="font-medium tracking-wide text-gray-900">
                 <span className="text-light-primary underline hover:text-light-primary">
@@ -174,7 +177,7 @@ const SignUser = () => {
                 </span>
               </p>
             </div>
-          </div>
+          </div> */}
         </form>
       </LoginContainer>
     </>

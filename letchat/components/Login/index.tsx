@@ -76,6 +76,7 @@ const LogUser = () => {
               />
             </div>
           </div>
+
           <div>
             <button
               onClick={handleSubmit}
@@ -92,6 +93,15 @@ const LogUser = () => {
                 Not a member?
                 <span className="ml-5 cursor-pointer text-light-primary underline hover:text-light-primary">
                   <Link href="/sign">Register</Link>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center justify-center ">
+            <div className="text-md w-full text-center">
+              <p className="font-medium text-gray-900 tracking-wide">
+                <span className="text-light-primary hover:text-light-primary underline">
+                  <a>Forgot your password?</a>
                 </span>
               </p>
             </div>

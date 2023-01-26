@@ -12,7 +12,7 @@ export default function JobBoard() {
   return (
     <>
       <Head>
-        <title>LetChat | Job Board</title>
+        <title>LetChat | Dashboard</title>
         <meta
           name="description"
           content="Streamlined communication between tenants and landlords."
@@ -23,7 +23,7 @@ export default function JobBoard() {
       </Head>
       {/* <main> */}
       <Content
-        title={"Job Board"}
+        title={"Dashboard"}
         navigation={<NavigationPoint />}
         newsfeed={
           <NewsFeed

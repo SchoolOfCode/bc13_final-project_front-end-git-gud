@@ -1,9 +1,20 @@
+import Head from "next/head";
 import style from "../styles/About.module.scss";
 import Container from "../components/Container";
+import Link from "next/link";
 
 const About = () => {
   return (
     <>
+      <Head>
+        <title>LetChat</title>
+        <meta
+          name="description"
+          content="Streamlined communication between tenants and landlords."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Container>
         <div id={style.aboutMain}>
           <div className={style.jumbotron}>
@@ -29,19 +40,9 @@ const About = () => {
             </div>
             <div className={style.imgLayerContainer}>
               <div className={style.teamImage} id={style.teamImage}>
-                <img
-                  alt="Team image"
-                  src="https://apimatic.io/img/theme/aboutUs/images-1.png"
-                />
-              </div>
 
-              <div className="circles-container">
-                <div className={style.teamA}>
-                  <img src="https://apimatic.io/img/theme/aboutUs/Circles-1-1.svg" />
-                </div>
-                <div className={style.teamB}>
-                  <img src="https://apimatic.io/img/theme/aboutUs/Circles-2-1.svg" />
-                </div>
+                <img alt="Team image" src="" />
+
               </div>
             </div>
           </div>
@@ -69,8 +70,8 @@ const About = () => {
               </p>
               <div className={style.imgContainer}>
                 <img
-                  src="https://apimatic.io/img/theme/aboutUs/dxFlow.svg"
-                  alt="apimatic developer experience process"
+                  src=""
+                  alt=""
                   className="img-responsive"
                 />
               </div>
@@ -102,68 +103,19 @@ const About = () => {
                 improve the user experience all whilst making sure we were on
                 track to complete the project in time.
               </p>
+              <br />
+              <Link href="https://github.com/SchoolOfCode/bc13_final-project_front-end-git-gud/blob/main/README.md">
+                Click here to find out more about our project on Github.
+              </Link>
               <div className={style.imgContainer}>
                 <img
-                  src="https://apimatic.io/img/theme/cgaasIcons/cgaasProcess.gif"
-                  alt="apimatic code generation engine"
+                  src=""
+                  alt=""
                   className="img-responsive"
                 />
               </div>
             </div>
-            <div className={style.containerDivider}></div>
-            <div className={style.originStoryContainer}>
-              <h3 className={style.textCenter}>Origin Story</h3>
-              <p>
-                While doing research work for their PhDs from the University of
-                Auckland in 2014, our founders came across one of the API
-                industry's pain points: SDKs. They realized that API providers
-                who spent hundreds of thousands of dollars every year on
-                improving developer experience, by providing SDKs and
-                user-friendly documentation were able to reach a wider developer
-                audience for their APIs compared to API providers who weren't
-                able to do so.
-              </p>
-              <p>
-                It was so clear that even though writing SDKs and documentation
-                was a difficult and expensive task, it followed repeatable
-                patterns which could be defined as logic blocks in a code
-                generation engine. So, as a research project, they started
-                working on a code generation engine which dynamically generated
-                SDKs using API description as input.
-              </p>
-              <p>
-                After a rigorous journey, this research project was selected as
-                a candidate for commercialization by Return on Science (a NZ
-                national research commercialization program focused on bringing
-                new academic research to market) and the concept was transformed
-                into a product i.e. APIMatic.
-              </p>
-            </div>
-            <div className={style.containerDivider}></div>
-            <div className={style.todayContainer}>
-              <h3 className={style.textCenter}>Flash Forward Today</h3>
-              <p>
-                APIMatic has come a long way since its inception 3 years ago.
-                Having started with only generating SDKs, APIMatic now provides
-                solutions in other areas of developer experience as well.
-                Presently, APIMatic is used by numerous organizations around the
-                world to:
-              </p>
-              <ul>
-                <li>Create and store definitions of their APIs</li>
-                <li>Generate SDKs for their APIs for 10 platforms</li>
-                <li>Keep these SDKs in sync with API updates</li>
-                <li>
-                  Convert API descriptions into multiple formats (Swagger, API
-                  Blueprint, RAML etc.)
-                </li>
-                <li>
-                  Generate beautiful documentation for their APIs and SDKs
-                </li>
-                <li>Generate complete Developer Experience API Portals</li>
-              </ul>
-            </div>
-            <div className={style.containerDivider}></div>
+
           </div>
         </div>
       </Container>

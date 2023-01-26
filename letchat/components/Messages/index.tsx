@@ -43,7 +43,6 @@ export default function Messages() {
   };
 
   useEffect(() => {
-
     const fetchMessages = async () => {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/tickets/${id}`
@@ -89,6 +88,7 @@ export default function Messages() {
     setInput("");
   };
 
+  // post new message to database
   const postNewMessage = async (newMessage: newMessageObject) => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/`,
@@ -104,19 +104,19 @@ export default function Messages() {
     const data = await res.json();
   };
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  // scroll to bottom of messages
+  // const messagesEndRef = useRef<HTMLDivElement>(null);
+  // const scrollToBottom = () => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [messages]);
 
   // render messages
   return (
-    <div className="p-8 w-4/5 mx-auto h-full backdrop-blur-md rounded-3xl drop-shadow-md border">
+    <div className="p-8 w-4/5 mx-auto backdrop-blur-md rounded-3xl drop-shadow-md border">
       <a href="/jobboard">
         <span className="flex flex-row">
           <svg
@@ -138,7 +138,7 @@ export default function Messages() {
       </a>
       <h2 className="mb-10 text-center text-black">Ticket ID: {id}</h2>
       {/* Map over messages array, rendering each msg based on user_role */}
-      <div className="flex flex-col gap-1 overflow-y-scroll h-[60vh] p-6">
+      <div className="flex flex-col max-h-[35vh] overflow-y-scroll gap-1 p-6">
         {messages.map((message, index) => {
           // if message user_role is tenant, render chat bubble for tenant
           if (user?.role === message.user_role) {
@@ -193,7 +193,7 @@ export default function Messages() {
             );
           }
         })}{" "}
-        <div ref={messagesEndRef} />
+        {/* <div ref={messagesEndRef} /> */}
       </div>
       <div className="flex flex-row mt-2">
         {/* Input field and send button */}

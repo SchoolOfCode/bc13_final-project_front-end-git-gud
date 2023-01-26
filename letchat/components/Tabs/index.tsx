@@ -8,12 +8,12 @@ const Tabs = () => {
 
   return (
     <>
-      <ul className="flex mb-0 list-none pt-3 pb-4 flex-row" role="tablist">
+      <ul className="flex list-none ml-1 p-4 flex-wrap gap-4 " role="tablist">
         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
           <a
             className={
-              "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-              (openTab === 1 ? "text-white bg-light-secondary" : "bg-white")
+              "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
+              (openTab === 1 ? " bg-light-tertiary bg-opacity-50" : "bg-white")
             }
             onClick={(e) => {
               e.preventDefault();
@@ -29,8 +29,8 @@ const Tabs = () => {
         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
           <a
             className={
-              "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-              (openTab === 2 ? "text-white bg-light-secondary" : "bg-white")
+              "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
+              (openTab === 2 ? "bg-light-tertiary bg-opacity-50" : "bg-white")
             }
             onClick={(e) => {
               e.preventDefault();
@@ -43,11 +43,11 @@ const Tabs = () => {
             Completed
           </a>
         </li>
-        <li className="-mb-px mr-2 last:mr-0 w-[5vw] text-center">
+        <li className="-mb-px mr-2 last:mr-0  text-center">
           <a
             className={
               "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-              (openTab === 3 ? "text-white bg-light-secondary" : "bg-white")
+              (openTab === 3 ? "bg-light-tertiary bg-opacity-50" : "bg-white")
             }
             onClick={(e) => {
               e.preventDefault();
@@ -61,9 +61,9 @@ const Tabs = () => {
           </a>
         </li>
       </ul>
-      <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-        <div className="px-4 py-5 flex-auto">
-          <div className="tab-content tab-space">
+      <div className="relative flex flex-col mb-6 shadow-lg rounded">
+        <div className="lg:px-4 py-5">
+          <div className="">
             <div className={openTab === 1 ? "block" : "hidden"} id="link1">
               <TicketBoard completed={false} />
             </div>

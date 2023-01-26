@@ -1,4 +1,8 @@
 import styles from "../../styles/Main.module.css";
+import Link from "next/link";
+import { useAuth } from "../../context/AuthContext";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import SignUser from "../Sign";
 type ContainerProps = {
   title?: string;
   description?: string;
@@ -7,23 +11,32 @@ type ContainerProps = {
 };
 export const ContentMain = ({ title, description, link }: ContainerProps) => {
   return (
-    <div className="hero h-[100vh] justify-center flex  align-center lg:w-[50%]">
-      
-        <div className=" hero-content flex items-center glass min-h-[70%] p-10 h-fit flex-col text-black justify-around text-center lg:text-left mb-16 ">
-        <h1 className={`${styles.title} ${styles.underlined}`}><span className={`${styles.underlined}`}>Let</span><span className={`${styles.underlined} ${styles.underlineOverflow}`}>Chat</span></h1>
-          <p className="text-justify text-[1.5rem]  ">
-            {description}
-          </p>
-          <div className="mt-10 px-5 w-[15rem] lg:w-full">
-            <button className="btn w-full  text-2xl tracking-wider rounded-full text-black hover:bg-light-secondary hover:opacity-70 active:bg-light-hot bg-light-secondary  lg:text-white lg:hover:bg-light-primary lg:hover:opacity-70 lg:active:bg-light-hot lg:bg-light-primary ">
-              {link}
-            </button>
-          </div>
-      
-        </div>
-      
+    <div
+      id="content-main"
+      className="w-screen gap-10 p-6 flex flex-grow flex-col md:flex-row justify-around items-center xl:justify-evenly xl:gap-20"
+    >
+      {/* LEFT SECTION */}
+      <div className=" mt-10 flex flex-col w-full md:mt-0 lg:w-[45%] text-center lg:items-center md:text-left max-w-[60rem] p-10 gap-12">
+        {/* Hero tagline */}
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-800s">
+          The secure platform for landlords and tenants to{" "}
+          <span className="sm:hidden">communicate</span>
+          <span
+            className={`text-gray-800 ${styles.underlined} ${styles.underlineMask} hidden sm:inline-block z-100`}
+          >
+            communicate
+          </span>
+        </h1>
+        {/* Hero paragraph text */}
+        <p id="hero-text" className="mt-3 lg:pr-[8rem] text-grey-900">
+          {description}
+        </p>
+      </div>
+      {/* RIGHT/FORM SECTION */}
+      <div className="my-24 max-w-2xl">
+        <SignUser />
+      </div>
     </div>
-   
   );
 };
 export default ContentMain;

@@ -2,10 +2,7 @@ import styles from "../../styles/Container.module.css";
 
 const Bubbles = () => {
   return (
-    <div
-      id="bubbles"
-      className="static w-full h-full overflow-hidden top-0 left-0"
-    >
+    <div id="bubbles" className="static top-0 left-0">
       <div
         id="pink-bubble"
         className={`${styles.bubble} absolute right-[30%] bottom-[-200px] w-[100px] h-[100px] rounded-full opacity-[0.8] bg-light-secondary z-30`}

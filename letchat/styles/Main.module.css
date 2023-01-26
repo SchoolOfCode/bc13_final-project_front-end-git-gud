@@ -9,19 +9,19 @@
   position: relative;
 }
 
-.underlineMask:after {
+.underlineMask::after {
   content: "";
   position: absolute;
-  top: 95%;
-  width: 160%;
+  top: 65%;
+  width: 250%;
   aspect-ratio: 3 / 1;
-  left: 50%;
+  left: 64%;
   transform: translate(-50%, 0);
   border-radius: 50%;
-  border: 6px solid hsl(280 80% 50%);
+  border: 16px solid rgba(247, 181, 56, 0.5);
   /* Use a conic gradient mask to hide and show the bits you want */
-  --spread: 140deg;
-  --start: 290deg;
+  --spread: 100deg;
+  --start: 300deg;
   mask: conic-gradient(
     from var(--start),
     white 0 var(--spread),
@@ -29,7 +29,7 @@
   );
 }
 
-.underlineOverflow:after {
+.underlineOverflow::after {
   content: "";
   position: absolute;
   top: 95%;

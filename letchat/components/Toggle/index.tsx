@@ -7,9 +7,13 @@ function Toggle({ completed, handleClick }: ToggleProps) {
   return (
     <div className="flex">
       <div className="form-control w-40">
-        <label className="cursor-pointer label">
+        <label className="label cursor-pointer">
           <span className="label-text text-light-primary">Completed</span>
-          <input type="checkbox" className={`toggle toggle-primary ${completed ? "checked" : ""} active:bg-none`}
+          <input
+            type="checkbox"
+            className={`toggle-primary toggle ${
+              completed ? "checked" : ""
+            } active:bg-none`}
             onClick={handleClick}
           />
         </label>

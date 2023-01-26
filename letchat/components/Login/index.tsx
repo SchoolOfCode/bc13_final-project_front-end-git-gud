@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { LoginContainer } from "../../utils";
+import Link from "next/link";
 
 const LogUser = () => {
   const router = useRouter();
@@ -34,11 +34,11 @@ const LogUser = () => {
   return (
     <>
       <LoginContainer title="Login account">
-        <form className="space-y-6 m-auto" action="#" method="POST">
+        <form className="m-auto space-y-6" action="#" method="POST">
           <div>
             <label
               htmlFor="email"
-              className="block text-md  text-gray-700 font-bold"
+              className="text-md block  font-bold text-gray-700"
             >
               Email address
             </label>
@@ -59,7 +59,7 @@ const LogUser = () => {
           <div className="space-y-1">
             <label
               htmlFor="password"
-              className="block text-md  text-gray-700 font-bold"
+              className="text-md block  font-bold text-gray-700"
             >
               Password
             </label>
@@ -76,11 +76,12 @@ const LogUser = () => {
               />
             </div>
           </div>
+
           <div>
             <button
               onClick={handleSubmit}
               type="submit"
-              className="flex w-full  rounded-full justify-center border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="flex w-full  justify-center rounded-full border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Login
             </button>
@@ -88,10 +89,19 @@ const LogUser = () => {
 
           <div className="flex items-center justify-center ">
             <div className="text-md w-full pl-2">
-              <p className="font-bold text-gray-900 tracking-wide">
+              <p className="font-bold tracking-wide text-gray-900">
                 Not a member?
-                <span className="text-light-primary cursor-pointer hover:text-light-primary underline ml-5">
+                <span className="ml-5 cursor-pointer text-light-primary underline hover:text-light-primary">
                   <Link href="/sign">Register</Link>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center justify-center ">
+            <div className="text-md w-full text-center">
+              <p className="font-medium text-gray-900 tracking-wide">
+                <span className="text-light-primary hover:text-light-primary underline">
+                  <a>Forgot your password?</a>
                 </span>
               </p>
             </div>

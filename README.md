@@ -1,22 +1,16 @@
 # Team Git Gud Presents
 
 [![Logo-With-Text.png](https://i.postimg.cc/V6gZw7Cw/Logo-With-Text.png)](https://postimg.cc/FdfVgVpC)
-<h3 align="center">Project Title</h3>
 
-<div align="center">
-
-[![Hackathon](https://img.shields.io/badge/hackathon-name-orange.svg)](http://hackathon.url.com)
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
-
-</div>
+<h3 align="center">LetChat</h3>
 
 ---
 
-<p align="center"> Few lines describing your project.
+<p align="center"> 
+LetChat aims to make the renting process easier for both landlords and tenants by providing a platform for communication and documentation.
     <br> 
+By using LetChat you can create a job ticket, upload documents and chat with your landlord or tenant in real time within a secure environment.
+    
 </p>
 
 ## 📝 Table of Contents
@@ -34,28 +28,25 @@
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 
-Renting a property can be a stressful experience where you would want communication with your landlord or tenant to be straight forward, transparent and concise.
+Renting a property can be a stressful experience where ideally you would want communication between landlord and tenant to be as clear and simple as possible.
 
-Communication between tenants and landlords currently uses a variety of different communication methods and its difficult to work out which one is best for a given situation, this makes something simple like getting your sink repaired unnecessarily time consuming and difficult.
+Currently, communication is often done via email or text message which can be confusing and time consuming. The long term impact of this may result in landlords and tenants getting frustrated with one another and making an already stressful experience even more unpleasant.
 
-The long term impact of this may result in landlords and tenants getting frustrated with one another and making an already stressful experience even more unpleasant.
+Long term relationships are built on trust and communication, and we believe that LetChat can help to build a positive relationship between landlords and tenants.
 
 ## 💡 Idea / Solution <a name = "idea"></a>
 
-Our solution to this was to build a platform that connected landlords and tenants directly, to enable both parties to build a positive and long standing relationship through clear communication and trust with an emphasis on security all whilst being wrapped in an intuitive clean morden UI.
+Our solution to this was to build a platform that connected landlords and tenants directly, to enable both parties to build a positive and long standing relationship through clear communication and trust with an emphasis on security all whilst being wrapped in a simple, appealing and easy to use interface.
 
 ## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 
-- What are the dependencies of your project?
-- Describe each limitation in detailed but concise terms
-- Explain why each limitation exists
-- Provide the reasons why each limitation could not be overcome using the method(s) chosen to acquire.
-- Assess the impact of each limitation in relation to the overall findings and conclusions of your project, and if
-  appropriate, describe how these limitations could point to the need for further research.
-
--Not a mandatory way of communication both parties need to be onboard.
--We will be holding users key documentation and user data so GDPR compliance must be adhered to.
--Authorisation and security is paramount.
+- We are using a free tier of Firebase for authentication and storage, this means that we are limited to 1GB of storage and 1000 users which may result in the app being slow to load and/or not being able to store all of the users data.
+- As the app isn't mandatory for landlords and tenants to use, we are limited to the number of users we can get to sign up.
+  As both parties need to use the app together in order to reap the benefits we will have to push the app to both parties with strong marketing and advertising.
+- We will be holding users key documentation and user data so GDPR compliance must be adhered to. This will require keeping on top of any law chances and updating our app accordingly.
+- Authorisation and security is paramount. We will also be using Firebase's email verification to ensure that only verified users can access the app.
+- We are using a free tier of Netlify for hosting, this means that we are limited to 100GB of bandwidth per month and 300 build minutes per month. This may result in the app being slow to load and/or not being able to store all of the users data.
+  To combat this we'll be expanding our hosting to a paid tier once we have more users.
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
 
@@ -70,12 +61,14 @@ You can sign up to our app by visiting <a href="www.letchat.co.uk">LetChat</a>
 ## 🎈 Usage <a name="usage"></a>
 
 When you first visit the site you can sign up with an email address this must be valid as you will receive a conformation email.
+
 For security reasons we designed the app to be protected until verification is complete.
 Once verified you will be able to login with email and password.
+
 You will them be redirected to our job board where you interact with the app.
 Once again for security reasons, if your forget to logout your account will be logged out on page close.
 
-## ⛏️ Built With <a name = "tech_stack"></a>
+## ⛏️ Tech Stack <a name = "tech_stack"></a>
 
 - [PostgreSQL](https://www.postgresql.org) - Database
 - [Express](https://expressjs.com/) - Server Framework
@@ -94,8 +87,7 @@ You can view the frontend and backend repo here:
 
 - https://github.com/SchoolOfCode/bc13_final-project_back-end-git-gud
 
-
-## ✍️ Lessons Learned <a name = "lessons_learned"></a>
+## 🏫 Lessons Learned <a name = "lessons_learned"></a>
 
 - We learned Next.js and how much more we like it than vanilla React. Used Next's built-in router as well as the Context API.
 - TailwindCSS and daisyUI for fast prototyping and further visual styling.
@@ -121,7 +113,6 @@ You can view the frontend and backend repo here:
 - Awaiting promises properly in TypeScript and lots more TS in general.
 - How to pass Regex patterns in Next.
 
-
 ## ✍️ Authors <a name = "authors"></a>
 
 - https://github.com/Lakorthus - Julio Velezmoro
@@ -135,4 +126,4 @@ You can view the frontend and backend repo here:
 
 We would like to thank the school of code for making this all possible!
 
-- https://www.schoolofcode.co.uk -https://github.com/SchoolOfCode
+- https://www.schoolofcode.co.uk - https://github.com/SchoolOfCode

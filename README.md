@@ -116,7 +116,11 @@ You can view the frontend and backend repo here:
 
 ## 📃 Documentation <a name = "documentation"></a>
 
-![Branching Strategy](./letchat/Documentation/BRANCHING.md)
+- [Our Team Manifesto](./letchat/Documentation/TEAMMANIFESTO.md)
+- [Code Style Guide](./letchat/Documentation/CODESTYLEGUIDE.md)
+- [Branching Strategy](./letchat/Documentation/BRANCHING.md)
+- [Making Pull Requests](./letchat/Documentation/PULLREQUESTS.md)
+- [Colour Pallet](./letchat/Documentation/COLOURPALLET.md)
 
 ## ✍️ Authors <a name = "authors"></a>
 

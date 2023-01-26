@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
 import Container from "../components/Container";
 import LogUser from "../components/Login";
 
@@ -10,11 +9,14 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>LetChat</title>
+        <title>
+          LetChat | Streamlined communication between tenants and landlords
+        </title>
         <meta
           name="description"
           content="Streamlined communication between tenants and landlords."
         />
+        <meta name="author" content="Git Gud" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

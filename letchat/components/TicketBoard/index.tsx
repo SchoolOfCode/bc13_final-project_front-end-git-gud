@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from "react";
+
 import Ticket from "../Ticket";
-import { env } from "process";
 
 type CompletedProp = {
   completed: boolean;
@@ -19,6 +20,7 @@ export type TicketObject = {
 };
 
 const TicketBoard = ({ completed }: CompletedProp) => {
+
   const [tickets, setTickets] = useState<TicketObject[]>([]);
 
 
@@ -33,15 +35,18 @@ const TicketBoard = ({ completed }: CompletedProp) => {
     fetchTickets();
   }, []);
 
+
   async function handleClick(ticketId: number, newCompleted: boolean) {
    
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/${ticketId}`, {  
         method: 'PATCH',
+
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
+
           completed: newCompleted,
           id: ticketId
         })
@@ -55,11 +60,11 @@ const TicketBoard = ({ completed }: CompletedProp) => {
     } catch (err) {
       console.error(err);
     } 
+
   }
 
   return (
-    <div className="gap-3 overflow-y-scroll max-h-[60vh] md:max-h-[70vh] grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 text-black p-2">
-      {/* Map over tickets array, rendering each ticket */}
+    <div className="grid max-h-[60vh] grid-cols-1 gap-3 overflow-y-scroll p-2 text-black md:max-h-[70vh] xl:grid-cols-2 2xl:grid-cols-3">
       {tickets.map((ticket: TicketObject) => {
         return ticket.completed === completed ? (
           <Ticket

@@ -4,17 +4,14 @@ import TicketForm from "../TicketForm";
 
 const Tabs = () => {
   const [openTab, setOpenTab] = useState(1);
-  
-
-
 
   return (
     <>
-      <ul className="flex list-none ml-1 p-4 flex-wrap gap-4 " role="tablist">
-        <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <ul className="ml-1 flex list-none flex-wrap gap-4 p-4 " role="tablist">
+        <li className="-mb-px mr-2 flex-auto text-center last:mr-0">
           <a
             className={
-              "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
+              "block rounded px-2 py-3 text-xs font-bold uppercase leading-normal shadow-lg " +
               (openTab === 1 ? " bg-light-tertiary bg-opacity-50" : "bg-white")
             }
             onClick={(e) => {
@@ -28,10 +25,10 @@ const Tabs = () => {
             In Progress
           </a>
         </li>
-        <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <li className="-mb-px mr-2 flex-auto text-center last:mr-0">
           <a
             className={
-              "text-xs font-bold uppercase px-2 py-3 shadow-lg rounded block leading-normal " +
+              "block rounded px-2 py-3 text-xs font-bold uppercase leading-normal shadow-lg " +
               (openTab === 2 ? "bg-light-tertiary bg-opacity-50" : "bg-white")
             }
             onClick={(e) => {
@@ -45,10 +42,10 @@ const Tabs = () => {
             Completed
           </a>
         </li>
-        <li className="-mb-px mr-2 last:mr-0  text-center">
+        <li className="-mb-px mr-2 text-center  last:mr-0">
           <a
             className={
-              "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+              "block rounded px-5 py-3 text-xs font-bold uppercase leading-normal shadow-lg " +
               (openTab === 3 ? "bg-light-tertiary bg-opacity-50" : "bg-white")
             }
             onClick={(e) => {
@@ -63,8 +60,8 @@ const Tabs = () => {
           </a>
         </li>
       </ul>
-      <div className="relative flex flex-col mb-6 shadow-lg rounded">
-        <div className="lg:px-4 py-5">
+      <div className="relative mb-6 flex flex-col rounded shadow-lg">
+        <div className="py-5 lg:px-4">
           <div className="">
             <div className={openTab === 1 ? "block" : "hidden"} id="link1">
               <TicketBoard completed={false} />

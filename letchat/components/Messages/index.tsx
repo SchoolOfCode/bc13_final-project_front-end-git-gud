@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import { ChangeEvent, useEffect, useState, useRef } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { useAuth } from "../../context/AuthContext";
 
@@ -105,19 +105,8 @@ export default function Messages() {
     const data = await res.json();
   };
 
-  // scroll to bottom of messages
-  // const messagesEndRef = useRef<HTMLDivElement>(null);
-  // const scrollToBottom = () => {
-  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // };
-
-  // useEffect(() => {
-  //   scrollToBottom();
-  // }, [messages]);
-
-  // render messages
   return (
-    <div className="p-8 w-4/5 mx-auto backdrop-blur-md rounded-3xl drop-shadow-md border">
+    <div className="mx-auto w-4/5 rounded-3xl border p-8 drop-shadow-md backdrop-blur-md">
       <a href="/jobboard">
         <span className="flex flex-row">
           <svg
@@ -126,7 +115,7 @@ export default function Messages() {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6 hover:text-light-primary"
+            className="h-6 w-6 hover:text-light-primary"
           >
             <path
               strokeLinecap="round"
@@ -139,7 +128,7 @@ export default function Messages() {
       </a>
       <h2 className="mb-10 text-center text-black">Ticket ID: {id}</h2>
       {/* Map over messages array, rendering each msg based on user_role */}
-      <div className="flex flex-col max-h-[35vh] overflow-y-scroll gap-1 p-6">
+      <div className="flex max-h-[35vh] flex-col gap-1 overflow-y-scroll p-6">
         {messages.map((message, index) => {
           // if message user_role is tenant, render chat bubble for tenant
           if (user?.role === message.user_role) {
@@ -147,7 +136,7 @@ export default function Messages() {
               <div key={message.id}>
                 {index === 0 || messages[index - 1].date !== message.date ? (
                   <span className="flex justify-center">
-                    <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit">
+                    <p className="w-fit rounded-full bg-light-secondary px-2 py-1 text-center text-xs">
                       {message.date}
                     </p>
                   </span>
@@ -170,7 +159,7 @@ export default function Messages() {
               <div key={message.id}>
                 {index === 0 || messages[index - 1].date !== message.date ? (
                   <span className="flex justify-center">
-                    <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit">
+                    <p className="w-fit rounded-full bg-light-secondary px-2 py-1 text-center text-xs">
                       {message.date}
                     </p>
                   </span>
@@ -194,21 +183,19 @@ export default function Messages() {
             );
           }
         })}{" "}
-        {/* <div ref={messagesEndRef} /> */}
       </div>
-      <div className="flex flex-row mt-2">
-        {/* Input field and send button */}
+      <div className="mt-2 flex flex-row">
         <input
           type="text"
           placeholder="Type here"
-          className="input input-bordered input-primary w-full"
+          className="input-bordered input-primary input w-full"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           value={input}
         />
         <button
           onClick={handleClick}
-          className="btn bg-light-primary hover:bg-light-primary hover:opacity-80 text-white hover:text-black"
+          className="btn bg-light-primary text-white hover:bg-light-primary hover:text-black hover:opacity-80"
         >
           Send
         </button>

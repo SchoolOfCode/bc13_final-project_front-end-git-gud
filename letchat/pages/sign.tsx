@@ -9,11 +9,9 @@ export default function Sign() {
   return (
     <>
       <Head>
-        <title>LetChat</title>
-        <meta
-          name="description"
-          content="Streamlined communication between tenants and landlords."
-        />
+        <title>LetChat | Sign Up</title>
+        <meta name="description" content="Streamlined communication between tenants and landlords." />
+        <meta name="author" content="Git Gud" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

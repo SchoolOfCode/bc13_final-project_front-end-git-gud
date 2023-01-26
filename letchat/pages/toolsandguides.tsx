@@ -8,11 +8,9 @@ export default function ToolsAndGuides() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <meta
-          name="description"
-          content="Streamlined communication between tenants and landlords."
-        />
+        <title>LetChat | Tools And Guides</title>
+        <meta name="description" content="Streamlined communication between tenants and landlords." />
+        <meta name="author" content="Git Gud" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

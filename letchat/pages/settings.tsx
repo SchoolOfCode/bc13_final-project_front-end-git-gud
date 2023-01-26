@@ -6,40 +6,41 @@ const Settings = () => {
   return (
     <>
       <Head>
-        <title>LetChat</title>
+        <title>LetChat | Settings</title>
         <meta
           name="description"
           content="Streamlined communication between tenants and landlords."
         />
+        <meta name="author" content="Git Gud" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <div className="container mx-auto max-w-3xl mt-8">
-          <h1 className="text-2xl font-bold text-gray-700 px-6 md:px-0">
+        <div className="container mx-auto mt-8 max-w-3xl">
+          <h1 className="px-6 text-2xl font-bold text-gray-700 md:px-0">
             Account Settings
           </h1>
-          <ul className="flex border-b border-gray-300 text-sm font-medium text-gray-600 mt-3 px-6 md:px-0">
-            <li className="mr-8 text-gray-900 border-b-2 border-gray-800">
-              <a href="#_" className="py-4 inline-block">
+          <ul className="mt-3 flex border-b border-gray-300 px-6 text-sm font-medium text-gray-600 md:px-0">
+            <li className="mr-8 border-b-2 border-gray-800 text-gray-900">
+              <a href="#_" className="inline-block py-4">
                 Profile Info
               </a>
             </li>
             <li className="mr-8 hover:text-gray-900">
-              <a href="#_" className="py-4 inline-block">
+              <a href="#_" className="inline-block py-4">
                 Security
               </a>
             </li>
             <li className="mr-8 hover:text-gray-900">
-              <a href="#_" className="py-4 inline-block">
+              <a href="#_" className="inline-block py-4">
                 Billing
               </a>
             </li>
           </ul>
           <form>
-            <div className="w-full bg-white rounded-lg mx-auto mt-8 flex overflow-hidden rounded-b-none">
-              <div className="w-1/3 bg-gray-100 p-8 hidden md:inline-block">
-                <h2 className="font-medium text-md text-gray-700 mb-4 tracking-wide">
+            <div className="mx-auto mt-8 flex w-full overflow-hidden rounded-lg rounded-b-none bg-white">
+              <div className="hidden w-1/3 bg-gray-100 p-8 md:inline-block">
+                <h2 className="text-md mb-4 font-medium tracking-wide text-gray-700">
                   Profile Info
                 </h2>
                 <p className="text-xs text-gray-500">
@@ -47,11 +48,11 @@ const Settings = () => {
                   Name, and Image.
                 </p>
               </div>
-              <div className="md:w-2/3 w-full">
+              <div className="w-full md:w-2/3">
                 <div className="py-8 px-16">
                   <label className="text-sm text-gray-600">Name</label>
                   <input
-                    className="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500"
+                    className="mt-2 block w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-base text-gray-900 focus:border-indigo-500 focus:outline-none"
                     type="text"
                     value=""
                     name="name"
@@ -61,42 +62,42 @@ const Settings = () => {
                 <div className="py-8 px-16">
                   <label className="text-sm text-gray-600">Email Address</label>
                   <input
-                    className="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500"
+                    className="mt-2 block w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-base text-gray-900 focus:border-indigo-500 focus:outline-none"
                     type="email"
                     name="email"
                     value=""
                   />
                 </div>
                 <hr className="border-gray-200" />
-                <div className="py-8 px-16 clearfix">
-                  <label className="text-sm text-gray-600 w-full block">
+                <div className="clearfix py-8 px-16">
+                  <label className="block w-full text-sm text-gray-600">
                     Photo
                   </label>
                   <img
-                    className="rounded-full w-16 h-16 border-4 mt-2 border-gray-200 float-left"
+                    className="float-left mt-2 h-16 w-16 rounded-full border-4 border-gray-200"
                     id="photo"
                     src="https://pbs.twimg.com/profile_images/1163965029063913472/ItoFLWys_400x400.jpg"
                     alt="photo"
                   />
-                  <div className="bg-gray-200 text-gray-500 text-xs mt-5 ml-3 font-bold px-4 py-2 rounded-lg float-left hover:bg-gray-300 hover:text-gray-600 relative overflow-hidden cursor-pointer">
+                  <div className="relative float-left mt-5 ml-3 cursor-pointer overflow-hidden rounded-lg bg-gray-200 px-4 py-2 text-xs font-bold text-gray-500 hover:bg-gray-300 hover:text-gray-600">
                     <input
                       type="file"
                       name="photo"
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                      className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
                     />{" "}
                     Change Photo
                   </div>
                 </div>
               </div>
             </div>
-            <div className="p-16 py-8 bg-gray-300 clearfix rounded-b-lg border-t border-gray-200 mt-3">
+            <div className="clearfix mt-3 rounded-b-lg border-t border-gray-200 bg-gray-300 p-16 py-8">
               <div className="flex w-full justify-between">
-                <p className="float-left text-xs text-gray-500 tracking-tight mt-2">
+                <p className="float-left mt-2 text-xs tracking-tight text-gray-500">
                   Click on Save to update your Profile Info
                 </p>
                 <input
                   type="submit"
-                  className="bg-indigo-500 text-white text-sm font-medium px-6 py-2 rounded  uppercase cursor-pointer"
+                  className="cursor-pointer rounded bg-indigo-500 px-6 py-2 text-sm font-medium  uppercase text-white"
                   value="Save"
                 />
               </div>

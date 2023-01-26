@@ -8,6 +8,8 @@ import {
   sendEmailVerification,
   signOut,
   getAuth,
+  setPersistence,
+  browserSessionPersistence,
 } from "firebase/auth";
 import { useRouter } from "next/router";
 
@@ -58,6 +60,7 @@ export const AuthContextProvider = ({
           logout();
           router.push("/login");
           alert("Please authenticate your account.");
+          sendEmailVerification(user);
         }
       } else {
         setUser(null);
@@ -100,6 +103,19 @@ export const AuthContextProvider = ({
     setUser(null);
     await signOut(auth);
   };
+
+  const auth = getAuth();
+  setPersistence(auth, browserSessionPersistence)
+    .then(() => {
+      (email: string, password: string) => {
+        return signInWithEmailAndPassword(auth, email, password);
+      };
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
 
   return (
     <AuthContext.Provider value={{ user, login, signup, logout }}>

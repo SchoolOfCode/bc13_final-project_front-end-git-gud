@@ -13,28 +13,37 @@ const SignUser = () => {
     surname: "",
     phonenumber: "",
   });
+  const [termsAgreed, setTermsAgreed] = useState(false);
+
   const router = useRouter();
   const { signup } = useAuth();
 
-  const changeHandler = (e: any) => {
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = async (e: any) => {
+  const checkboxHandler = (e:React.ChangeEvent<HTMLInputElement> ) => {
+    setTermsAgreed(!termsAgreed);
+  }
+
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await signup(
-        data.email,
-        data.password,
-        data.role,
-        data.firstname,
-        data.surname,
-        data.phonenumber
-      );
-      router.push("/jobboard");
-    } catch (err) {
-      console.log(err);
-      alert("User already exists");
+    if (termsAgreed) {
+      try {
+        await signup(
+          data.email,
+          data.password,
+          data.role,
+          data.firstname,
+          data.surname,
+          data.phonenumber
+        );
+        console.log("signed up")
+        router.push("/jobboard");
+      } catch (err) {
+        console.log(err);
+        alert("User already exists");
+      }
     }
   };
 
@@ -184,6 +193,14 @@ const SignUser = () => {
                 required
                 className="block w-full text-black  appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
+            </div>
+
+            <div className="mt-1">
+              <label>
+                By clicking this you agree to{" "}
+                <Link href="/termsofuse">our terms of use</Link>{" "}
+                <input type="checkbox" onChange={checkboxHandler} />
+              </label>
             </div>
           </div>
           <div>

@@ -5,7 +5,7 @@ import logoRoof from "../../public/assets/images/logoRoof.png";
 
 const Footer = () => {
   return (
-    // <footer data-test id="footer" className="hidden toast toast-bottom p-4 lg:block bg-light-primary w-[100%]">
+    // <footer data-testid="footer" className="hidden toast toast-bottom p-4 lg:block bg-light-primary w-[100%]">
     //   <div className=" flex justify-between items-center">
     //     <Link href="/" className="flex items-center mb-4 sm:mb-0">
     //       <Image
@@ -25,6 +25,7 @@ const Footer = () => {
     //     <p className="text-light-secondary text-lg">info@letchat.co.uk</p>
     //   </div>
     // </footer>
+
     <footer data-test className="bg-light-primary flex w-screen">
       <div className="m-auto p-6 flex flex-col md:flex-row w-full lg:max-w-[1400px] lg:justify-center">
         <div className="flex flex-col items-start justify-start mb-6 md:mb-0">
@@ -56,7 +57,7 @@ const Footer = () => {
             <span className="footer-title text-white opacity-100">
               Company
             </span>
-            <a className="link link-hover text-light-light">About us</a>
+            <Link href="/termsofuse" className="link link-hover text-light-light">About us</Link>
             <a className="link link-hover text-light-light">Contact</a>
             <a className="link link-hover text-light-light">Jobs</a>
           </div>
@@ -64,8 +65,8 @@ const Footer = () => {
             <span className="footer-title text-white opacity-100">
               Legal
             </span>
-            <a className="link link-hover text-light-light">Terms of use</a>
-            <a className="link link-hover text-light-light">Privacy policy</a>
+            <Link href="/termsofuse" className="link link-hover text-light-light">Terms of use</Link>
+            <Link href="/privacypolicy" className="link link-hover text-light-light">Privacy policy</Link>
             <a className="link link-hover text-light-light">Cookie policy</a>
           </div>
         </div>

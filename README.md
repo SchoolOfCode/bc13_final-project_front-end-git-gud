@@ -21,8 +21,9 @@ By using LetChat you can create a job ticket, upload documents and chat with you
 - [Future Scope](#future_scope)
 - [Setting up a local environment](#getting_started)
 - [Usage](#usage)
-- [Technology Stack](#tech_stack)
+- [Tech Stack](#tech_stack)
 - [Lessons Learned](#lessons_learned)
+- [Documentation](#documentation)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
 
@@ -112,6 +113,10 @@ You can view the frontend and backend repo here:
 - Different pairs work better together in different situations.
 - Awaiting promises properly in TypeScript and lots more TS in general.
 - How to pass Regex patterns in Next.
+
+## 📃 Documentation <a name = "documentation"></a>
+
+![Branching Strategy](./letchat/Documentation/BRANCHING.md)
 
 ## ✍️ Authors <a name = "authors"></a>
 

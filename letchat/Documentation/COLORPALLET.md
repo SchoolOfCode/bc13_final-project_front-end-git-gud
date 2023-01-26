@@ -2,22 +2,23 @@
 
 🚨 When picking up a color please ensure you use the predetermined colors below.
 
-light:
-primary: "#5956E9",
-secondary: "#FAB8C4",
-tertiary: "#F7B538",
-hot: "#F58071",
-light: "#FBFBFF",
+          light:
 
-          "content-text": "#000000",
+          primary: "#5956E9", // Purple
+          secondary: "#FAB8C4", // Pink
+          tertiary: "#F7B538", // Yellow
+          hot: "#F58071", // Red
+          light: "#FBFBFF", // White
 
-dark: {
-primary: "#37392e",
-secondary: "#EAEEF3",
-tertiary: "#FBBF24",
-hot: "#f6d809",
-dark: "#37392e",
+          "content-text": "#000000", // Black
 
-          "content-text": "#a4dad2",
+          dark: {
+          primary: "#37392e", // Dark Green
+          secondary: "#EAEEF3", // Light Grey
+          tertiary: "#FBBF24", // Orange
+          hot: "#f6d809", // Yellow
+          dark: "#37392e", // Dark Green
+
+          "content-text": "#a4dad2", // Light Green
 
 ❤️ Thank you!

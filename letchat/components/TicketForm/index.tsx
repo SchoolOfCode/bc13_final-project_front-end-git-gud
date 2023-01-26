@@ -14,7 +14,7 @@ const TicketForm = () => {
     tenant_id: 1,
   });
 
-  async function postNewTicket(ticket: {
+  type ticketObject = {
     property_id: string;
     subject: string;
     message: string;
@@ -22,19 +22,40 @@ const TicketForm = () => {
     completed: boolean;
     raised_by: string;
     tenant_id: number;
-  }) {
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(ticket),
-    }).then((res) => res.json());
-  }
+  };
+  
+  // return fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/`, {
+  
 
-  function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault(); // prevent page refresh
-    postNewTicket(ticket);
+  const form = document.querySelector('form[name="post"]') as HTMLFormElement;
+
+  const postForm = (body: object) => {
+      return fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+    };
+    
+  const handleClear = () => {
+    form.reset();
+  };
+
+  const handleSubmit =async (e: React.FormEvent<HTMLFormElement>) => {
+    try {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const body = {...Object.fromEntries(formData.entries()), landlord_id: 1, completed: false, raised_by: user?.role, tenant_id: 1}
+      const response = await postForm(body);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      handleClear();
+    }
   }
 
   function handleChange(
@@ -45,23 +66,28 @@ const TicketForm = () => {
     setTicket({ ...ticket, [e.target.name]: e.target.value });
   }
   return (
-    <form className="flex flex-col rounded-lg p-6 shadow-lg lg:flex-grow">
-      <div className="form-group mb-6">
-        <input
-          name="property_id"
-          onChange={handleChange}
-          type="text"
-          className="form-control m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
-          id="exampleInput7"
-          placeholder="Property Number"
-        />
-      </div>
-      <div className="form-group mb-6">
-        <input
-          name="subject"
-          onChange={handleChange}
-          type="email"
-          className="form-control m-0
+    <>
+      <form
+        name="post"
+        className="flex flex-col rounded-lg p-6 shadow-lg lg:flex-grow"
+        onSubmit={handleSubmit}
+      >
+        <div className="form-group mb-6">
+          <input
+            name="property_id"
+            onChange={handleChange}
+            type="text"
+            className="form-control m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
+            id="exampleInput7"
+            placeholder="Property Number"
+          />
+        </div>
+        <div className="form-group mb-6">
+          <input
+            name="subject"
+            onChange={handleChange}
+            type="text"
+            className="form-control m-0
         block
         w-full
         rounded
@@ -75,15 +101,15 @@ const TicketForm = () => {
         transition
         ease-in-out
         focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
-          id="exampleInput8"
-          placeholder="Subject"
-        />
-      </div>
-      <div className="form-group mb-6">
-        <textarea
-          name="message"
-          onChange={handleChange}
-          className="
+            id="exampleInput8"
+            placeholder="Subject"
+          />
+        </div>
+        <div className="form-group mb-6">
+          <textarea
+            name="message"
+            onChange={handleChange}
+            className="
         form-control
         m-0
         block
@@ -100,14 +126,14 @@ const TicketForm = () => {
         ease-in-out
         focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
       "
-          id="exampleFormControlTextarea13"
-          rows={3}
-          placeholder="Message"
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-        className="
+            id="exampleFormControlTextarea13"
+            rows={3}
+            placeholder="Message"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          className="
       w-full
       rounded
       bg-light-primary
@@ -125,11 +151,12 @@ const TicketForm = () => {
       focus:ring-0
       active:bg-light-primary
       active:shadow-lg"
-        onClick={handleClick}
-      >
-        Send
-      </button>
-    </form>
+      
+        >
+          Send
+        </button>
+      </form>
+    </>
   );
 };
 

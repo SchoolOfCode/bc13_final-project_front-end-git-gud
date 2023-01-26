@@ -2,34 +2,34 @@ import Link from "next/link";
 
 const NavigationPoint = () => {
   return (
-    <div className="grid md:grid-cols-2 w-[12rem]  px-2 py-2 gap-2 rounded-full bg-primary">
+    <div className="grid w-[12rem] gap-2 rounded-full bg-primary px-2 py-2 md:grid-cols-2">
       <Link href="/storage">
         <div
-          className="flex bg-[#FAB8C4] p-10 rounded-tl-full font-bold hover:scale-110 justify-center items-center shadow-lg shadow-black  select-none
-    active:translate-y-1 active:scale-95 transform transition-all ease-in-out duration-300  ]"
+          className="] flex transform select-none items-center justify-center rounded-tl-full bg-[#FAB8C4] p-10 font-bold shadow-lg
+    shadow-black transition-all duration-300 ease-in-out hover:scale-110 active:translate-y-1  active:scale-95"
         >
-          <div className="absolute animated-ping">A</div>
+          <div className="animated-ping absolute">A</div>
         </div>
       </Link>
       <Link href="/jobboard">
         <div
-          className="flex bg-[#F58071] p-10  rounded-tr-full font-bold text-black hover:scale-110  justify-center items-center shadow-lg shadow-black  select-none
-    active:translate-y-1 active:scale-95 transform transition-all ease-in-out duration-300"
+          className="flex transform select-none items-center justify-center rounded-tr-full bg-[#F58071] p-10 font-bold text-black shadow-lg shadow-black
+    transition-all duration-300 ease-in-out hover:scale-110 active:translate-y-1 active:scale-95"
         >
-          <p className="absolute animated-ping">B</p>
+          <p className="animated-ping absolute">B</p>
         </div>
       </Link>
       <Link href="/">
         <div
-          className=" flex bg-[#5956E9] p-10 rounded-bl-full font-bold text-black hover:scale-110 justify-center items-center shadow-lg shadow-black  select-none
-    active:translate-y-1 active:scale-95 transform transition-all ease-in-out duration-300"
+          className="flex transform select-none items-center justify-center rounded-bl-full bg-[#5956E9] p-10 font-bold text-black shadow-lg shadow-black
+    transition-all duration-300 ease-in-out hover:scale-110 active:translate-y-1 active:scale-95"
         >
-          <div className="absolute animated-ping">C</div>
+          <div className="animated-ping absolute">C</div>
         </div>
       </Link>
       <Link href="/toolsandguides">
-        <div className="flex  bg-[#F7B538] p-10 rounded-br-full font-bold text-black hover:scale-110  justify-center items-center shadow-lg shadow-black  select-none active:translate-y-1 active:scale-95 transform transition-all ease-in-out duration-300">
-          <div className="absolute animated-ping">D</div>
+        <div className="flex transform select-none items-center justify-center rounded-br-full bg-[#F7B538] p-10 font-bold text-black shadow-lg shadow-black transition-all duration-300 ease-in-out hover:scale-110 active:translate-y-1 active:scale-95">
+          <div className="animated-ping absolute">D</div>
         </div>
       </Link>
     </div>

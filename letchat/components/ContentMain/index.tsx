@@ -1,34 +1,31 @@
 import styles from "../../styles/Main.module.css";
-import Link from "next/link";
-import { useAuth } from "../../context/AuthContext";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import SignUser from "../Sign";
+
 type ContainerProps = {
   title?: string;
   description?: string;
-  // path is a link to the page you want to navigate to with Link
   link?: React.ReactNode;
 };
-export const ContentMain = ({ title, description, link }: ContainerProps) => {
+export const ContentMain = ({ description }: ContainerProps) => {
   return (
     <div
       id="content-main"
-      className="w-screen gap-10 p-6 flex flex-grow flex-col md:flex-row justify-around items-center xl:justify-evenly xl:gap-20"
+      className="flex w-screen flex-grow flex-col items-center justify-around gap-10 p-6 md:flex-row xl:justify-evenly xl:gap-20"
     >
       {/* LEFT SECTION */}
-      <div className=" mt-10 flex flex-col w-full md:mt-0 lg:w-[45%] text-center lg:items-center md:text-left max-w-[60rem] p-10 gap-12">
+      <div className=" mt-10 flex w-full max-w-[60rem] flex-col gap-12 p-10 text-center md:mt-0 md:text-left lg:w-[45%] lg:items-center">
         {/* Hero tagline */}
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-800s">
+        <h1 className="text-gray-800s text-3xl font-bold tracking-tight md:text-5xl lg:text-6xl">
           The secure platform for landlords and tenants to{" "}
           <span className="sm:hidden">communicate</span>
           <span
-            className={`text-gray-800 ${styles.underlined} ${styles.underlineMask} hidden sm:inline-block z-100`}
+            className={`text-gray-800 ${styles.underlined} ${styles.underlineMask} z-100 hidden sm:inline-block`}
           >
             communicate
           </span>
         </h1>
         {/* Hero paragraph text */}
-        <p id="hero-text" className="mt-3 lg:pr-[8rem] text-grey-900">
+        <p id="hero-text" className="text-grey-900 mt-3 lg:pr-[8rem]">
           {description}
         </p>
       </div>

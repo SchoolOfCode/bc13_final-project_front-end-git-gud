@@ -4,8 +4,6 @@ import { useAuth } from "../../context/AuthContext";
 const TicketForm = () => {
   const { user } = useAuth();
 
-  console.log(user);
-
   const [ticket, setTicket] = useState({
     property_id: "",
     subject: "",
@@ -31,14 +29,11 @@ const TicketForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(ticket),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    }).then((res) => res.json());
   }
 
   function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault(); // prevent page refresh
-    console.log(ticket);
     postNewTicket(ticket);
   }
 
@@ -50,13 +45,13 @@ const TicketForm = () => {
     setTicket({ ...ticket, [e.target.name]: e.target.value });
   }
   return (
-    <form className="flex flex-col lg:flex-grow p-6 rounded-lg shadow-lg">
+    <form className="flex flex-col rounded-lg p-6 shadow-lg lg:flex-grow">
       <div className="form-group mb-6">
         <input
           name="property_id"
           onChange={handleChange}
           type="text"
-          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          className="form-control m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
           id="exampleInput7"
           placeholder="Property Number"
         />
@@ -66,20 +61,20 @@ const TicketForm = () => {
           name="subject"
           onChange={handleChange}
           type="email"
-          className="form-control block
+          className="form-control m-0
+        block
         w-full
-        px-3
-        py-1.5
-        text-base
+        rounded
+        border
+        border-solid
+        border-gray-300
+        bg-white bg-clip-padding
+        px-3 py-1.5 text-base
         font-normal
         text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
         transition
         ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
           id="exampleInput8"
           placeholder="Subject"
         />
@@ -90,20 +85,20 @@ const TicketForm = () => {
           onChange={handleChange}
           className="
         form-control
+        m-0
         block
         w-full
-        px-3
-        py-1.5
-        text-base
+        rounded
+        border
+        border-solid
+        border-gray-300
+        bg-white bg-clip-padding
+        px-3 py-1.5 text-base
         font-normal
         text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
         transition
         ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+        focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
       "
           id="exampleFormControlTextarea13"
           rows={3}
@@ -114,22 +109,22 @@ const TicketForm = () => {
         type="submit"
         className="
       w-full
+      rounded
+      bg-light-primary
       px-6
       py-2.5
-      bg-light-primary
-      text-white
-      font-medium
       text-xs
-      leading-tight
+      font-medium
       uppercase
-      rounded
+      leading-tight
+      text-white
       shadow-md
-      hover:bg-light-primary hover:shadow-lg hover:opacity-50
-      focus:bg-light-primary focus:shadow-lg focus:outline-none focus:ring-0
-      active:bg-light-primary active:shadow-lg
-      transition
-      duration-150
-      ease-in-out"
+      transition duration-150 ease-in-out
+      hover:bg-light-primary hover:opacity-50 hover:shadow-lg focus:bg-light-primary
+      focus:shadow-lg focus:outline-none
+      focus:ring-0
+      active:bg-light-primary
+      active:shadow-lg"
         onClick={handleClick}
       >
         Send

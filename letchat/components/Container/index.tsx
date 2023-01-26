@@ -23,7 +23,7 @@ const Container = ({ children, logo, images }: ContainerProps) => {
   return (
     <div
       id="container"
-      className="w-full min-h-screen flex flex-col flex-grow bg-light-light relative overflow-hidden"
+      className="max-w-screen min-h-screen flex flex-col flex-grow bg-light-light relative overflow-hidden"
     >
       <div
         id="children"

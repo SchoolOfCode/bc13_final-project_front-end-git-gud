@@ -1,3 +1,4 @@
+import Head from "next/head";
 import style from "../styles/About.module.scss";
 import Container from "../components/Container";
 import Link from "next/link";
@@ -5,6 +6,15 @@ import Link from "next/link";
 const About = () => {
   return (
     <>
+      <Head>
+        <title>LetChat</title>
+        <meta
+          name="description"
+          content="Streamlined communication between tenants and landlords."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Container>
         <div id={style.aboutMain}>
           <div className={style.jumbotron}>
@@ -30,16 +40,9 @@ const About = () => {
             </div>
             <div className={style.imgLayerContainer}>
               <div className={style.teamImage} id={style.teamImage}>
-                <img alt="Team image" src="" />
-              </div>
 
-              <div className="circles-container">
-                <div className={style.teamA}>
-                  <img src="https://apimatic.io/img/theme/aboutUs/Circles-1-1.svg" />
-                </div>
-                <div className={style.teamB}>
-                  <img src="https://apimatic.io/img/theme/aboutUs/Circles-2-1.svg" />
-                </div>
+                <img alt="Team image" src="" />
+
               </div>
             </div>
           </div>
@@ -67,8 +70,8 @@ const About = () => {
               </p>
               <div className={style.imgContainer}>
                 <img
-                  src="https://apimatic.io/img/theme/aboutUs/dxFlow.svg"
-                  alt="apimatic developer experience process"
+                  src=""
+                  alt=""
                   className="img-responsive"
                 />
               </div>
@@ -106,12 +109,13 @@ const About = () => {
               </Link>
               <div className={style.imgContainer}>
                 <img
-                  src="https://apimatic.io/img/theme/cgaasIcons/cgaasProcess.gif"
-                  alt="apimatic code generation engine"
+                  src=""
+                  alt=""
                   className="img-responsive"
                 />
               </div>
             </div>
+
           </div>
         </div>
       </Container>

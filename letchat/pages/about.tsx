@@ -40,9 +40,7 @@ const About = () => {
             </div>
             <div className={style.imgLayerContainer}>
               <div className={style.teamImage} id={style.teamImage}>
-
-                <img alt="Team image" src="" />
-
+                <img alt="Team image" src="assets/images/teamPic.png" />
               </div>
             </div>
           </div>
@@ -69,11 +67,7 @@ const About = () => {
                 additional features bases on constant user feedback.
               </p>
               <div className={style.imgContainer}>
-                <img
-                  src=""
-                  alt=""
-                  className="img-responsive"
-                />
+                <img src="" alt="" className="img-responsive" />
               </div>
             </div>
             <div className={style.containerDivider}></div>
@@ -108,14 +102,9 @@ const About = () => {
                 Click here to find out more about our project on Github.
               </Link>
               <div className={style.imgContainer}>
-                <img
-                  src=""
-                  alt=""
-                  className="img-responsive"
-                />
+                <img src="" alt="" className="img-responsive" />
               </div>
             </div>
-
           </div>
         </div>
       </Container>

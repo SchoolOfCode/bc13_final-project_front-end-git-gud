@@ -6,7 +6,6 @@ import Messages from "../../components/Messages";
 import { useAuth } from "../../context/AuthContext";
 import NewsFeed from "../../components/NewsFeed";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function JobBoard() {
@@ -20,19 +19,20 @@ export default function JobBoard() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Content
-          title="Messages"
-          navigation={<NavigationPoint />}
-          central={<Messages />}
-          newsfeed={<NewsFeed 
+
+      <Content
+        title="Messages"
+        navigation={<NavigationPoint />}
+        central={<Messages />}
+        newsfeed={
+          <NewsFeed
             firstname={user.firstname}
             surname={user.surname}
             phonenumber={user.phonenumber}
-            email={user.email} 
-            />}
-        />
-      </main>
+            email={user.email}
+          />
+        }
+      />
     </>
   );
 }

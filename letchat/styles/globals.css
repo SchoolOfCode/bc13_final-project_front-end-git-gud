@@ -91,6 +91,7 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   padding: 0;
+  overflow-x: hidden;
 }
 
 a {
@@ -180,5 +181,3 @@ main {
     background-position: calc(40vw) calc(0vw);
   }
 }
-
-

@@ -65,42 +65,44 @@ const About = () => {
                 additional features bases on constant user feedback.
               </p>
               <div className={style.imgContainer}>
-                <img src="" alt="" className="img-responsive" />
+                <div className={style.teamImage} id={style.teamImage}>
+                  <img alt="conversation gif" src="assets\images\Letchat.gif" />
+                </div>
               </div>
-            </div>
-            <div className={style.containerDivider}></div>
-            <div className={style.techContainer}>
-              <h3 className={style.textCenter}>How we built it</h3>
-              <p>
-                It started with a very producitve ideation phase where we came
-                up with a list of features we wanted to include in our project.
-                We then broke those down further to ensure we could complete the
-                project in a realistic timeframe and this was done using Miro
-                and Figma.
+              <div className={style.containerDivider}></div>
+              <div className={style.techContainer}>
+                <h3 className={style.textCenter}>How we built it</h3>
+                <p>
+                  It started with a very producitve ideation phase where we came
+                  up with a list of features we wanted to include in our
+                  project. We then broke those down further to ensure we could
+                  complete the project in a realistic timeframe and this was
+                  done using Miro and Figma.
+                  <br />
+                  We then went ahead and built the low and high fidelity
+                  wireframes, component tree and database schema.
+                  <br />
+                  <br />
+                  The following weeks, we commenced building the project using
+                  Next.js, Typescript, TailwindCSS, Express, and Firebase.
+                  <br />
+                  <br />
+                  Throughout development we used Trello and Github to ensure our
+                  project was on track, we were able to communicate effectively
+                  and ensuring our branches were up to date and protected.
+                  <br />
+                  <br />
+                  We constantly came together to re-evaluate our user journeys
+                  and improve the user experience all whilst making sure we were
+                  on track to complete the project in time.
+                </p>
                 <br />
-                We then went ahead and built the low and high fidelity
-                wireframes, component tree and database schema.
-                <br />
-                <br />
-                The following weeks, we commenced building the project using
-                Next.js, Typescript, TailwindCSS, Express, and Firebase.
-                <br />
-                <br />
-                Throughout development we used Trello and Github to ensure our
-                project was on track, we were able to communicate effectively
-                and ensuring our branches were up to date and protected.
-                <br />
-                <br />
-                We constantly came together to re-evaluate our user journeys and
-                improve the user experience all whilst making sure we were on
-                track to complete the project in time.
-              </p>
-              <br />
-              <Link href="https://github.com/SchoolOfCode/bc13_final-project_front-end-git-gud/blob/main/README.md">
-                Click here to find out more about our project on Github.
-              </Link>
-              <div className={style.imgContainer}>
-                <img src="" alt="" className="img-responsive" />
+                <Link href="https://github.com/SchoolOfCode/bc13_final-project_front-end-git-gud/blob/main/README.md">
+                  Click here to find out more about our project on Github.
+                </Link>
+                <div className={style.imgContainer}>
+                  <img src="" alt="" className="img-responsive" />
+                </div>
               </div>
             </div>
           </div>

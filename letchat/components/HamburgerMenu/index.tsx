@@ -70,7 +70,7 @@ const HamburgerMenu = ({
       <div className="dropdown dropdown-end">
         <button
           tabIndex={0}
-          className="md:hidden ml-4 btn-square hover:bg-[#DEDDFB] rounded-lg"
+          className="md:hidden btn-square hover:bg-[#DEDDFB] rounded-lg"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

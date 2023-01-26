@@ -5,7 +5,7 @@ type ContentProps = {
   title: string;
   navigation?: React.ReactNode;
   central?: React.ReactNode;
-  profile?: React.ReactNode;
+  // profile?: React.ReactNode;
   newsfeed?: React.ReactNode;
 };
 
@@ -13,22 +13,17 @@ const Content = ({
   title,
   navigation,
   central,
-  profile,
+  // profile,
   newsfeed,
 }: ContentProps) => {
   return (
     <>
       <Container>
-        <div className="w-screen flex-grow items-start justify-evenly flex">
-          <div className="hidden gap-12 px-10 lg:flex flex-col mt-10">
-            <div>{newsfeed}</div>
-            <div>{profile}</div>
-          </div>
-          <div className="w-screen">
+        <div className="w-screen flex flex-grow items-start">
+          <div className="flex justify-center lg:w-[30%] xl:w-[20%]">{newsfeed}</div>
+          <div className="flex-1 lg:w-[60%] items-start">
             <h1 className="text-black text-center">{title}</h1>
-            <div className="flex flex-col w-full p-4 items-center justify-between gap-5">
-              {central}
-            </div>
+             {central}
           </div>
 
           {/* <div>{navigation}</div> */}

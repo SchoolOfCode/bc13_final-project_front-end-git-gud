@@ -24,8 +24,9 @@ const Ticket = (ticket: TicketObjectProps) => {
       key={ticket.id}
       className=" glass flex h-full flex-col rounded-2xl shadow-lg shadow-slate-300 hover:shadow-sm hover:shadow-light-tertiary md:w-full"
     >
-      <header className="flex flex-row justify-between rounded-t-2xl bg-light-primary bg-opacity-80 p-2">
-        <div id="ticket-author" className="align-center flex flex-row">
+      <header className="flex flex-row justify-between items-center p-2 bg-light-primary bg-opacity-80 rounded-t-2xl">
+        <div id="ticket-author" className="flex flex-row align-center">
+
           {/* Avatar */}
           <Image src={avatar} alt="avatar" className="h-10 w-10 rounded-full" />
           <p className="ml-2 leading-10 text-white">

@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+
+import { useState, useEffect } from "react";
+
 import Ticket from "../Ticket";
 
 type CompletedProp = {
@@ -18,7 +20,9 @@ export type TicketObject = {
 };
 
 const TicketBoard = ({ completed }: CompletedProp) => {
-  const [tickets, setTickets] = useState([]);
+
+  const [tickets, setTickets] = useState<TicketObject[]>([]);
+
 
   useEffect(() => {
     async function fetchTickets() {
@@ -31,21 +35,32 @@ const TicketBoard = ({ completed }: CompletedProp) => {
     fetchTickets();
   }, []);
 
-  async function handleClick(e: any) {
-    let res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/landlords/1`,
-      {
-        method: "PATCH",
+
+  async function handleClick(ticketId: number, newCompleted: boolean) {
+   
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/${ticketId}`, {  
+        method: 'PATCH',
+
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          completed: e.target.checked,
-          id: e.target.id,
-        }),
-      }
-    );
-    let data = await res.json();
+
+          completed: newCompleted,
+          id: ticketId
+        })
+      });
+      const data = await res.json()
+      console.log(data);
+      console.log('Ticket updated:' + ticketId);
+      setTickets(prevTickets => prevTickets.map(ticket => 
+        ticket.id === ticketId ? {...ticket, completed: newCompleted} : ticket
+      ));
+    } catch (err) {
+      console.error(err);
+    } 
+
   }
 
   return (
@@ -63,7 +78,7 @@ const TicketBoard = ({ completed }: CompletedProp) => {
             message={ticket.message}
             raised_by={ticket.raised_by}
             completed={ticket.completed}
-            handleClick={handleClick}
+            handleClick={(e: any) => handleClick(ticket.id, e.target.checked)}
           />
         ) : null;
       })}

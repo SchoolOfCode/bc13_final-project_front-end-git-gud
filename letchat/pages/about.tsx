@@ -8,7 +8,10 @@ const About = () => {
     <>
       <Head>
         <title>LetChat | About</title>
-        <meta name="description" content="Streamlined communication between tenants and landlords." />
+        <meta
+          name="description"
+          content="Streamlined communication between tenants and landlords."
+        />
         <meta name="author" content="Git Gud" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -26,12 +29,6 @@ const About = () => {
                     final project for the bootcamp and are excited to tell you a
                     bit more about it.
                     <br />
-                    <br />
-                    Our mission was to bring tenants and landlords closer
-                    together by streamlining the way they connect, the way
-                    important documents are stored and have a wide range of
-                    additional ideas we can bring to our project beyond School
-                    of Code.
                   </p>
                 </div>
               </div>
@@ -44,6 +41,7 @@ const About = () => {
           </div>
           <div className={style.storyContainer}>
             <div className={style.needContainer}>
+              <br />
               <h3 className={style.textCenter}>Need for LetChat</h3>
               <p>
                 During our market research we found that there seemed to be an

@@ -54,10 +54,12 @@ $about-section-heading-blue: #074e8c;
         display: block;
         margin-left: auto;
         margin-right: auto;
-        
+
         position: relative;
-        img{width: 100%}
-     
+        img {
+          width: 100%;
+        }
+
         img {
           position: relative;
           z-index: 3;

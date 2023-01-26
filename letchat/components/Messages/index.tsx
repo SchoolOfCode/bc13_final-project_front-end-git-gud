@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { CSVLink, CSVDownload } from "react-csv";
 
 import { ChangeEvent, useEffect, useState, useRef } from "react";
 
@@ -118,25 +119,30 @@ export default function Messages() {
   // render messages
   return (
     <div className="p-8 w-4/5 mx-auto backdrop-blur-md rounded-3xl drop-shadow-md border">
-      <a href="/jobboard">
-        <span className="flex flex-row">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6 hover:text-light-primary"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-            />
-          </svg>{" "}
-          <p className="hover:text-light-primary">Back</p>
-        </span>
-      </a>
+      <div className="flex flex-row justify-between">
+        <a href="/jobboard">
+          <span className="flex flex-row">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-6 h-6 hover:text-light-primary"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>{" "}
+            <p className="hover:text-light-primary">Back</p>
+          </span>
+        </a>
+        <CSVLink data={messages} filename={`messages.csv`}>
+          Download CSV
+        </CSVLink>
+      </div>
       <h2 className="mb-10 text-center text-black">Ticket ID: {id}</h2>
       {/* Map over messages array, rendering each msg based on user_role */}
       <div className="flex flex-col max-h-[35vh] overflow-y-scroll gap-1 p-6">

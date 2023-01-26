@@ -38,10 +38,9 @@ const SignUser = () => {
           data.surname,
           data.phonenumber
         );
-        console.log("signed up");
+
         router.push("/jobboard");
       } catch (err) {
-        console.log(err);
         alert("User already exists");
       }
     }
@@ -51,24 +50,13 @@ const SignUser = () => {
     <>
       <LoginContainer title="Create an account">
         <form onSubmit={submitHandler} className="space-y-3 lg:space-y-4">
-          <h2 className="font-bold text-center text-gray-800">
+          <h2 className="text-center font-bold text-gray-800">
             See LetChat in action today
           </h2>
           <div className="flex flex-col items-center justify-between text-gray-700">
-            <label className="text-gray-700 text-center mb-4 sm:w-[50%] md:w-full">
+            <label className="mb-4 text-center text-gray-700 sm:w-[50%] md:w-full">
               Would you like to register as a Tenant or Landlord?
             </label>
-            {/* <select
-              className="ml-6 w-[35%]"
-              name="role"
-              id="role"
-              required
-              onChange={changeHandler}
-            >
-              <option value="">{null}</option>
-              <option value="landlord">Landlord</option>
-              <option value="tenant">Tenant</option>
-            </select> */}
             <div className="text-gray-700">
               <input
                 type="radio"
@@ -88,12 +76,6 @@ const SignUser = () => {
             </div>
           </div>
           <div className="space-y-1">
-            {/* <label
-              htmlFor="firstname"
-              className="block text-sm font-medium text-gray-700"
-            >
-              First Name:
-            </label> */}
             <div className="mt-1">
               <input
                 placeholder="First Name"
@@ -104,17 +86,11 @@ const SignUser = () => {
                 type="firstname"
                 autoComplete="current-name"
                 required
-                className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
             </div>
           </div>
           <div className="space-y-1">
-            {/* <label
-              htmlFor="surname"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Surname:
-            </label> */}
             <div className="mt-1">
               <input
                 placeholder="Surname"
@@ -125,17 +101,11 @@ const SignUser = () => {
                 type="surname"
                 autoComplete="current-surname"
                 required
-                className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
             </div>
           </div>
           <div className="space-y-1">
-            {/* <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Contact Number:
-            </label> */}
             <div className="mt-0">
               <input
                 placeholder="Contact Number (e.g. 07777777777)"
@@ -147,18 +117,11 @@ const SignUser = () => {
                 autoComplete="current-phonenumber"
                 pattern="^(?:(?:\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3}|\d{11})$"
                 required
-                className="block bg-white w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
             </div>
           </div>
-
           <div>
-            {/* <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email address
-            </label> */}
             <div className="mt-1">
               <input
                 placeholder="Email address"
@@ -170,17 +133,11 @@ const SignUser = () => {
                 autoComplete="email"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 required
-                className="block w-full text-black appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-black placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
             </div>
           </div>
           <div className="space-y-1">
-            {/* <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label> */}
             <div className="mt-1">
               <input
                 placeholder="Password"
@@ -191,10 +148,9 @@ const SignUser = () => {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="block w-full text-black  appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full appearance-none  rounded-md border border-gray-300 px-3 py-2 text-black placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
             </div>
-
             <div className="mt-1">
               <label>
                 By clicking this you agree to{" "}
@@ -206,16 +162,17 @@ const SignUser = () => {
           <div>
             <button
               type="submit"
-              className="flex w-full  rounded-full justify-center border border-transparent bg-light-primary py-2 px-4 text-md font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="text-md flex  w-full justify-center rounded-full border border-transparent bg-light-primary py-2 px-4 font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Create your account
             </button>
           </div>
 
           {/* <div className="flex items-center justify-center ">
+
             <div className="text-md w-full text-center">
-              <p className="font-medium text-gray-900 tracking-wide">
-                <span className="text-light-primary hover:text-light-primary underline">
+              <p className="font-medium tracking-wide text-gray-900">
+                <span className="text-light-primary underline hover:text-light-primary">
                   <a>Forgot your password?</a>
                 </span>
               </p>

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { CSVLink, CSVDownload } from "react-csv";
 import moment from "moment";
 
-import { ChangeEvent, useEffect, useState, useRef } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { useAuth } from "../../context/AuthContext";
 
@@ -108,18 +108,8 @@ export default function Messages() {
     const data = await res.json();
   };
 
-  // scroll to bottom of messages
-  // const messagesEndRef = useRef<HTMLDivElement>(null);
-  // const scrollToBottom = () => {
-  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // };
-
-  // useEffect(() => {
-  //   scrollToBottom();
-  // }, [messages]);
-
-  // render messages
   return (
+
     <div className="p-8 w-4/5 flex flex-grow  flex-col mx-auto backdrop-blur-md rounded-3xl drop-shadow-md border">
       <div className="flex flex-row justify-between">
         <a href="/jobboard">
@@ -150,6 +140,7 @@ export default function Messages() {
       </h2>
       {/* Map over messages array, rendering each msg based on user_role */}
       <div className="flex flex-col flex-grow overflow-y-scroll gap-1 p-6">
+
         {messages.map((message, index) => {
           let formattedDate = moment(message.date).format("DD MMMM YYYY");
           // if message user_role is tenant, render chat bubble for tenant
@@ -158,8 +149,10 @@ export default function Messages() {
               <div key={message.id}>
                 {index === 0 || messages[index - 1].date !== message.date ? (
                   <span className="flex justify-center">
+
                     <p className="px-2 py-1 my-3 rounded-full text-center text-xs bg-light-secondary w-fit mb-3">
                       {formattedDate}
+
                     </p>
                   </span>
                 ) : null}
@@ -187,6 +180,7 @@ export default function Messages() {
                   <span className="flex justify-center">
                     <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit mb-3">
                       {formattedDate}
+
                     </p>
                   </span>
                 ) : null}
@@ -211,21 +205,19 @@ export default function Messages() {
             );
           }
         })}{" "}
-        {/* <div ref={messagesEndRef} /> */}
       </div>
-      <div className="flex flex-row mt-2">
-        {/* Input field and send button */}
+      <div className="mt-2 flex flex-row">
         <input
           type="text"
           placeholder="Type here"
-          className="input input-bordered input-primary w-full"
+          className="input-bordered input-primary input w-full"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           value={input}
         />
         <button
           onClick={handleClick}
-          className="btn bg-light-primary hover:bg-light-primary hover:opacity-80 text-white hover:text-black"
+          className="btn bg-light-primary text-white hover:bg-light-primary hover:text-black hover:opacity-80"
         >
           Send
         </button>

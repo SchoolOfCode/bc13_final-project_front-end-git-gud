@@ -4,7 +4,15 @@ import { AuthContextProvider } from "../context/AuthContext";
 import { useRouter } from "next/router";
 import ProtectedRoute from "../components/ProtectedRoute";
 
-const noAuthRequired = ["/", "/login", "/sign", "/termsofuse", "/privacypolicy", "/about"];
+// unprotected routes
+const noAuthRequired = [
+  "/",
+  "/login",
+  "/sign",
+  "/termsofuse",
+  "/privacypolicy",
+  "/about",
+];
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();

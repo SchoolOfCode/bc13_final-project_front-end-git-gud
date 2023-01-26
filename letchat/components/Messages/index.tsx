@@ -5,7 +5,7 @@ import { ChangeEvent, useEffect, useState, useRef } from "react";
 import { useAuth } from "../../context/AuthContext";
 
 type messageData = {
-  id: number;
+  id: string;
   user_id: string;
   ticket_id: number;
   user_role: string;
@@ -24,7 +24,7 @@ export default function Messages() {
   const { id } = router.query; // get id from router object
 
   type newMessageObject = {
-    ticket_id: number;
+    ticket_id: string | string[] | undefined;
     user_id: number;
     user_role: string;
     message: string;
@@ -75,11 +75,12 @@ export default function Messages() {
 
     // create new message object
     const newMessage = {
-      ticket_id: Number(id), // get ticketId from router object
+      ticket_id: id, // get ticketId from router object
       user_id: 1,
       user_role: user?.role,
       message: input,
     };
+
     postNewMessage(newMessage);
     // add new message
     setNewMessage(newMessage.message);

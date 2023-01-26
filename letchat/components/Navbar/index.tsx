@@ -30,35 +30,35 @@ const Navbar = () => {
   const { user, logout } = useAuth();
 
   return (
-    <nav className="navbar px-10 h-16 flex flex-row items-center justify-between">
+    <nav className="navbar px-3 md:px-10 h-16 flex flex-row items-center justify-between">
       <>
-      <div>
-        {user && (
-          <a href="/jobboard">
-            <Image
-              src={logo}
-              alt="LetChat logo"
-              height={28}
-              className=" inline-block border-none m-auto"
-            />
-          </a>
-        )}
-        {!user && (
-          <a href="/">
-            <Image
-              src={logo}
-              alt="LetChat logo"
-              height={28}
-              className=" inline-block border-none m-auto"
-            />
-          </a>
-        )}
-            <ul className="flex flex-row ml-16 mt-1">
-          <NavLink path={"jobboard"} title={"Home"} />
-          <NavLink path={"about"} title={"About Us"} />
-          <NavLink path={"features"} title={"Features"} />
-        </ul>
-      </div>
+        <div>
+          {user && (
+            <a href="/jobboard">
+              <Image
+                src={logo}
+                alt="LetChat logo"
+                height={28}
+                className=" inline-block border-none m-auto"
+              />
+            </a>
+          )}
+          {!user && (
+            <a href="/">
+              <Image
+                src={logo}
+                alt="LetChat logo"
+                height={28}
+                className=" inline-block border-none m-auto"
+              />
+            </a>
+          )}
+          <ul className="flex flex-row ml-16 mt-1">
+            <NavLink path={"jobboard"} title={"Home"} />
+            <NavLink path={"about"} title={"About Us"} />
+            <NavLink path={"features"} title={"Features"} />
+          </ul>
+        </div>
       </>
       {/* {This button needs to render when no user is logged in} */}
       {user ? (

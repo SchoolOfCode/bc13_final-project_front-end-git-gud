@@ -22,9 +22,9 @@ const SignUser = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const checkboxHandler = (e:React.ChangeEvent<HTMLInputElement> ) => {
+  const checkboxHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTermsAgreed(!termsAgreed);
-  }
+  };
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ const SignUser = () => {
           data.surname,
           data.phonenumber
         );
-        console.log("signed up")
+        console.log("signed up");
         router.push("/jobboard");
       } catch (err) {
         console.log(err);
@@ -212,7 +212,7 @@ const SignUser = () => {
             </button>
           </div>
 
-          <div className="flex items-center justify-center ">
+          {/* <div className="flex items-center justify-center ">
             <div className="text-md w-full text-center">
               <p className="font-medium text-gray-900 tracking-wide">
                 <span className="text-light-primary hover:text-light-primary underline">
@@ -220,7 +220,7 @@ const SignUser = () => {
                 </span>
               </p>
             </div>
-          </div>
+          </div> */}
         </form>
       </LoginContainer>
     </>

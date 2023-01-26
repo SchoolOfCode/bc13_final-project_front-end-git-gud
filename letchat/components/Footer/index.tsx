@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../../styles/Footer.module.css";
+import logoRoof from "../../public/assets/images/logoRoof.png";
+
 
 const Footer = () => {
   return (
@@ -24,15 +25,16 @@ const Footer = () => {
     //     <p className="text-light-secondary text-lg">info@letchat.co.uk</p>
     //   </div>
     // </footer>
-    <footer data-testid="footer" className="bg-light-primary flex w-screen">
-      <div className="max-w-[1400px] min-w-screen m-auto p-6 flex flex-col md:flex-row justify-between">
+
+    <footer data-test className="bg-light-primary flex w-screen">
+      <div className="m-auto p-6 flex flex-col md:flex-row w-full lg:max-w-[1400px] lg:justify-center">
         <div className="flex flex-col items-start justify-start mb-6 md:mb-0">
-          <Link href="/" className="fill-current">
+          <Link href="/" className="relative w-16 h-8 ">
             <Image
-              src="/assets/images/logoRoof.png"
+              src={logoRoof}
               alt="LetChat logo"
-              width={50}
-              height={50}
+              fill={true}
+              sizes="100%"
             />
           </Link>
           <p className="mt-3 text-light-light">
@@ -42,9 +44,9 @@ const Footer = () => {
           </p>
         </div>
         {/*  */}
-        <div className="flex md:flex-row w-full gap-6 justify-between md:justify-around">
+        <div className="flex md:flex-row w-full gap-6 justify-between lg:justify-around md:w-full md:max-w-[1400px] md:justify-around">
           <div className="flex flex-col">
-            <span className="footer-title text-light-secondary opacity-100">
+            <span className="footer-title text-white opacity-100">
               Services
             </span>
             <a className="link link-hover text-light-light">Branding</a>
@@ -52,7 +54,7 @@ const Footer = () => {
             <a className="link link-hover text-light-light">Marketing</a>
           </div>
           <div className="flex flex-col">
-            <span className="footer-title text-light-secondary opacity-100">
+            <span className="footer-title text-white opacity-100">
               Company
             </span>
             <Link href="/termsofuse" className="link link-hover text-light-light">About us</Link>
@@ -60,7 +62,7 @@ const Footer = () => {
             <a className="link link-hover text-light-light">Jobs</a>
           </div>
           <div className="flex flex-col">
-            <span className="footer-title text-light-secondary opacity-100">
+            <span className="footer-title text-white opacity-100">
               Legal
             </span>
             <Link href="/termsofuse" className="link link-hover text-light-light">Terms of use</Link>

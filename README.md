@@ -1,9 +1,6 @@
-# final-project_front-end
+# Team Git Gud Presents
 
-<p align="center">
-  <a href="" rel="noopener">
- <img src="https://i.imgur.com/AZ2iWek.png" alt="Project logo"></a>
-</p>
+[![Logo-With-Text.png](https://i.postimg.cc/V6gZw7Cw/Logo-With-Text.png)](https://postimg.cc/FdfVgVpC)
 <h3 align="center">Project Title</h3>
 
 <div align="center">
@@ -31,7 +28,7 @@
 - [Setting up a local environment](#getting_started)
 - [Usage](#usage)
 - [Technology Stack](#tech_stack)
-- [Contributing](../CONTRIBUTING.md)
+- [Lessons Learned](#lessons_learned)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
 
@@ -68,7 +65,7 @@ In the future we are confident that we can implement the above document storage 
 
 ## 🏁 Visit Our Website <a name = "vist_our_website"></a>
 
-You can sign up to our app by visiting www.letchat.co.uk
+You can sign up to our app by visiting <a href="www.letchat.co.uk">LetChat</a>
 
 ## 🎈 Usage <a name="usage"></a>
 
@@ -80,7 +77,7 @@ Once again for security reasons, if your forget to logout your account will be l
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
 
-- [ElephantSQL](https://www.elephantsql.com) - Database
+- [PostgreSQL](https://www.postgresql.org) - Database
 - [Express](https://expressjs.com/) - Server Framework
 - [NextJs](https://nextjs.org/) - Web Framework
 - [Typescript](https://www.typescriptlang.org) - Web Framework
@@ -96,6 +93,34 @@ You can view the frontend and backend repo here:
 - https://github.com/SchoolOfCode/bc13_final-project_front-end-git-gud
 
 - https://github.com/SchoolOfCode/bc13_final-project_back-end-git-gud
+
+
+## ✍️ Lessons Learned <a name = "lessons_learned"></a>
+
+- We learned Next.js and how much more we like it than vanilla React. Used Next's built-in router as well as the Context API.
+- TailwindCSS and daisyUI for fast prototyping and further visual styling.
+- Using Firebase for auth and role-based user permissions. Adding security with email link validation.
+- Using mock data until as late as possible so the data-model has time to develop and therefore there's less time needs to be spent coding the backend.
+- Good planning in general goes a long way and then the code basically writes itself.
+- After a couple of weeks we realised our team structure in the way we were working together and that splitting into pairs made us much more productive.
+- Colour blindness and other general accessibility concerns.
+- The importance of market research.
+- More on Postgres data types.
+- Understating about the architecture of a full-stack app starting with a the visual aspect.
+- We learned to compromise on UI for the sake of UX for a better user workflow.
+- Different approaches in designing a component tree.
+- If in doubt - 'npm i'
+- Restart your server after adding .env
+- Deploying a custom domain on Netlify.
+- Unit testing with Next.
+- How to use images in Next.
+- Cross-page rendering.
+- How to work with unfamiliar coding practices.
+- Dynamic routing in Next.
+- Different pairs work better together in different situations.
+- Awaiting promises properly in TypeScript and lots more TS in general.
+- How to pass Regex patterns in Next.
+
 
 ## ✍️ Authors <a name = "authors"></a>
 

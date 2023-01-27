@@ -46,19 +46,15 @@ export default function Messages() {
   };
 
   useEffect(() => {
-    const fetchMessages = async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/tickets/${id}`
-      );
-      const data = await res.json();
-      setMessages(data.payload);
-    };
-    function callFetchMessages() {
-      fetchMessages();
-    }
-
     callFetchMessages();
   }, [newMessage]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      callFetchMessages();
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   // handle input change, setting input state to the value of the input field
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -109,8 +105,7 @@ export default function Messages() {
   };
 
   return (
-
-    <div className="p-8 w-4/5 flex flex-grow  flex-col mx-auto backdrop-blur-md rounded-3xl drop-shadow-md border">
+    <div className="mx-auto flex max-h-[78vh] flex-grow flex-col rounded-3xl border p-4 drop-shadow-md backdrop-blur-md md:w-4/5 md:p-8">
       <div className="flex flex-row justify-between">
         <a href="/jobboard">
           <span className="flex flex-row">
@@ -120,7 +115,7 @@ export default function Messages() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6 hover:text-light-primary"
+              className="h-6 w-6 hover:text-light-primary"
             >
               <path
                 strokeLinecap="round"
@@ -135,12 +130,11 @@ export default function Messages() {
           Download CSV
         </CSVLink>
       </div>
-      <h2 className="mb-10 text-center text-black">
+      <h2 className="mt-4 text-center text-base md:text-lg">
         Subject: {messages[0]?.subject}
       </h2>
       {/* Map over messages array, rendering each msg based on user_role */}
-      <div className="flex flex-col flex-grow overflow-y-scroll gap-1 p-6">
-
+      <div className="md:text-md flex flex-col gap-1 overflow-y-scroll p-6 text-sm">
         {messages.map((message, index) => {
           let formattedDate = moment(message.date).format("DD MMMM YYYY");
           // if message user_role is tenant, render chat bubble for tenant
@@ -149,10 +143,8 @@ export default function Messages() {
               <div key={message.id}>
                 {index === 0 || messages[index - 1].date !== message.date ? (
                   <span className="flex justify-center">
-
-                    <p className="px-2 py-1 my-3 rounded-full text-center text-xs bg-light-secondary w-fit mb-3">
+                    <p className="my-3 mb-3 w-fit rounded-full bg-light-secondary px-2 py-1 text-center text-xs">
                       {formattedDate}
-
                     </p>
                   </span>
                 ) : null}
@@ -163,12 +155,14 @@ export default function Messages() {
                     <p className="msg-info">{message.user_id}</p>
                   ) : null} */}
                   <div className="flex items-end">
-                    <div className="bg-light-secondary rounded-full w-11 h-11 flex justify-center items-center mr-4" />
+                    <div className="mr-4 hidden h-8 w-auto items-center justify-center rounded-full bg-light-secondary sm:flex md:h-11 md:w-11" />
                     <div className="chat-bubble bg-light-primary text-white">
                       {message.message}
                     </div>
                   </div>
-                  <p className="msg-info ml-14">{message.time.slice(0, 5)}</p>
+                  <p className="msg-info ml-6 md:ml-14">
+                    {message.time.slice(0, 5)}
+                  </p>
                 </div>
               </div>
             );
@@ -178,9 +172,8 @@ export default function Messages() {
               <div key={message.id}>
                 {index === 0 || messages[index - 1].date !== message.date ? (
                   <span className="flex justify-center">
-                    <p className="px-2 py-1 rounded-full text-center text-xs bg-light-secondary w-fit mb-3">
+                    <p className="mb-3 w-fit rounded-full bg-light-secondary px-2 py-1 text-center text-xs">
                       {formattedDate}
-
                     </p>
                   </span>
                 ) : null}
@@ -197,9 +190,11 @@ export default function Messages() {
                     >
                       {message.message}
                     </div>
-                    <div className="bg-light-tertiary rounded-full w-11 h-11 flex justify-center items-center ml-4" />
+                    <div className="ml-4 hidden h-8 w-auto items-center justify-center rounded-full bg-light-tertiary sm:flex md:h-11" />
                   </div>
-                  <p className="msg-info mr-14">{message.time.slice(0, 5)}</p>
+                  <p className="msg-info mr-6 md:mr-14">
+                    {message.time.slice(0, 5)}
+                  </p>
                 </div>
               </div>
             );

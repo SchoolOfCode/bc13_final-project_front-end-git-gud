@@ -22,18 +22,27 @@ export type TicketObject = {
 const TicketBoard = ({ completed }: CompletedProp) => {
 
   const [tickets, setTickets] = useState<TicketObject[]>([]);
+  
+  async function fetchTickets() {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/landlords/1`
+    );
+    const data = await res.json();
+    setTickets(data.payload);
+  }
+  
+  useEffect(() => {
+    fetchTickets();
+  }, []);
 
 
   useEffect(() => {
-    async function fetchTickets() {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/landlords/1`
-      );
-      const data = await res.json();
-      setTickets(data.payload);
-    }
-    fetchTickets();
+    const interval = setInterval(() => {
+      fetchTickets();
+    }, 1000);
+    return () => clearInterval(interval);
   }, []);
+
 
 
   async function handleClick(ticketId: number, newCompleted: boolean) {

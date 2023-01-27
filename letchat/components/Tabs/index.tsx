@@ -20,17 +20,24 @@ const Tabs = () => {
   const [tickets, setTickets] = useState<TicketObject[]>([]);
   
 
-  useEffect(() => {
-    async function fetchTickets() {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/landlords/1`
-      );
-      const data = await res.json();
-      setTickets(data.payload);
-    }
-    fetchTickets();
-  }, [numTicketsAdded]);
+  async function fetchTickets() {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/landlords/1`
+    );
+    const data = await res.json();
+    setTickets(data.payload);
+  }
 
+  // useEffect(() => {
+  //   fetchTickets();
+  // }, []);
+  
+ 
+  
+  useEffect(() => {
+    fetchTickets();
+    // window.location.reload();
+  }, [openTab]);
 
   const handleNumTicketsAdded = () => {
     setNumTicketsAdded(numTicketsAdded + 1);

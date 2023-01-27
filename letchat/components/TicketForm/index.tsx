@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 
-const TicketForm = () => {
+interface TicketFormProps {
+  handleNumTicketsAdded: () => void;
+}
+
+const TicketForm: React.FC<TicketFormProps> = ({ handleNumTicketsAdded }) => {
   const { user } = useAuth();
 
   const [ticket, setTicket] = useState({
@@ -23,8 +27,6 @@ const TicketForm = () => {
     raised_by: string;
     tenant_id: number;
   };
-  
-  // return fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/`, {
   
 
   const form = document.querySelector('form[name="post"]') as HTMLFormElement;
@@ -51,6 +53,7 @@ const TicketForm = () => {
       const response = await postForm(body);
       const data = await response.json();
       console.log(data);
+      handleNumTicketsAdded();
     } catch (error) {
       console.log(error);
     } finally {

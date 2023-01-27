@@ -1,9 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TicketBoard from "../TicketBoard";
 import TicketForm from "../TicketForm";
 
+export type TicketObject = {
+  id: number;
+  property_id: number;
+  tenant_id: number;
+  subject: string;
+  message: string;
+  completed: boolean;
+  raised_by: string;
+  first_name: string;
+  last_name: string;
+};
+
 const Tabs = () => {
   const [openTab, setOpenTab] = useState(1);
+  const [numTicketsAdded, setNumTicketsAdded] = useState(0);
+  const [tickets, setTickets] = useState<TicketObject[]>([]);
+  
+
+  useEffect(() => {
+    async function fetchTickets() {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/landlords/1`
+      );
+      const data = await res.json();
+      setTickets(data.payload);
+    }
+    fetchTickets();
+  }, [numTicketsAdded]);
+
+
+  const handleNumTicketsAdded = () => {
+    setNumTicketsAdded(numTicketsAdded + 1);
+  };
+
+  
+  
 
   return (
     <>
@@ -64,13 +98,13 @@ const Tabs = () => {
         <div className="py-5 lg:px-4">
           <div className="">
             <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-              <TicketBoard completed={false} />
+              <TicketBoard completed={false}  />
             </div>
             <div className={openTab === 2 ? "block" : "hidden"} id="link2">
               <TicketBoard completed={true} />
             </div>
             <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-              <TicketForm />
+            <TicketForm handleNumTicketsAdded={handleNumTicketsAdded} />
             </div>
           </div>
         </div>

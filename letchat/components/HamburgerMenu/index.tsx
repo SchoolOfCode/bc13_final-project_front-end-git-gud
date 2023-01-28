@@ -17,7 +17,7 @@ const HamburgerMenu = ({
   return (
     <div className="flex items-center justify-around">
       <div className="dropdown-end dropdown hidden md:flex">
-        <button tabIndex={0}>
+        <button id="menu" aria-label="menu" tabIndex={0}>
           <img
             src="https://placeimg.com/80/80/people"
             alt="User profile image"
@@ -61,7 +61,7 @@ const HamburgerMenu = ({
       </div>
       {/* Hamburger menu below */}
       <div className="dropdown-end dropdown">
-        <button
+        <button id="menu-button" aria-label="menu-button"
           tabIndex={0}
           className="btn-square rounded-lg hover:bg-[#DEDDFB] md:hidden"
         >

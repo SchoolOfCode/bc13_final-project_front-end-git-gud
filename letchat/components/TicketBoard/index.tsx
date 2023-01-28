@@ -57,8 +57,6 @@ const TicketBoard = ({ completed }: CompletedProp) => {
         }
       );
       const data = await res.json();
-      console.log(data);
-      console.log("Ticket updated:" + ticketId);
       setTickets((prevTickets) =>
         prevTickets.map((ticket) =>
           ticket.id === ticketId

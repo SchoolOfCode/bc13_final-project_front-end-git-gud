@@ -6,9 +6,9 @@ export default function Banner() {
       <div className="mx-auto max-w-7xl py-3 px-3 text-white sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center justify-between text-white">
           <div className="flex w-0 flex-1 items-center text-white">
-            <span className="flex rounded-lg bg-indigo-700 p-2 text-white">
+            <span className="flex rounded-lg bg-light-hot p-2 text-white">
               <MegaphoneIcon
-                className="h-6 w-6 text-white"
+                className="rounded-fult h-6 w-6 text-white "
                 aria-hidden="true"
               />
             </span>

@@ -12,6 +12,8 @@ const noAuthRequired = [
   "/termsofuse",
   "/privacypolicy",
   "/about",
+  "/contact",
+  "/cookiepolicy"
 ];
 
 export default function App({ Component, pageProps }: AppProps) {

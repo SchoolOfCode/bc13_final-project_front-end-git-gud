@@ -27,14 +27,14 @@ const termsofuse = () => {
             use with confidence and ensure it remains a harassment-free
             experience for everyone.
           </p>
-
+          <br />
           <h2>Our Standards</h2>
 
           <p>
             Examples of behavior that contributes to creating a positive
             environment include:
           </p>
-
+          <br />
           <ul>
             <li>Using welcoming, inclusive and positive language</li>
             <li>Being respectful of differing viewpoints and experiences</li>
@@ -42,7 +42,7 @@ const termsofuse = () => {
             <li>Focusing on building a strong relationship</li>
             <li>Showing empathy towards each other</li>
           </ul>
-
+          <br />
           <p>Examples of unacceptable behavior by participants include:</p>
 
           <ul>
@@ -64,7 +64,7 @@ const termsofuse = () => {
             </li>
             <li>Unecessary communucations at unsociable hours</li>
           </ul>
-
+          <br />
           <h2>Our Responsibilities</h2>
 
           <p>
@@ -74,7 +74,7 @@ const termsofuse = () => {
             temporarily or permanently ban users for other harmful behaviours
             such as being threatening or offensive.
           </p>
-
+          <br />
           <h2>Scope</h2>
 
           <p>
@@ -86,7 +86,7 @@ const termsofuse = () => {
             online or offline event. Representation of a project may be further
             defined and clarified by project maintainers.
           </p>
-
+          <br />
           <h2>Enforcement</h2>
 
           <p>
@@ -99,7 +99,7 @@ const termsofuse = () => {
             incident. Further details of specific enforcement policies may be
             posted separately.
           </p>
-
+          <br />
           <p>
             Team members who do not follow or enforce the Code of Conduct in
             good faith may face temporary or permanent repercussions as

@@ -58,21 +58,25 @@ const SignUser = () => {
               Would you like to register as a Tenant or Landlord?
             </label>
             <div className="text-gray-700">
-              <input
-                type="radio"
-                name="role"
-                value="landlord"
-                onChange={changeHandler}
-              />{" "}
-              Landlord
-              <input
-                className="ml-6"
-                type="radio"
-                name="role"
-                value="tenant"
-                onChange={changeHandler}
-              />{" "}
-              Tenant
+              <label htmlFor="landlord">
+                <input
+                  type="radio"
+                  name="role"
+                  value="landlord"
+                  onChange={changeHandler}
+                />
+                Landlord
+              </label>
+              <label htmlFor="tenant">
+                <input
+                  className="ml-6"
+                  type="radio"
+                  name="role"
+                  value="tenant"
+                  onChange={changeHandler}
+                />
+                Tenant
+              </label>
             </div>
           </div>
           <div className="space-y-1">
@@ -167,17 +171,6 @@ const SignUser = () => {
               Create your account
             </button>
           </div>
-
-          {/* <div className="flex items-center justify-center ">
-
-            <div className="text-md w-full text-center">
-              <p className="font-medium tracking-wide text-gray-900">
-                <span className="text-light-primary underline hover:text-light-primary">
-                  <a>Forgot your password?</a>
-                </span>
-              </p>
-            </div>
-          </div> */}
         </form>
       </LoginContainer>
     </>

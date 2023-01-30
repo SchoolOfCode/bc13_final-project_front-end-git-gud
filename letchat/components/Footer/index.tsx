@@ -17,25 +17,15 @@ const Footer = () => {
           </p>
         </div>
         {/*  */}
-        <div className="flex w-full justify-between gap-6 md:w-full md:max-w-[1400px] md:flex-row md:justify-around lg:justify-around">
-          <div className="flex flex-col">
-            <span className="footer-title text-white opacity-100">
-              Services
-            </span>
-            <a className="link-hover link text-light-light">Branding</a>
-            <a className="link-hover link text-light-light">Design</a>
-            <a className="link-hover link text-light-light">Marketing</a>
-          </div>
+        <div className="flex w-full justify-between gap-6 md:w-full md:max-w-[1400px] md:flex-row md:justify-around lg:justify-around pr-4">
           <div className="flex flex-col">
             <span className="footer-title text-white opacity-100">Company</span>
-            <Link
-              href="/termsofuse"
-              className="link-hover link text-light-light"
-            >
+            <Link href="/about" className="link-hover link text-light-light">
               About us
             </Link>
-            <a className="link-hover link text-light-light">Contact</a>
-            <a className="link-hover link text-light-light">Jobs</a>
+            <Link href="/contact" className="link-hover link text-light-light">
+              Contact
+            </Link>
           </div>
           <div className="flex flex-col">
             <span className="footer-title text-white opacity-100">Legal</span>
@@ -51,7 +41,12 @@ const Footer = () => {
             >
               Privacy policy
             </Link>
-            <a className="link-hover link text-light-light">Cookie policy</a>
+            <Link
+              href="/cookiepolicy"
+              className="link-hover link text-light-light"
+            >
+              Cookie policy
+            </Link>
           </div>
         </div>
       </div>

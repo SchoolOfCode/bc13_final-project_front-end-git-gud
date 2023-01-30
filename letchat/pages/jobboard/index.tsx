@@ -21,7 +21,6 @@ export default function JobBoard() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <main> */}
       <Content
         title={"Dashboard"}
         navigation={<NavigationPoint />}
@@ -34,16 +33,7 @@ export default function JobBoard() {
           />
         }
         central={<Tabs />}
-        // profile={
-        //   <CardContainer
-        //     firstname={user.firstname}
-        //     surname={user.surname}
-        //     phonenumber={user.phonenumber}
-        //     email={user.email}
-        //   />
-        // }
       />
-      {/* </main> */}
     </>
   );
 }

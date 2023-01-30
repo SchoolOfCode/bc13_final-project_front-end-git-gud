@@ -18,7 +18,6 @@ const Tabs = () => {
   const [openTab, setOpenTab] = useState(1);
   const [numTicketsAdded, setNumTicketsAdded] = useState(0);
   const [tickets, setTickets] = useState<TicketObject[]>([]);
-  
 
   async function fetchTickets() {
     const res = await fetch(
@@ -28,23 +27,13 @@ const Tabs = () => {
     setTickets(data.payload);
   }
 
-  // useEffect(() => {
-  //   fetchTickets();
-  // }, []);
-  
- 
-  
   useEffect(() => {
     fetchTickets();
-    // window.location.reload();
   }, [openTab]);
 
   const handleNumTicketsAdded = () => {
     setNumTicketsAdded(numTicketsAdded + 1);
   };
-
-  
-  
 
   return (
     <>
@@ -62,6 +51,7 @@ const Tabs = () => {
             data-toggle="tab"
             href="#link1"
             role="tablist"
+            aria-label="See tickets in progress"
           >
             In Progress
           </a>
@@ -79,6 +69,7 @@ const Tabs = () => {
             data-toggle="tab"
             href="#link2"
             role="tablist"
+            aria-label="See completed tickets"
           >
             Completed
           </a>
@@ -96,6 +87,7 @@ const Tabs = () => {
             data-toggle="tab"
             href="#link3"
             role="tablist"
+            aria-label="Add a new ticket"
           >
             +
           </a>
@@ -105,13 +97,13 @@ const Tabs = () => {
         <div className="py-5 lg:px-4">
           <div className="">
             <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-              <TicketBoard completed={false}  />
+              <TicketBoard completed={false} />
             </div>
             <div className={openTab === 2 ? "block" : "hidden"} id="link2">
               <TicketBoard completed={true} />
             </div>
             <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-            <TicketForm handleNumTicketsAdded={handleNumTicketsAdded} />
+              <TicketForm handleNumTicketsAdded={handleNumTicketsAdded} />
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Container from "../components/Container";
-import Footer from "../components/Footer";
+
 
 const Settings = () => {
   return (
@@ -20,8 +20,8 @@ const Settings = () => {
           <h1 className="px-6 text-2xl font-bold text-gray-700 md:px-0">
             Account Settings
           </h1>
-          <ul className="mt-3 flex border-b border-gray-300 px-6 text-sm font-medium text-gray-600 md:px-0">
-            <li className="mr-8 border-b-2 border-gray-800 text-gray-900">
+          <ul className="mt-3 flex border-b border-light-tertiary px-6 text-sm font-medium text-gray-600 md:px-0">
+            <li className="mr-8 border-b-2 border-light-hot text-gray-900">
               <a href="#_" className="inline-block py-4">
                 Profile Info
               </a>
@@ -54,8 +54,7 @@ const Settings = () => {
                   <input
                     className="mt-2 block w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-base text-gray-900 focus:border-indigo-500 focus:outline-none"
                     type="text"
-                    value=""
-                    name="name"
+                   readOnly
                   />
                 </div>
                 <hr className="border-gray-200" />
@@ -65,7 +64,8 @@ const Settings = () => {
                     className="mt-2 block w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-base text-gray-900 focus:border-indigo-500 focus:outline-none"
                     type="email"
                     name="email"
-                    value=""
+                    readOnly
+                    
                   />
                 </div>
                 <hr className="border-gray-200" />
@@ -76,15 +76,16 @@ const Settings = () => {
                   <img
                     className="float-left mt-2 h-16 w-16 rounded-full border-4 border-gray-200"
                     id="photo"
-                    src="https://pbs.twimg.com/profile_images/1163965029063913472/ItoFLWys_400x400.jpg"
-                    alt="photo"
+                    src="https://placeimg.com/640/480/people"
+                    alt="Profile picture"
                   />
                   <div className="relative float-left mt-5 ml-3 cursor-pointer overflow-hidden rounded-lg bg-gray-200 px-4 py-2 text-xs font-bold text-gray-500 hover:bg-gray-300 hover:text-gray-600">
                     <input
                       type="file"
                       name="photo"
                       className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                    />{" "}
+                      readOnly
+                    />
                     Change Photo
                   </div>
                 </div>
@@ -104,7 +105,6 @@ const Settings = () => {
             </div>
           </form>
         </div>
-        <Footer />
       </Container>
     </>
   );

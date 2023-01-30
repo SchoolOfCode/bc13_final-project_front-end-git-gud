@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Container from "../components/Container";
 import ContentMain from "../components/ContentMain";
+import Banner from "../components/Banner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,12 +14,18 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>LetChat | Streamlined communication between tenants and landlords</title>
-        <meta name="description" content="Streamlined communication between tenants and landlords." />
+        <title>
+          LetChat | Streamlined communication between tenants and landlords
+        </title>
+        <meta
+          name="description"
+          content="Streamlined communication between tenants and landlords."
+        />
         <meta name="author" content="Git Gud" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Banner />
       <Container logo={true}>
         {!login ? (
           <ContentMain

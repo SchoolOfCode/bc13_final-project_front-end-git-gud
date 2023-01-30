@@ -3,7 +3,7 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./utils//**/*.{js,ts,jsx,tsx}"
+    "./utils//**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -31,5 +31,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui"), require("@tailwindcss/forms")],
+  plugins: [
+    require("daisyui"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/forms"),
+  ],
 };

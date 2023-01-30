@@ -19,7 +19,7 @@ const HamburgerMenu = ({
       <div className="dropdown-end dropdown hidden md:flex">
         <button id="menu" aria-label="menu" tabIndex={0}>
           <img
-            src="https://placeimg.com/80/80/people"
+            src="https://placeimg.com/640/480/people"
             alt="User profile image"
             className="h-11 w-11 cursor-pointer rounded-full border-none hover:bg-light-primary hover:opacity-60"
           />

@@ -27,39 +27,43 @@ const TicketForm: React.FC<TicketFormProps> = ({ handleNumTicketsAdded }) => {
     raised_by: string;
     tenant_id: number;
   };
-  
 
   const form = document.querySelector('form[name="post"]') as HTMLFormElement;
 
   const postForm = (body: object) => {
-      return fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-      });
-    };
-    
+    return fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+  };
+
   const handleClear = () => {
     form.reset();
   };
 
-  const handleSubmit =async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
       const formData = new FormData(form);
-      const body = {...Object.fromEntries(formData.entries()), landlord_id: 1, completed: false, raised_by: user?.role, tenant_id: 1}
+      const body = {
+        ...Object.fromEntries(formData.entries()),
+        landlord_id: 1,
+        completed: false,
+        raised_by: user?.role,
+        tenant_id: 1,
+      };
       const response = await postForm(body);
       const data = await response.json();
-      console.log(data);
       handleNumTicketsAdded();
     } catch (error) {
       console.log(error);
     } finally {
       handleClear();
     }
-  }
+  };
 
   function handleChange(
     e:
@@ -154,7 +158,6 @@ const TicketForm: React.FC<TicketFormProps> = ({ handleNumTicketsAdded }) => {
       focus:ring-0
       active:bg-light-primary
       active:shadow-lg"
-      
         >
           Send
         </button>

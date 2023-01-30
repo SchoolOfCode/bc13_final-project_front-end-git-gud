@@ -15,25 +15,18 @@ const HamburgerMenu = ({
 }: HamburgerMenuProps) => {
   const router = useRouter();
   return (
-    <div className="flex justify-around items-center">
-      {/* //   <div className="">
-    //     <img
-    //       src="https://placeimg.com/80/80/people"
-    //       alt="User profile image"
-    //       className="h-12 cursor-pointer border-none hover:opacity-60 hover:bg-light-primary rounded-full"
-    //     />
-    //   </div> */}
-      <div className="hidden dropdown dropdown-end md:flex">
-        <button tabIndex={0}>
+    <div className="flex items-center justify-around">
+      <div className="dropdown-end dropdown hidden md:flex">
+        <button id="menu" aria-label="menu" tabIndex={0}>
           <img
             src="https://placeimg.com/80/80/people"
             alt="User profile image"
-            className="w-11 h-11 cursor-pointer border-none hover:opacity-60 hover:bg-light-primary rounded-full"
+            className="h-11 w-11 cursor-pointer rounded-full border-none hover:bg-light-primary hover:opacity-60"
           />
         </button>
         <ul
           tabIndex={0}
-          className="menu menu-compact dropdown-content bg-white mt-14 p-2 shadow rounded-box w-52"
+          className="dropdown-content menu rounded-box menu-compact mt-14 w-52 bg-white p-2 shadow"
         >
           <li className=" font-bold">
             <a
@@ -43,7 +36,7 @@ const HamburgerMenu = ({
               }}
             >
               Profile
-              <span className="badge bg-light-primary text-white border-none">
+              <span className="badge border-none bg-light-primary text-white">
                 New
               </span>
             </a>
@@ -67,16 +60,16 @@ const HamburgerMenu = ({
         </ul>
       </div>
       {/* Hamburger menu below */}
-      <div className="dropdown dropdown-end">
-        <button
+      <div className="dropdown-end dropdown">
+        <button id="menu-button" aria-label="menu-button"
           tabIndex={0}
-          className="md:hidden btn-square hover:bg-[#DEDDFB] rounded-lg"
+          className="btn-square rounded-lg hover:bg-[#DEDDFB] md:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            className="inline-block w-6 h-6 stroke-current"
+            className="inline-block h-6 w-6 stroke-current"
           >
             <path
               strokeLinecap="round"
@@ -88,20 +81,20 @@ const HamburgerMenu = ({
         </button>
         <ul
           tabIndex={0}
-          className="menu menu-compact dropdown-content bg-white mt-3 p-2 shadow rounded-box w-52"
+          className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-white p-2 shadow"
         >
-          <li className="hover:bg-[#e4e3ff] font-bold">
+          <li className="font-bold hover:bg-[#e4e3ff]">
             <a className="justify-between" href="/jobboard">
               Home
             </a>
           </li>
-          <li className="hover:bg-[#e4e3ff] font-bold">
+          <li className="font-bold hover:bg-[#e4e3ff]">
             <a className="justify-between" href="/about">
               About Us
             </a>
           </li>
           <hr />
-          <li className="hover:bg-[#e4e3ff] font-bold">
+          <li className="font-bold hover:bg-[#e4e3ff]">
             <a
               className="justify-between"
               onClick={() => {
@@ -109,13 +102,13 @@ const HamburgerMenu = ({
               }}
             >
               Profile
-              <span className="badge bg-light-primary text-white border-none">
+              <span className="badge border-none bg-light-primary text-white">
                 New
               </span>
             </a>
           </li>
           <li
-            className="hover:bg-[#DEDDFB] font-bold"
+            className="font-bold hover:bg-[#DEDDFB]"
             onClick={() => {
               router.push(`/${settings}`);
             }}
@@ -123,7 +116,7 @@ const HamburgerMenu = ({
             <a>Settings</a>
           </li>
           <li
-            className="hover:bg-[#DEDDFB] font-bold"
+            className="font-bold hover:bg-[#DEDDFB]"
             onClick={() => {
               logout(), router.push(`/${path}`);
             }}

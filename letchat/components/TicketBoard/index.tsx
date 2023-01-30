@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 import Ticket from "../Ticket";
@@ -20,9 +19,8 @@ export type TicketObject = {
 };
 
 const TicketBoard = ({ completed }: CompletedProp) => {
-
   const [tickets, setTickets] = useState<TicketObject[]>([]);
-  
+
   async function fetchTickets() {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/landlords/1`
@@ -30,11 +28,10 @@ const TicketBoard = ({ completed }: CompletedProp) => {
     const data = await res.json();
     setTickets(data.payload);
   }
-  
+
   useEffect(() => {
     fetchTickets();
   }, []);
-
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,33 +40,33 @@ const TicketBoard = ({ completed }: CompletedProp) => {
     return () => clearInterval(interval);
   }, []);
 
-
-
   async function handleClick(ticketId: number, newCompleted: boolean) {
-   
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/${ticketId}`, {  
-        method: 'PATCH',
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tickets/${ticketId}`,
+        {
+          method: "PATCH",
 
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-
-          completed: newCompleted,
-          id: ticketId
-        })
-      });
-      const data = await res.json()
-      console.log(data);
-      console.log('Ticket updated:' + ticketId);
-      setTickets(prevTickets => prevTickets.map(ticket => 
-        ticket.id === ticketId ? {...ticket, completed: newCompleted} : ticket
-      ));
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            completed: newCompleted,
+            id: ticketId,
+          }),
+        }
+      );
+      const data = await res.json();
+      setTickets((prevTickets) =>
+        prevTickets.map((ticket) =>
+          ticket.id === ticketId
+            ? { ...ticket, completed: newCompleted }
+            : ticket
+        )
+      );
     } catch (err) {
       console.error(err);
-    } 
-
+    }
   }
 
   return (

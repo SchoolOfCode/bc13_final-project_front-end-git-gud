@@ -38,7 +38,7 @@ const Ticket = (ticket: TicketObjectProps) => {
           id="ticket-info"
           className="justify-right flex-col items-center text-right"
         >
-          <h5 className="font-bold text-white">{ticket.subject}</h5>
+          <p className="font-bold text-white">{ticket.subject}</p>
         </div>
       </header>
       <div className="w-full p-2">

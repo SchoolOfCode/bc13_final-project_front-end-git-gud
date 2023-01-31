@@ -79,7 +79,6 @@ describe("Log-in form", () => {
       cy.visit("http://localhost:3000/login");
       cy.get("#email").type(Cypress.env("cypress_email"));
       cy.get("#password").type(Cypress.env("cypress_password"));
-      // TODO: error: constantly sends GET requests after log in
       cy.get("button[type=submit]").click();
       cy.location("pathname").should("eq", "/jobboard");
     }

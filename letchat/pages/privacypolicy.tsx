@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Container from "../components/Container";
 
 const privacypolicy = () => {
@@ -16,8 +17,8 @@ const privacypolicy = () => {
       </Head>
 
       <Container>
-        <div className=" m-auto my-4 max-w-3xl">
-          <h1>Privacy Policy</h1>
+        <div className="m-auto my-4 max-w-3xl p-6">
+          <h1 className="pb-4">Privacy Policy</h1>
           <p>Last updated January 23, 2023</p>
           <br />
           <p>
@@ -29,8 +30,8 @@ const privacypolicy = () => {
           </p>
           <br />
           <p>
-            Visit our website at http://www.letchat.co.uk, or any website of
-            ours that links to this privacy notice
+            Visit our website at letchat.co.uk, or any website of ours that
+            links to this privacy notice
           </p>
           <br />
           <p>
@@ -43,11 +44,10 @@ const privacypolicy = () => {
             will help you understand your privacy rights and choices. If you do
             not agree with our policies and practices, please do not use our
             Services. If you still have any questions or concerns, please
-            contact us at letchatgitgud@gmail.com.
+            contact us at <span className="text-light-primary">letchatgitgud@gmail.com</span>.
           </p>
           <br />
-
-          <h2>SUMMARY OF KEY POINTS</h2>
+          <h2 className="pb-4">SUMMARY OF KEY POINTS</h2>
           <p>
             <em>
               <strong>
@@ -120,7 +120,7 @@ const privacypolicy = () => {
             accordance with applicable data protection laws.
           </p>
           <br />
-          <h2>TABLE OF CONTENTS</h2>
+          <h2 className="pb-4">TABLE OF CONTENTS</h2>
           <p>1. WHAT INFORMATION DO WE COLLECT?</p>
           <p>2. HOW DO WE PROCESS YOUR INFORMATION?</p>
           <p>
@@ -144,8 +144,7 @@ const privacypolicy = () => {
             YOU?
           </p>
           <br />
-          <h2>1. WHAT INFORMATION DO WE COLLECT?</h2>
-          <br />
+          <h2 className="pb-4">1. WHAT INFORMATION DO WE COLLECT?</h2>
           <h3>Personal information you disclose to us</h3>
           <br />
           <p>
@@ -266,8 +265,7 @@ const privacypolicy = () => {
             not be able to use certain aspects of the Services.
           </p>
           <br />
-          <h2>2. HOW DO WE PROCESS YOUR INFORMATION?</h2>
-          <br />
+          <h2 className="pb-4">2. HOW DO WE PROCESS YOUR INFORMATION?</h2>
           <p>
             <em>
               In Short: We process your information to provide, improve, and
@@ -351,10 +349,9 @@ const privacypolicy = () => {
             </li>
           </ul>
           <br />
-          <h2>
+          <h2 className="pb-4">
             3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?
           </h2>
-          <br />
           <p>
             <em>
               In Short: We only process your personal information when we
@@ -428,7 +425,10 @@ const privacypolicy = () => {
               involving potential threats to the safety of any person.
             </li>
           </ul>
-          <h2>4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</h2>
+          <br />
+          <h2 className="pb-4">
+            4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?
+          </h2>
           <p>
             <em>
               In Short: We may share information in specific situations
@@ -482,12 +482,15 @@ const privacypolicy = () => {
               within our Services, and view your profile.
             </li>
           </ul>
-          <h2>5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</h2>
           <br />
+          <h2 className="pb-4">
+            5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?
+          </h2>
           <p>
             <em>
               In Short: We may use cookies and other tracking technologies to
-              collect and store your information.
+              collect and store your information. You can view our{" "}
+              <Link href="/cookiepolicy" className="text-light-primary">Cookie Policy here.</Link>
             </em>
           </p>
           <br />
@@ -498,8 +501,7 @@ const privacypolicy = () => {
             refuse certain cookies is set out in our Cookie Notice.
           </p>
           <br />
-          <h2>6. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</h2>
-          <br />
+          <h2 className="pb-4">6. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</h2>
           <p>
             <em>
               In Short: If you choose to register or log in to our Services
@@ -530,8 +532,9 @@ const privacypolicy = () => {
             privacy preferences on their sites and apps.
           </p>
           <br />
-          <h2>7. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?</h2>
-          <br />
+          <h2 className="pb-4">
+            7. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?
+          </h2>
           <p>
             <em>
               In Short: We may transfer, store, and process your information in
@@ -573,7 +576,7 @@ const privacypolicy = () => {
             upon request.
           </p>
           <br />
-          <h2>8. HOW LONG DO WE KEEP YOUR INFORMATION?</h2>
+          <h2 className="pb-4">8. HOW LONG DO WE KEEP YOUR INFORMATION?</h2>
           <p>
             <em>
               In Short: We keep your information for as long as necessary to
@@ -600,7 +603,7 @@ const privacypolicy = () => {
             any further processing until deletion is possible.
           </p>
           <br />
-          <h2>9. HOW DO WE KEEP YOUR INFORMATION SAFE?</h2>
+          <h2 className="pb-4">9. HOW DO WE KEEP YOUR INFORMATION SAFE?</h2>
           <p>
             <em>
               In Short: We aim to protect your personal information through a
@@ -623,7 +626,7 @@ const privacypolicy = () => {
             only access the Services within a secure environment.
           </p>
           <br />
-          <h2>10. DO WE COLLECT INFORMATION FROM MINORS?</h2>
+          <h2 className="pb-4">10. DO WE COLLECT INFORMATION FROM MINORS?</h2>
           <p>
             <em>
               In Short: We do not knowingly collect data from or market to
@@ -643,8 +646,7 @@ const privacypolicy = () => {
             age 18, please contact us at letchatgitgud@gmail.com.
           </p>
           <br />
-          <h2>11. WHAT ARE YOUR PRIVACY RIGHTS?</h2>
-          <br />
+          <h2 className="pb-4">11. WHAT ARE YOUR PRIVACY RIGHTS?</h2>
           <p>
             <em>
               In Short: In some regions, such as the European Economic Area
@@ -754,7 +756,7 @@ const privacypolicy = () => {
             If you choose to remove cookies or reject cookies, this could affect
             certain features or services of our Services. To opt out of
             interest-based advertising by advertisers on our Services visit
-            <a href="http://www.aboutads.info/choices/" target="_blank">
+            <a href="http://www.aboutads.info/choices/" target="_blank" className="text-light-primary">
               http://www.aboutads.info/choices/
             </a>
           </p>
@@ -764,8 +766,7 @@ const privacypolicy = () => {
             email us at letchatgitgud@gmail.com.
           </p>
           <br />
-          <h2>12. CONTROLS FOR DO-NOT-TRACK FEATURES</h2>
-          <br />
+          <h2 className="pb-4">12. CONTROLS FOR DO-NOT-TRACK FEATURES</h2>
           <p>
             Most web browsers and some mobile operating systems and mobile
             applications include a Do-Not-Track ('DNT') feature or setting you
@@ -780,7 +781,9 @@ const privacypolicy = () => {
             of this privacy notice.
           </p>
           <br />
-          <h2>13. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</h2>
+          <h2 className="pb-4">
+            13. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?
+          </h2>
           <p>
             <em>
               In Short: Yes, if you are a resident of California, you are
@@ -814,8 +817,7 @@ const privacypolicy = () => {
             comprehensively removed from all our systems (e.g. backups, etc.).
           </p>
           <br />
-          <h2>14. DO WE MAKE UPDATES TO THIS NOTICE?</h2>
-          <br />
+          <h2 className="pb-4">14. DO WE MAKE UPDATES TO THIS NOTICE?</h2>
           <p>
             <em>
               In Short: Yes, we will update this notice as necessary to stay
@@ -834,22 +836,23 @@ const privacypolicy = () => {
             your information.
           </p>
           <br />
-          <h2>15. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h2>
-          <br />
+          <h2 className="pb-4">
+            15. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
+          </h2>
           <p>
             If you have questions or comments about this notice, you may email
             us at gitgudletchat@gmail.com or by post to:
           </p>
           <br />
           <p>Git Gud</p>
-          <p>123 Postgres Way</p>
-          <p>Norwich NR12 34B</p>
-          <p>United Kingdom</p>
-          <h2>
+          <p>123 LetChat Way</p>
+          <p>Letshire</p>
+          <p>LC1 0LC</p>
+          <br />
+          <h2 className="pb-4">
             16. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM
             YOU?
           </h2>
-          <br />
           <p>
             Based on the applicable laws of your country, you may have the right
             to request access to the personal information we collect from you,

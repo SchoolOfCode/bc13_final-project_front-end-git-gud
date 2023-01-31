@@ -17,10 +17,10 @@ const termsofuse = () => {
       </Head>
 
       <Container>
-        <div className=" m-auto max-w-3xl ">
-          <h1>LetChat Code of Conduct</h1>
+        <div className="m-auto max-w-3xl p-6">
+          <h1 className="pb-4">LetChat Code of Conduct</h1>
 
-          <h2>Our Pledge</h2>
+          <h2 className="pb-4">Our Pledge</h2>
 
           <p>
             We want LetChat to be a safe and secure application that people can
@@ -28,7 +28,7 @@ const termsofuse = () => {
             experience for everyone.
           </p>
           <br />
-          <h2>Our Standards</h2>
+          <h2 className="pb-4">Our Standards</h2>
 
           <p>
             Examples of behavior that contributes to creating a positive
@@ -65,7 +65,7 @@ const termsofuse = () => {
             <li>Unecessary communucations at unsociable hours</li>
           </ul>
           <br />
-          <h2>Our Responsibilities</h2>
+          <h2 className="pb-4">Our Responsibilities</h2>
 
           <p>
             As a company we are commited to upholding these standards and have
@@ -75,7 +75,7 @@ const termsofuse = () => {
             such as being threatening or offensive.
           </p>
           <br />
-          <h2>Scope</h2>
+          <h2 className="pb-4">Scope</h2>
 
           <p>
             This Code of Conduct applies both within project spaces and in
@@ -87,7 +87,7 @@ const termsofuse = () => {
             defined and clarified by project maintainers.
           </p>
           <br />
-          <h2>Enforcement</h2>
+          <h2 className="pb-4">Enforcement</h2>
 
           <p>
             Instances of abusive, harassing, or otherwise unacceptable behavior

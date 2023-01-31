@@ -75,7 +75,7 @@ export default function Storage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container logo={true}>
-        <div className="flex flex-col items-center justify-center uppercase tracking-widest">
+        <div className="flex flex-col items-center justify-center px-4 text-center uppercase tracking-widest">
           <h1>Document Storage</h1>
           <p>
             This is where you can store your documents. You can upload,
@@ -95,14 +95,19 @@ export default function Storage() {
           </div>
         </div>
         <div>
-          <ul className="mt-[-10rem] flex flex-row justify-between">
+          <ul className=" m-auto flex-wrap justify-center sm:flex  sm:flex-col lg:flex lg:flex-row">
             {fileList.map((file: any) => (
-              <li key={file.name}>
+              <li key={file.name} className="p-4 font-bold uppercase">
                 <a href={file.url} target="_blank" rel="noreferrer">
                   {file.name}
                 </a>
                 <br />
-                <button onClick={() => deleteFile(file)}>Delete</button>
+                <button
+                  className="my-2 h-10 w-full rounded-full border border-black bg-light-hot py-2 px-4 font-bold text-white shadow-xl shadow-gray-300 hover:border-transparent hover:bg-light-hot hover:opacity-60"
+                  onClick={() => deleteFile(file)}
+                >
+                  Delete
+                </button>
               </li>
             ))}
           </ul>

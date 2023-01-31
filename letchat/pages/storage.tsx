@@ -52,6 +52,8 @@ export default function Storage() {
   }, []);
 
   const deleteFile = (file: any) => {
+    if (!window.confirm("Are you sure you want to delete this file?")) return;
+
     deleteObject(ref(storage, file.fullPath)).then(() => {
       alert("File deleted successfully");
       setFileList((prevState: any) =>

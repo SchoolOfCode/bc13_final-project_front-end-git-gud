@@ -86,8 +86,9 @@ export default function Storage() {
               type="file"
               onChange={(e: any) => setFile(e.target.files[0])}
             />
+
             <button
-              className="my-2 h-10 w-full rounded-full border border-black bg-light-hot py-2 px-4 font-bold text-white shadow-xl shadow-gray-300 hover:border-transparent hover:bg-light-hot hover:opacity-60"
+              className="mt-8 h-10 w-full rounded-full border border-black bg-light-hot py-2 px-4 font-bold text-white shadow-xl shadow-gray-300 hover:border-transparent hover:bg-light-hot hover:opacity-60"
               onClick={uploadFile}
             >
               Upload

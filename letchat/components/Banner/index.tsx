@@ -15,8 +15,9 @@ export default function Banner() {
             <p className="ml-3 truncate font-medium text-white">
               <span className="text-white md:hidden">Welcome!</span>
               <span className="hidden text-white md:inline">
-                Welcome to Demo Day! You can log in with [EMAIL] and [PASSWORD]
-                for demo purposes.
+                Welcome to Demo Day! You can log in with email
+                'emiliawilliamson@pm.me' and password 'capybara' for demo
+                purposes.
               </span>
             </p>
           </div>
@@ -28,7 +29,7 @@ export default function Banner() {
               Learn more
             </a>
           </div> */}
-          <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
+          {/* <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
             <button
               type="button"
               className="-mr-1 flex rounded-md p-2 text-white hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
@@ -36,7 +37,7 @@ export default function Banner() {
               <span className="sr-only">Dismiss</span>
               <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

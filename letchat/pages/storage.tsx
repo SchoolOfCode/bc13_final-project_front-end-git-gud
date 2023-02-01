@@ -75,7 +75,7 @@ export default function Storage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container logo={true}>
-        <div className="flex flex-col items-center justify-center px-4 text-center uppercase tracking-widest">
+        <div className="flex flex-col items-center justify-center px-4 text-center tracking-widest">
           <h1>Document Storage</h1>
           <p>
             This is where you can store your documents. You can upload,

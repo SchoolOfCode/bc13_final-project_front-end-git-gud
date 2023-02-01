@@ -22,7 +22,7 @@ export default function JobBoard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Content
-        title={"Dashboard"}
+        title={"42 Abbey Road, NW8 9AY"}
         navigation={<NavigationPoint />}
         newsfeed={
           <NewsFeed

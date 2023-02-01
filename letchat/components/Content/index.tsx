@@ -16,7 +16,7 @@ const Content = ({ title, central, newsfeed }: ContentProps) => {
             {newsfeed}
           </div>
           <div className="flex-1 items-start lg:w-[60%]">
-            <h1 className="text-md text-md text-center">{title}</h1>
+            <h2 className="text-center">{title}</h2>
             {central}
           </div>
         </div>

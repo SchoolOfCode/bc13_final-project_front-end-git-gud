@@ -17,10 +17,10 @@ const cookiepolicy = () => {
       </Head>
 
       <Container>
-        <div className=" m-auto max-w-3xl ">
-          <h1>LetChat Cookie Policy</h1>
+        <div className=" m-auto max-w-3xl p-6">
+          <h1 className="pb-4">LetChat Cookie Policy</h1>
 
-          <p>
+          <p className="pb-4">
             <strong>What Are Cookies</strong>
           </p>
 
@@ -33,8 +33,8 @@ const cookiepolicy = () => {
             cookies from being stored however this may downgrade or 'break'
             certain elements of the sites functionality.
           </p>
-<br />
-          <p>
+          <br />
+          <p className="pb-4">
             <strong>How We Use Cookies</strong>
           </p>
 
@@ -47,7 +47,7 @@ const cookiepolicy = () => {
             case they are used to provide a service that you use.
           </p>
           <br />
-          <p>
+          <p className="pb-4">
             <strong>Disabling Cookies</strong>
           </p>
 
@@ -98,7 +98,7 @@ const cookiepolicy = () => {
             </li>
           </ul>
           <br />
-          <p>
+          <p className="pb-4">
             <strong>Third Party Cookies</strong>
           </p>
 
@@ -132,7 +132,7 @@ const cookiepolicy = () => {
             </li>
           </ul>
           <br />
-          <p>
+          <p className="pb-4">
             <strong>More Information</strong>
           </p>
 

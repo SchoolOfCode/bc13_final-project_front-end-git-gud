@@ -82,13 +82,20 @@ export default function Storage() {
             download, and delete documents.
           </p>
           <div className="py-8">
-            <input
-              type="file"
-              onChange={(e: any) => setFile(e.target.files[0])}
-            />
-
+            <label className="flex h-10 w-full items-center justify-center rounded-full border border-black bg-light-primary  p-4 font-bold  uppercase text-white shadow-xl shadow-gray-300 hover:border-transparent hover:bg-light-primary hover:opacity-60">
+              Select File to Upload
+              <input
+                className="hidden"
+                type="file"
+                onChange={(e: any) => setFile(e.target.files[0])}
+              />
+            </label>
+            <br />
+            <p className="text-sm text-gray-500">
+              {file ? file.name : "No file selected"}
+            </p>
             <button
-              className="mt-8 h-10 w-full rounded-full border border-black bg-light-hot py-2 px-4 font-bold text-white shadow-xl shadow-gray-300 hover:border-transparent hover:bg-light-hot hover:opacity-60"
+              className="mt-8 h-10 w-[50%] rounded-full border border-black bg-light-hot py-2 px-4 font-bold text-white shadow-xl shadow-gray-300 hover:border-transparent hover:bg-light-hot hover:opacity-60"
               onClick={uploadFile}
             >
               Upload

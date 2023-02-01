@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { data } from "cypress/types/jquery";
 
 const TicketForm = () => {
   const { user } = useAuth();
+
+  const [newTicketId, setNewTicketId] = useState<string>("");
 
   const [ticket, setTicket] = useState({
     property_id: "",
@@ -29,12 +32,48 @@ const TicketForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(ticket),
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setNewTicketId(data.payload.id);
+      });
+  }
+
+  async function postNewMessage(newTicketId: string, message: string) {
+    console.log(newTicketId, message);
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/messages/`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ticket_id: newTicketId,
+        user_id: 1,
+        user_role: user?.role,
+        message: message,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Error sending message");
+        }
+      })
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
 
   function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault(); // prevent page refresh
     postNewTicket(ticket);
+    postNewMessage(newTicketId, ticket.message);
   }
 
   function handleChange(

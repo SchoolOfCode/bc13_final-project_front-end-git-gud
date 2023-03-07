@@ -150,6 +150,20 @@ main {
   line-height: 1.6;
 }
 
+.loader {
+  border-top: 0.5rem solid #3498db;
+  border-right: 0.5rem solid transparent;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 @media screen and (min-width: 768px) {
   #hero-text {
     font-size: 1.3rem;

@@ -5,19 +5,18 @@ export default function Banner() {
     <div id="banner" className="bg-light-primary text-white">
       <div className="mx-auto max-w-7xl py-3 px-3 text-white sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center justify-between text-white">
-          <div className="flex w-0 flex-1 items-center text-white">
-            <span className="flex rounded-lg bg-light-hot p-2 text-white">
+          <div className="flex justify-center w-0 flex-1 items-center text-white">
+            <span className="flex  rounded-lg bg-light-hot p-2 text-white">
               <MegaphoneIcon
                 className="rounded-fult h-6 w-6 text-white "
                 aria-hidden="true"
               />
             </span>
-            <p className="ml-3 truncate font-medium text-white">
-              <span className="text-white md:hidden">Welcome!</span>
-              <span className="hidden text-white md:inline">
-                Welcome to Demo Day! You can log in with email
-                'emiliawilliamson@pm.me' and password 'capybara' for demo
-                purposes.
+            <p className="ml-3 font-medium text-white">
+              {/* <span className="text-white md:hidden">Welcome!</span> */}
+              <span className="text-white md:inline">
+                Welcome to Launch Day! Log in with email
+                'julio28ve@gmail.com' and password '123456'
               </span>
             </p>
           </div>

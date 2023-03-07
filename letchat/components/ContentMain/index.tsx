@@ -13,9 +13,9 @@ export const ContentMain = ({ description }: ContainerProps) => {
       className="flex w-screen flex-grow flex-col items-center justify-around gap-10 p-6 md:flex-row xl:justify-evenly xl:gap-20"
     >
       {/* LEFT SECTION */}
-      <div className=" mt-10 flex w-full max-w-[60rem] flex-col gap-12 p-10 text-center md:mt-0 md:text-left lg:w-[45%] lg:items-center">
+      <div className=" mt-10 flex w-full max-w-[60rem] flex-col gap-12 text-center md:mt-0 md:text-left lg:w-[45%] lg:items-center">
         {/* Hero tagline */}
-        <h1 className="text-gray-800s text-3xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+        <h1 className="text-gray-800 text-3xl font-bold tracking-tight md:text-5xl lg:text-6xl">
           The secure platform for landlords and tenants to{" "}
           <span className="sm:hidden">communicate</span>
           <span

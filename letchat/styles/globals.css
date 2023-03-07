@@ -164,6 +164,12 @@ main {
   background-position: 50% calc(100% + 8em);
 }
 
+@media (prefers-color-scheme: dark) {
+  #content-main{
+    background-image: none;
+  }
+}
+
 @media screen and (min-width: 768px) {
   #content-main {
     /* background-size: auto 95%; */

@@ -81,7 +81,7 @@ const TicketBoard = ({ completed }: CompletedProp) => {
 
   return (
     <div className="grid max-h-[60vh] grid-cols-1 gap-3 overflow-y-scroll p-2 text-black md:max-h-[70vh] xl:grid-cols-2 2xl:grid-cols-3">
-      {isLoading ? (
+      {isLoading && numLoads < 1 ? (
         <div className="flex flex-col min-w-[75vw] justify-center items-center">
           <p>Loading...</p>
         <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>

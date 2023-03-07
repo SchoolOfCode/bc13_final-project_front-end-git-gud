@@ -83,7 +83,7 @@ const Profile = () => {
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">Role</div>
-                      <div className="px-4 py-2">{user.role === "tenent" ? "Landlord" : "Tenent"}</div>
+                      <div className="px-4 py-2">{user.role === "tenant" ? "Landlord" : "Tenant"}</div>
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">Contact No.</div>

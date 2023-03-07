@@ -41,6 +41,73 @@ const About = () => {
           </div>
           <div className={style.storyContainer}>
             <div className={style.needContainer}>
+              <p>
+                <span className="font-bold">Top row:</span> <br />
+                <ul>
+                  <li>
+                    Emilia Williamson: &emsp;
+                    <a href="https://www.linkedin.com/in/emiliawil">
+                      LinkedIn
+                    </a>{" "}
+                    /{"  "}
+                    <a href="https://www.github.com/emiliawil">Github</a> /
+                    {"  "}
+                    <a href="https://www.emiliawil.dev">Portfolio</a>
+                  </li>
+                  <li>
+                    Jason Chalangary: &emsp;
+                    <a href="https://www.linkedin.com/in/jason-chalangary/">
+                      LinkedIn
+                    </a>{" "}
+                    /{"  "}
+                    <a href="https://github.com/jasonjjjc">Github</a>
+                  </li>
+                  <li>
+                    Adie Nunn: &emsp;
+                    <a href="https://www.linkedin.com/in/adienunn/">
+                      LinkedIn
+                    </a>{" "}
+                    /{"  "}
+                    <a href="https://github.com/cowtipping">Github</a> /{"  "}
+                    <a href="http://www.cowtipping.co.uk/">Portfolio</a>
+                  </li>
+                </ul>
+              </p>
+              <p>
+                <span className="font-bold">Bottom row:</span> <br />
+                <ul>
+                  <li>
+                    Jack Waller: &emsp;
+                    <a href="https://www.linkedin.com/in/jack-waller-developer/">
+                      LinkedIn
+                    </a>{" "}
+                    /{"  "}
+                    <a href="https://github.com/Bazelden">Github</a> /{"  "}
+                    <a href="https://jackwallerwebdev.vercel.app/">Portfolio</a>
+                  </li>
+                  <li>
+                    Julio Velezmoro: &emsp;
+                    <a href="https://www.linkedin.com/in/james-houghton-1b1b1b1b1">
+                      LinkedIn
+                    </a>{" "}
+                    /{"  "}
+                    <a href="https://github.com/Lakorthus">Github</a> /{"  "}
+                    <a href="https://next-portfolio-khaki-nine.vercel.app/">
+                      Portfolio
+                    </a>
+                  </li>
+                  <li>
+                    Ash-Lee McKenna: &emsp;
+                    <a href="https://www.linkedin.com/in/ash-lee-mckenna-561717151/">
+                      LinkedIn
+                    </a>{" "}
+                    /{"  "}
+                    <a href="https://www.github.com/ashdashlee">Github</a> /
+                    {"  "}
+                    <a href="http://www.ashlee-mckenna.com">Portfolio</a>
+                  </li>
+                </ul>
+              </p>
               <br />
               <h3 className={style.textCenter}>Need for LetChat</h3>
               <p>
